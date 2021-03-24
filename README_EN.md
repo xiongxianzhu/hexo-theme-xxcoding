@@ -35,9 +35,9 @@
 
 ## 许可证
 
-[![license](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](./LICENSE)
+![license](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 
-> 本主题使用了 `MIT` 许可证进行开源许可。
+> This theme is provided under MIT License.
 
 ## 预览
 
