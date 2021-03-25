@@ -1,6 +1,8 @@
 # hexo-theme-xxcoding
 
-[![https://hexo.io/](https://img.shields.io/badge/hexo-v5.4.0%2B-blue?style=flat-square)](https://hexo.io/)
+[![GitHub tag (latest Ver)](https://img.shields.io/github/tag/xiongxianzhu/hexo-theme-xxcoding.svg)](https://github.com/xiongxianzhu/hexo-theme-xxcoding/tags)
+
+[![https://hexo.io/](https://img.shields.io/badge/hexo-5.4.0%2B-blue.svg?style=flat-square)](https://hexo.io/)
 
 打造一款属于自己的hexo主题
 
