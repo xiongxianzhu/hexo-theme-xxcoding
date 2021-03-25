@@ -49,3 +49,9 @@
 - [Materializecss色板](https://materializecss.com/color.html#palette)
 - [gitignore.io](https://www.toptal.com/developers/gitignore)
 - [shields.io](https://shields.io/)
+
+## 灵感
+
+- [hexo-theme-matery](https://github.com/blinkfox/hexo-theme-matery)
+- [hexo-theme-material](https://github.com/bolnh/hexo-theme-material)
+- [hexo-theme-yilia](https://github.com/litten/hexo-theme-yilia)
