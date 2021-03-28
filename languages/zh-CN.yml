@@ -1,4 +1,5 @@
 posts: 文章
+index: 首页
 category: 分类
 categories: 分类
 archive: 归档
@@ -6,11 +7,15 @@ archives: 归档
 tag: 标签
 tags: 标签
 search: 搜索
+about: 关于
 tagcloud: 标签云
 toc: 目录
 prev: 上一页
 next: 下一页
 comment: 留言
+comments: 留言板
+frients: 友情链接
+medias: 多媒体
 page: 第 %d 页
 recent_posts: 最新文章
 newer: 上一篇
@@ -18,4 +23,11 @@ older: 下一篇
 share: 分享
 powered_by: Powered by
 rss_feed: RSS 订阅
-gallery: 相册
+gallery: 图库
+galleries: 图库
+musics: 音乐
+movies: 电影
+videos: 视频
+books: 书籍
+resume: 简历
+timeline: 时间线

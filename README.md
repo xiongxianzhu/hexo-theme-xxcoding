@@ -109,6 +109,7 @@ npm install <package> --save
 - [shields.io](https://shields.io/)
 - [bower.io](https://bower.io/)
 - [EJS中文文档](https://ejs.bootcss.com/)
+- [material icons](https://material.io/resources/icons/?style=baseline)
 
 ## 灵感
 
@@ -116,3 +117,7 @@ npm install <package> --save
 - [hexo-theme-material](https://github.com/bolnh/hexo-theme-material)
 - [hexo-theme-yilia](https://github.com/litten/hexo-theme-yilia)
 - [Creating a Theme](https://www.youtube.com/watch?v=5ROIU_9dYe4&list=PLLAZ4kZ9dFpOMJR6D25ishrSedvsguVSm&index=11)
+- [Material Design Themes](https://materialdesignthemes.com/)
+- [creative tim](https://www.creative-tim.com/templates/free)
+- [bootstrap](https://getbootstrap.com/)
+- [Material UI调色板](https://www.materialui.co/colors)

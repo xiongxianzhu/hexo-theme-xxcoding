@@ -1,0 +1,45 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+nav .brand-logo {
+    display: block;
+}
+
+header .brand-logo .logo-img {
+    top: 9.5px;
+    margin-right: 10px;
+    height: 45px;
+    line-height: 64px;
+}
+
+.dropdown-content {
+    top: -64px;
+}
+
+.dropdown-content li a {
+    display: flex;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+    color: #26a69a;
+}
+
+.waves-effect {
+    display: block;
+}
+
+.nav-menu {
+    margin-left: 3px;
+}

@@ -10,54 +10,72 @@ menu:
     enable: true
     url: /
     icon: fas fa-home
+    material_icon: home
   categories:
     enable: true
     url: /categories
     icon: fas fa-bookmark
+    material_icon: chrome_reader_mode
   archives:
     enable: true
     url: /archives
     icon: fas fa-archive
+    material_icon: inbox
   tags:
     enable: true
     url: /tags
     icon: fas fa-tags
+    material_icon: label
   about:
     enable: true
     url: /about
-    icon: fas fa-user-circle
+    icon: fas fa-portrait
+    material_icon: person
   comments:
     enable: true
     url: /comments
     icon: fas fa-comments
+    material_icon: comment
   frients:
     enable: true
     url: /frients
     icon: fas fa-address-book
+    material_icon: link
   resume:
-    enable: false
+    enable: true
     url: /resume
-    icon: fas fa-address-card
+    icon: fas fa-briefcase
+    material_icon: work
+  timeline:
+    enable: true
+    url: /timeline
+    icon: fas fa-calendar-alt
+    material_icon: timeline
   medias:
-    enable: false
+    enable: true
     icon: fas fa-list
+    material_icon: perm_media
     children:
       galleries:
         enable: true
         url: /galleries
         icon: fas fa-image
+        material_icon: photo_library
       musics:
-        enable: false
+        enable: true
         url: /musics
         icon: fas fa-music
-      moveis:
-        enable: false
+        material_icon: library_music
+      videos:
+        enable: true
         url: /moveis
         icon: fas fa-film
+        material_icon: video_library
       books:
-        enable: false
+        enable: true
         url: /books
         icon: fas fa-book
+        material_icon: library_books
 
 
 # Posts TOC
@@ -164,7 +182,7 @@ libs:
     gitalk:
     prism: /libs/prism/prism-tomorrow-night.css
     material_icons: https://fonts.googleapis.com/icon?family=Material+Icons
-    mycss: 
+    mycss: /css/xxcoding.css
   js:
     jquery: /libs/jquery/jquery.min.js
     materialize: /libs/materialize/materialize.min.js
