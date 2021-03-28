@@ -1,0 +1,63 @@
+<%
+    let title = page.title;
+
+    title = title ? title + ' | ' + config.title : config.title;
+
+    let iconType = 'image/png'
+    let faviconExt = theme.favicon.substr(theme.favicon.lastIndexOf('.') + 1, theme.favicon.length)
+    if (faviconExt === 'png') {
+        iconType = 'image/png'
+    } else if (faviconExt === 'svg') {
+        iconType = 'image/svg+xml'
+    } else if (faviconExt === 'gif') {
+        iconType = 'image/gif'
+    } else if (faviconExt === 'jpeg') {
+        iconType = 'image/jpeg'
+    } else if (faviconExt === 'jpg') {
+        iconType = 'image/jpeg'
+    } else if (faviconExt === 'ico') {
+        iconType = 'image/x-icon, image/vnd.microsoft.icon'
+    }
+%>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.fontAwesome) %>">
+    <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.materialize) %>">
+    <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.animate) %>">
+    
+    <!-- Material Icons -->
+    <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.material_icons) %>">
+
+    <!-- <% if (theme.libs.css) { %>
+        <% for (var libcss in theme.libs.css) { %>
+            <% if (theme.libs.css[libcss]) { %>
+                <link rel="stylesheet" type="text/css" href="<%- theme.libs.css[libcss] %>">
+            <% } %>
+        <% } %>
+
+        <% for (var fontcss in theme.libs.fontcss) { %>
+            <% if (theme.libs.fontcss[fontcss]) { %>
+                <link rel="stylesheet" type="text/css" href="<%- theme.libs.fontcss[fontcss] %>">
+            <% } %>
+        <% } %>
+    <% } %> -->
+
+    <!-- Custom Head -->
+    <% if (site.data.head) { %>
+        <% for (var i in site.data.head) { %>
+            <%- site.data.head[i] %>
+        <% } %>
+    <% } %>
+
+    <title><%= title %></title>
+    <link rel="icon" type="<%= iconType %>" href="<%- url_for(theme.favicon) %>">
+</head>

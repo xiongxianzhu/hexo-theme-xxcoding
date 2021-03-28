@@ -1,0 +1,176 @@
+# config favicon and logo
+# 配置favicon和logo
+favicon: /img/favicon.png
+logo: /img/logo.png
+
+# Configure navigation menu url, icon and enable
+# 配置导航菜单的url, 图标及是否启用
+menu:
+  index:
+    enable: true
+    url: /
+    icon: fas fa-home
+  categories:
+    enable: true
+    url: /categories
+    icon: fas fa-bookmark
+  archives:
+    enable: true
+    url: /archives
+    icon: fas fa-archive
+  tags:
+    enable: true
+    url: /tags
+    icon: fas fa-tags
+  about:
+    enable: true
+    url: /about
+    icon: fas fa-user-circle
+  comments:
+    enable: true
+    url: /comments
+    icon: fas fa-comments
+  frients:
+    enable: true
+    url: /frients
+    icon: fas fa-address-book
+  resume:
+    enable: false
+    url: /resume
+    icon: fas fa-address-card
+  medias:
+    enable: false
+    icon: fas fa-list
+    children:
+      galleries:
+        enable: true
+        url: /galleries
+        icon: fas fa-image
+      musics:
+        enable: false
+        url: /musics
+        icon: fas fa-music
+      moveis:
+        enable: false
+        url: /moveis
+        icon: fas fa-film
+      books:
+        enable: false
+        url: /books
+        icon: fas fa-book
+
+
+# Posts TOC
+# 文章目录
+toc:
+  enable: true
+  show_toggle_btn: true
+
+# SNS
+# 社交网络服务
+sns:
+  github: https://github.com/xiongxianzhu
+  email: 929679459@qq.com
+  facebook: # https://www.facebook.com/xxx
+  twitter: # https://twitter.com/xxx
+  googleplus:
+  instagram:
+  tumblr:
+  linkedin:
+  telegram:
+  qq: 929679459
+  weibo: # https://weibo.com/xxx
+  zhihu: # https://www.zhihu.com/xxx
+  juejin: https://juejin.cn/user/1714893867985389
+  bilibili: https://space.bilibili.com/200731874
+  v2ex:
+  segmentfault:
+  rss: true
+
+# Enable the back to top button
+# 是否启用快速回到顶部按钮
+top: true
+
+# copyright
+# 版权
+copyright:
+  since: # 2021
+
+# ================
+# Comment System
+# ================
+# 评论系统
+# disqus comment
+disqus:
+  enable: true
+  shortname: blog-zhuxiongxian
+
+# gitalk comment
+gitalk:
+  enable: false
+  owner:
+  repo:
+  oauth:
+    client_id:
+    client_secret:
+  admin:
+
+# gitment comment
+gitment:
+  enable: false
+  owner:
+  repo:
+  oauth:
+    client_id:
+    client_secret:
+
+# livere comment
+# 来必力评论系统
+livere:
+  enable: false
+  uid:
+
+# valine comment
+valine:
+  enable: false
+  app_id:
+  app_key:
+  notify: false
+  verify: false
+  visitor: true
+  avatar: 'mm'  # Gravatar style: mm/identicon/monsterid/wavatar/retro/hide
+  page_size: 10
+  lang: zh-cn   # i18n
+  placeholder: 'Just go go' # Comment Box placeholder
+  background: /medias/comment_bg.png
+  coolpushkey:
+
+# changyan comment
+# 畅言评论系统， 需要备案
+changyan:
+  enable: false
+  app_id:
+  conf:
+
+# frontend libraries
+# 前端插件库
+# 默认使用本主题下的前端库文件地址， 可替换成对应的绝对路径的CDN地址
+# 免费的CDN推荐： jsDelivr， BootCDN, cloudflare
+libs:
+  css:
+    fontawesome: /libs/fontawesome/css/all.min.css
+    materialize: /libs/materialize/materialize.min.css
+    animate: /libs/animate.css/animate.min.css
+    gitalk:
+    prism: /libs/prism/prism-tomorrow-night.css
+    material_icons: https://fonts.googleapis.com/icon?family=Material+Icons
+    mycss: 
+  js:
+    jquery: /libs/jquery/jquery.min.js
+    materialize: /libs/materialize/materialize.min.js
+    gitalk:
+    busuanzi:
+    myjs: /js/xxcoding.js
+  fontcss:
+    - https://fonts.googleapis.com/css?family=Roboto:300,400,500
+    - https://fonts.googleapis.com/css?family=Marck+Script
