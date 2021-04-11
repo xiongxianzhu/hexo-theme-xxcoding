@@ -1,4 +1,9 @@
 <script src="<%- url_for(theme.libs.js.jquery) %>"></script>
 <script src="<%- url_for(theme.libs.js.materialize) %>"></script>
-<script src="<%- url_for(theme.libs.js.materialize) %>"></script>
+<script src="<%- url_for(theme.libs.js.lazyload) %>"></script>
+<script src="<%- url_for(theme.libs.js.aos) %>"></script>
+<script src="<%- url_for(theme.libs.js.xxcoding) %>"></script>
+<% if (theme.libs.css.myjs) { %>
+<!-- Your js -->
 <script src="<%- url_for(theme.libs.js.myjs) %>"></script>
+<% } %>

@@ -1,9 +1,14 @@
-<div>
-    <%- page.content %>
-</div>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l9" id="post-content">
+                <%- page.content %>
+                <%- partial('_partial/post/comment') %>
+            </div>
+            <div class="col l3" id="post-toc">
 
+            </div>
+        </div>
+    </div>
+</main>
 
-
-<% if (theme.disqus.enable) { %>
-    <%- partial('_widget/comment/disqus/disqus') %>
-        <% } %>

@@ -1,0 +1,53 @@
+<%
+    let random_thumbnail = '/img/random/material-1.jpg';
+    let random_thumbnail_list = theme.random_thumbnail;
+
+    let hash_code = function (str) {
+        if (!str && str.length === 0) {
+            return 0;
+        }
+
+        let hash = 0;
+        for (let i = 0, len = str.length; i < len; i++) {
+            hash = ((hash << 5) - hash) + str.charCodeAt(i);
+            hash |= 0;
+        }
+        return hash;
+    };
+    
+%>
+<article class="container">
+    <section class="row post">
+        <% page.posts.forEach(function(post) { %>
+        <div class="col l4 m6 s12 post-item">
+            <div class="card">
+                <a class="card-image post-image" href="<%- url_for(post.path) %>">
+                    <% if (post.img) { %>
+                    <img src="<%- url_for(post.img) %>" alt="<%= post.title %>">
+                    <% } else { %>
+                    <%
+                    if (!random_thumbnail_list || random_thumbnail_list.length == 0) {
+                        return random_thumbnail;
+                    }
+                    random_thumbnail = random_thumbnail_list[Math.abs(hash_code(post.title) % random_thumbnail_list.length)]
+                    %>
+                    <img src="<%- url_for(random_thumbnail) %>" alt="<%= post.title %>">
+                    <% } %>
+                    <span class="card-title"><%= post.title %></span>
+                </a>
+                <div class="card-content post-content">
+                    <% if (post.summary && post.summary.length > 0) { %>
+                        <%- post.summary %>
+                    <% } else if (post.content && post.content.length > 0) { %>
+                        <%- strip_html(post.content).substring(0, 120) %>
+                    <% } %>
+                </div>
+                <div class="card-action">
+                    <a href="#">This is a link</a>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    </section>
+    <%- partial('_partial/paginator') %>
+</article>

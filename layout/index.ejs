@@ -1,8 +1,6 @@
 <main>
-    <div style="margin-top: 80px;">
-        <% page.posts.forEach(function(post) { %>
-        <a href="<%- url_for(post.path) %>"><%- post.title %></a>
-        <% }); %> 
-
-    </div>
+    <%- partial('_partial/carousel') %>
+    <%- partial('_partial/post/post') %>
+    
+    
 </main>

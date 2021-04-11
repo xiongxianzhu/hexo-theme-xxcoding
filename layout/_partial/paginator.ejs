@@ -1,0 +1,9 @@
+<section class="paginator">
+    <% if (page.total > 1) { %>
+        <%- paginator({
+            prev_text: '<i class="material-icons">chevron_left</i>',
+            next_text: '<i class="material-icons">chevron_right</i>',
+            escape: false
+        }) %>
+    <% } %>
+</section>

@@ -1,16 +1,40 @@
-# hexo-theme-xxcoding
+<h1 align="center">hexo-theme-xxcoding</h1>
 
-[![GitHub tag (latest Ver)](https://img.shields.io/github/tag/xiongxianzhu/hexo-theme-xxcoding.svg?style=flat-square)](https://github.com/xiongxianzhu/hexo-theme-xxcoding/tags)
-
-[![Hexo version support is 5.4.0+](https://img.shields.io/badge/hexo-5.4.0%2B-blue.svg?style=flat-square)](https://hexo.io/)
+<div align="center">
 
 打造一款属于自己的hexo主题
 
-## 特征
+[![GitHub tag (latest Ver)](https://img.shields.io/github/tag/xiongxianzhu/hexo-theme-xxcoding.svg?style=flat-square)](https://github.com/xiongxianzhu/hexo-theme-xxcoding/tags)
+[![Hexo version support is 5.4.0+](https://img.shields.io/badge/hexo-v5.4.0%2B-blue.svg?style=flat-square)](https://hexo.io/)
+![node version](https://img.shields.io/badge/node-v14.16.0%2B-blue.svg?style=flat-square)
+![npm version](https://img.shields.io/badge/npm-v6.14.11%2B-blue.svg?style=flat-square)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](./LICENSE)
 
-- 响应式布局
-- 扁平风格
-- 基于[materialize](https://github.com/Dogfalo/materialize)进行[Material Design](https://material.io)
+</div>
+
+简体中文 | [English](./README_EN.md)
+
+## ✨ 特征
+
+- [x] 🌈 响应式布局、 扁平风格、 高大上
+- [x] 基于[materialize](https://github.com/Dogfalo/materialize)进行[Material Design](https://material.io)
+- [ ] [APlayer](https://aplayer.js.org/)音乐播放器
+- [ ] [DaoVoice](https://www.daocloud.io/)在线聊天
+- [ ] 统计分析：[百度分析](https://tongji.baidu.com/web/welcome/login)、 谷歌分析、 LeanCloud、 不蒜子网站统计
+- [ ] `lazyload` 图片懒加载
+- [ ] 评论系统： disqus、 Valine、 gitalk、 gitment、 livere、 畅言
+- [ ] `prismjs`代码高亮
+- [ ] `resume` 简历
+- [ ] `gallery` 相册
+- [ ] `portfolio` 作品集
+- [ ] `links` 友情链接
+- [ ] `tagcloud` 标签云
+- [ ] `timeline` 时间线
+- [ ] `TOC` 文章目录
+- [ ] 文章置顶、 文章打赏
+- [ ] 🌍 国际化支持多语言， 目前支持`简体中文`、 `English`、 `繁体中文`
+- [ ] 🎨 支持每个细节自定义主题
+- [ ] 支持`emoji`表情
 
 ## 目录结构
 
@@ -51,9 +75,14 @@ $ tree -L 2
     └── libs
 ```
 
-## 安装
+## 📦 安装
 
-## 配置
+## 🔨 配置
+
+### 评论系统
+
+- [Valine](https://valine.js.org/)
+
 
 ## 插件
 
@@ -73,7 +102,7 @@ bower install <package>
 
 > hexo项目根目录下执行`npm install`时， 安装hexo会依赖安装prismjs， 本主题下的prism是自定义的css样式
 
-#### 自定义代码高亮插件prism的样式
+#### 🎨 自定义代码高亮插件prism的样式
 
 `./node_modules/prismjs/themes/prism-tomorrow.css`即本主题下的`./source/libs/prism/prism-tomorrow-night.css`样式
 
@@ -89,7 +118,29 @@ bower install <package>
 npm install <package> --save
 ```
 
-## 贡献
+插件：
+
+- hexo-deployer-git
+- hexo-generator-feed
+- hexo-generator-sitemap
+- hexo-generator-search
+- hexo-wordcount
+- hexo-filter-github-emojis
+- hexo-generator-feed
+- hexo-baidu-url-submit
+- hexo-permalink-pinyin
+
+## data目录
+
+```plain
+hexo_project/source/_data
+```
+
+- 图库： gallery.yml
+- 追加head： head.yml
+- 友情链接： links.yml
+
+## 🤝 贡献
 
 ## 许可证
 
@@ -99,7 +150,7 @@ npm install <package> --save
 
 ## 预览
 
-## 参考
+## 🔗 链接
 
 - [hexo官方主题说明文档](https://hexo.io/zh-cn/docs/themes.html)
 - [Materialize](https://materializecss.com/)
@@ -116,6 +167,8 @@ npm install <package> --save
 - [hexo-theme-matery](https://github.com/blinkfox/hexo-theme-matery)
 - [hexo-theme-material](https://github.com/bolnh/hexo-theme-material)
 - [hexo-theme-yilia](https://github.com/litten/hexo-theme-yilia)
+- [hexo-theme-sakura](https://github.com/honjun/hexo-theme-sakura)
+- [hexo-theme-zhaoo](https://github.com/zhaoo/hexo-theme-zhaoo)
 - [Creating a Theme](https://www.youtube.com/watch?v=5ROIU_9dYe4&list=PLLAZ4kZ9dFpOMJR6D25ishrSedvsguVSm&index=11)
 - [Material Design Themes](https://materialdesignthemes.com/)
 - [creative tim](https://www.creative-tim.com/templates/free)

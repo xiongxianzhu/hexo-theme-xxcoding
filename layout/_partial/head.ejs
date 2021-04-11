@@ -32,16 +32,23 @@
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.materialize) %>">
     <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.animate) %>">
+    <% if (config.prismjs && config.prismjs.enable) { %>
+    <!-- 是否加载使用自带的 prismjs. -->
+    <link rel="stylesheet" href="<%- url_for(theme.libs.css.prism) %>">
+    <% } %>
     
     <!-- Material Icons -->
     <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.material_icons) %>">
     
     <!-- Fontawesome Icons -->
     <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.fontawesome) %>">
-    
     <!-- The theme css -->
-    <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.mycss) %>">
+    <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.xxcoding) %>">
 
+    <% if (theme.libs.css.mycss) { %>
+    <!-- Your css -->
+    <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.mycss) %>">
+    <% } %>
     <!-- <% if (theme.libs.css) { %>
         <% for (var libcss in theme.libs.css) { %>
             <% if (theme.libs.css[libcss]) { %>
