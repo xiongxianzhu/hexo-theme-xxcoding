@@ -4,9 +4,21 @@ $(function () {
     $('.dropdown-trigger').dropdown({
         constrainWidth: false
     });
-    $('.carousel.carousel-slider').carousel({
-        fullWidth: true
+    
+    AOS.init();
+
+    $('.scroll-down').on('click', function(e) {
+        $('html, body').animate({
+            scrollTop: $(window).height() - 62
+        }, 800);
     });
+
+    $(".lazyload").lazyload();
+
+    $(window).resize(function () {
+        $('.carousel.carousel-slider').height($(window).height());
+    });
+
 
     /* 监听滚动条位置 */
     let $nav = $('#nav-header');

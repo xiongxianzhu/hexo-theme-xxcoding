@@ -253,3 +253,10 @@ random_thumbnail:
   - /img/random/material-36.jpg
   - /img/random/material-37.jpg
   - /img/random/material-38.jpg
+
+carousel:
+  show_indicators: true
+  auto_loop: true
+  interval_time: 5000
+  duration: 200
+  indicators: true

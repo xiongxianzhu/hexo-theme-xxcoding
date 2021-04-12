@@ -23,7 +23,7 @@
             <div class="card">
                 <a class="card-image post-image" href="<%- url_for(post.path) %>">
                     <% if (post.img) { %>
-                    <img src="<%- url_for(post.img) %>" alt="<%= post.title %>">
+                    <img class="lazyload" src="<%- url_for(post.img) %>" alt="<%= post.title %>">
                     <% } else { %>
                     <%
                     if (!random_thumbnail_list || random_thumbnail_list.length == 0) {
@@ -31,7 +31,7 @@
                     }
                     random_thumbnail = random_thumbnail_list[Math.abs(hash_code(post.title) % random_thumbnail_list.length)]
                     %>
-                    <img src="<%- url_for(random_thumbnail) %>" alt="<%= post.title %>">
+                    <img class="lazyload" src="<%- url_for(random_thumbnail) %>" alt="<%= post.title %>">
                     <% } %>
                     <span class="card-title"><%= post.title %></span>
                 </a>

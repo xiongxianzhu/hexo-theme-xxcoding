@@ -11,7 +11,6 @@ body {
 
 .nav-color {
     background-color: #212121;
-    background: -webkit-gradient(to right, red , yellow);
     background: linear-gradient(to right, #EC6C6C, #FFD479, #FFFC79, #73FA79, #73FA79, #73FDFF, #D783FF);
 }
 
@@ -22,7 +21,7 @@ header .nav-transparent {
 }
 
 .footer-color {
-    background-color: #212121;
+    background-color: black;
 }
 
 .page-footer .footer-copyright {
@@ -96,28 +95,119 @@ header .brand-logo .logo-img {
     left: 0;
 }
 
-.bg-cover {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 60vh;
-    padding: 0;
-    border: 0;
-    overflow: hidden;
-    background-position: center center;
-    background-size: cover;
-    transform: translate3d(0px, 0px, 0px);
+.overlay:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: #4A148C;
+    opacity: 0.8;
 }
 
-.bg-cover:before, .bg-cover:after {
-    content: "";
-    position: absolute;
-    z-index: 1;
+.backgrounds .background {
     width: 100%;
     height: 100%;
-    display: block;
+    background-size: cover;
+    position: absolute;
     left: 0;
     top: 0;
+    /* background-attachment: fixed; */
+}
+
+#bg-center {
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 60px;
+    width: 200px;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+    padding-bottom: 40px;
+    left: 0;
+    right: 0;
+    text-transform: uppercase;
+}
+
+.scroll-down .chevron {
+    margin-top: 20px;
+    display: block;
+    -webkit-animation: float 2s infinite;
+    animation: float 2s infinite;
+    color: #FF4081;
+}
+
+@-webkit-keyframes float {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  50% {
+    -webkit-transform: translate(0, 10px);
+            transform: translate(0, 10px); }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); } }
+
+@keyframes float {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+  50% {
+    -webkit-transform: translate(0, 10px);
+            transform: translate(0, 10px); }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); } } {
+    0% {
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0); }
+    50% {
+      -webkit-transform: translate(0, 10px);
+              transform: translate(0, 10px); }
+    100% {
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0); } }
+  
+@keyframes pulse {
+    0% {
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0); }
+    50% {
+      -webkit-transform: translate(0, 10px);
+              transform: translate(0, 10px); }
+    100% {
+      -webkit-transform: translate(0, 0);
+              transform: translate(0, 0); } }
+
+.chevron::before {
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    content: '';
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    vertical-align: top;
+    width: 20px;
+}
+
+.chevron.bottom:before {
+    top: 0;
+    -webkit-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    transform: rotate(135deg);
 }
 
 .card {
@@ -175,6 +265,15 @@ header .brand-logo .logo-img {
 
 .paginator a i, .paginator span i{
     vertical-align: middle;
+}
+
+.paginator a {
+    color: #FF5722;
+}
+
+.paginator a:hover{
+    background-color: #212121;
+    color: #FFF;
 }
 
 .paginator .current {
