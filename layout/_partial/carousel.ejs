@@ -1,3 +1,11 @@
+<%
+    let carousel_bg_list = [
+        url_for("/img/bg/bg-1.jpg"),
+        url_for("/img/bg/bg-2.jpg"),
+        url_for("/img/bg/bg-3.jpg")
+    ]
+%>
+
 <div class="carousel carousel-slider backgrounds">
     <div class="carousel-fixed-item center">
         <div class="scroll-down aos-init aos-animate" data-aos="fade-up" data-aos-easing="ease" data-aos-delay="800">
@@ -5,14 +13,14 @@
             <i class="chevron bottom"></i>
         </div>
     </div>
-    <div class="carousel-item background overlay lazyload" data-src="./img/bg/bg-1.jpg" style="background-image: url('./img/bg/bg-1.jpg');"></div>
-    <div class="carousel-item background overlay lazyload" data-src="./img/bg/bg-2.jpg"  style="background-image: url('./img/bg/bg-2.jpg');"></div>
-    <div class="carousel-item background overlay lazyload" data-src="./img/bg/bg-3.jpg"  style="background-image: url('./img/bg/bg-3.jpg');"></div>
+    <% for (let index in carousel_bg_list) { %>
+    <div class="carousel-item background overlay lazyload" data-src="<%- carousel_bg_list[index] %>" style="background-image: url('<%- carousel_bg_list[index] %>');"></div>
+    <% } %>
 </div>
 
 <header>
     <div class="center" id="bg-center">
         <h2 class="title white-text"><%= config.title %></h2>
-        <p class="description white-text">This is your first panel</p>
+        <%- partial('_partial/typed') %>
     </div>
 </header>

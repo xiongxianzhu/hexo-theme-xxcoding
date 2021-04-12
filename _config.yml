@@ -25,27 +25,37 @@ menu:
     enable: true
     url: /about
     icon: fas fa-portrait
-    material_icon: person
-  comments:
+    material_icon: account_circle
+  lab:
     enable: true
-    url: /comments
-    icon: fas fa-comments
-    material_icon: comment
-  frients:
-    enable: true
-    url: /frients
-    icon: fas fa-address-book
-    material_icon: link
-  resume:
-    enable: true
-    url: /resume
-    icon: fas fa-briefcase
-    material_icon: work
-  timeline:
-    enable: true
-    url: /timeline
-    icon: fas fa-calendar-alt
-    material_icon: timeline
+    icon: fas fa-list
+    material_icon: apps
+    children:
+      comments:
+        enable: true
+        url: /comments
+        icon: fas fa-comments
+        material_icon: comment
+      frients:
+        enable: true
+        url: /frients
+        icon: fas fa-address-book
+        material_icon: link
+      resume:
+        enable: true
+        url: /resume
+        icon: fas fa-briefcase
+        material_icon: work
+      timeline:
+        enable: true
+        url: /timeline
+        icon: fas fa-calendar-alt
+        material_icon: timeline
+      vlog:
+        enable: true
+        url: /vlog
+        icon: fas fa-film
+        material_icon: video_library
   medias:
     enable: true
     icon: fas fa-list
@@ -75,11 +85,28 @@ menu:
 # config favicon and logo
 # 配置favicon和logo
 favicon: /img/favicon.png
-logo: /img/logo.png
+logo: 
+  url: /img/logo.png
+  circle: true
 banner:
 
 # Sidebar
 sidebar: right
+
+# 打字效果副标题.
+# 如果有符号 ‘ ，请在 ’ 前面加上 \
+subtitle:
+  enable: true
+  loop: true # 是否循环
+  showCursor: true # 是否显示光标
+  startDelay: 300 # 开始延迟
+  typeSpeed: 100 # 打字速度
+  backSpeed: 50 # 删除速度
+  sub:
+    - Hi, I'm zhuxiongxian.
+    - Welcome to my blog!!!
+  fontcss: https://fonts.googleapis.com/css2?family=Marck+Script
+  font_family: Marck Script
 
 # Posts TOC
 # 文章目录
@@ -116,7 +143,7 @@ top: true
 # copyright
 # 版权
 copyright:
-  since: # 2021
+  since: 2017     # year
 
 # ================
 # Comment System
@@ -180,7 +207,7 @@ daovoice:
 # frontend libraries
 # 前端插件库
 # 默认使用本主题下的前端库文件地址， 可替换成对应的绝对路径的CDN地址
-# 免费的CDN推荐： jsDelivr， BootCDN, cloudflare
+# 免费的CDN推荐： jsDelivr， cdnjs, unpkg, BootCDN, cloudflare
 libs:
   css:
     fontawesome: /libs/fontawesome/css/all.min.css
@@ -188,8 +215,10 @@ libs:
     animate: /libs/animate.css/animate.min.css
     gitalk:
     prism: /libs/prism/prism-tomorrow-night.css
-    material_icons: https://fonts.googleapis.com/icon?family=Material+Icons
+    material_icons: /libs/materialicons/materialicons.css   # https://fonts.googleapis.com/icon?family=Material+Icons
     aos: /libs/aos/aos.css
+    aplayer: /libs/aplayer/APlayer.min.css
+    meting: /libs/aplayer/Meting.min.js
     xxcoding: /css/xxcoding.css
     mycss: 
   js:
@@ -197,14 +226,39 @@ libs:
     materialize: /libs/materialize/materialize.min.js
     lazyload: /libs/lazyload/lazyload.min.js
     aos: /libs/aos/aos.js
+    aplayer: /libs/aplayer/APlayer.min.js
+    valine: 
+    scrollprogress: 
     gitalk:
     busuanzi:
     xxcoding: /js/xxcoding.js
     myjs: 
   fontcss:
-    - https://fonts.googleapis.com/css?family=Roboto:300,400,500
-    - https://fonts.googleapis.com/css?family=Marck+Script
+    - https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500
+    - https://fonts.googleapis.com/css2?family=Marck+Script
 
+cdn:
+  css:
+    fontawesome: 
+    materialize: 
+    animate: 
+    gitalk:
+    prism: 
+    material_icons: 
+    aos: 
+    aplayer: https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css
+  js:
+    jquery: 
+    materialize: 
+    lazyload: 
+    aos: 
+    aplayer: https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js
+    valine: 
+    scrollprogress: 
+    gitalk:
+    busuanzi:
+    meting: https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js
+  fontcss:
 
 google_analytics:
 busuanzi_analytics:
@@ -260,3 +314,23 @@ carousel:
   interval_time: 5000
   duration: 200
   indicators: true
+
+# https://aplayer.js.org/#/zh-Hans/?id=参数
+# https://github.com/metowolf/MetingJS
+aplayer:
+  enable: true
+  server: netease     # Music platform: netease, tencent, kugou, xiami, baidu
+  type: playlist      # song, playlist, album, search, artist
+  id: 743950282       # song id, playlist id, album id, search keyword
+  fixed: true         # 开启吸底模式
+  mini: false         # 开启迷你模式
+  theme: '#b7daff'    # 主题色
+  autoplay: false     # 是否自动播放
+  loop: 'all'         # 音频循环播放, 可选值: 'all', 'one', 'none'
+  order: 'random'     # 音频循环顺序, 可选值: 'list', 'random'
+  preload: 'auto'     # 预加载，可选值: 'none', 'metadata', 'auto'
+  volume: 0.7         # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
+  list_folded: true   # 列表默认折叠
+  hide_lrc: true      # 隐藏歌词
+  list_max_height:    # 列表最大高度
+  auto_hide: true     # 自动隐藏

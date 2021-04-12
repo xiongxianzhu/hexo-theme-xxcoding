@@ -7,10 +7,10 @@
             <li>
                 <% if (theme.menu[key].children) { %>
                 <% if (theme.menu[key].material_icon) { %>
-                <a class="dropdown-trigger waves-effect waves-light" href="#!" data-target="dropdown-<%- key %>" style="display: flex;">
+                <a class="nav-item dropdown-trigger waves-effect waves-light" href="#!" data-target="dropdown-<%- key %>" style="display: flex;">
                     <i class="material-icons"><%- theme.menu[key].material_icon %></i>
                 <% } else { %>
-                <a class="dropdown-trigger waves-effect waves-light" href="#!" data-target="dropdown-<%- key %>">
+                <a class="nav-item dropdown-trigger waves-effect waves-light" href="#!" data-target="dropdown-<%- key %>">
                     <i class="<%- theme.menu[key].icon %>" style="zoom: 0.6;"></i>
                 <% } %>
                     <span class="nav-menu"><%= __(titlecase(__(key))) %></span>
@@ -35,10 +35,10 @@
                 </ul>
                 <% } else { %>
                 <% if (theme.menu[key].material_icon) { %>
-                <a class="waves-effect waves-light" href="<%- theme.menu[key].url %>" style="display: flex;">
+                <a class="nav-item waves-effect waves-light" href="<%- theme.menu[key].url %>" style="display: flex;">
                     <i class="material-icons"><%- theme.menu[key].material_icon %></i>
                 <% } else { %>
-                <a class="waves-effect waves-light" href="<%- theme.menu[key].url %>">
+                <a class="nav-item waves-effect waves-light" href="<%- theme.menu[key].url %>">
                     <i class="<%- theme.menu[key].icon %>" style="zoom: 0.6;"></i>
                 <% } %>
                     <span class="nav-menu"><%= titlecase(__(key)) %></span>
@@ -48,7 +48,7 @@
         <% } %>
     <% } %>
     <li>
-        <a class="modal-trigger waves-effect waves-light" href="#searchModal">
+        <a class="nav-item modal-trigger waves-effect waves-light" href="#searchModal">
             <i class="material-icons">search</i>
             <!-- <i id="searchIcon" class="fas fa-search" title="<%= __('search') %>" style="zoom: 0.6;"></i> -->
         </a>

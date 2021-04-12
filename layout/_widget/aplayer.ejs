@@ -1,0 +1,70 @@
+<% if (theme.cdn.css.aplayer) { %>
+<link rel="stylesheet" type="text/css" href="<%- theme.cdn.css.aplayer %>">
+<% } else { %>
+<%- css({ href: url_for(theme.libs.css.aplayer) }) %>
+<% } %>
+
+<style type="text/css">
+    .aplayer.aplayer-fixed {
+        z-index: 999;
+    }
+
+    <% if (theme.aplayer.auto_hide) { %>
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    <% } %>
+
+    .aplayer .aplayer-lrc p {
+        <% if(theme.aplayer.hide_lrc) { %>
+        display: none;
+        <% } %>
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        <% if(theme.aplayer.hide_lrc) { %>
+        display: none;
+        <% } %>
+        font-size: 15px;
+        color: <%- theme.aplayer.theme %>;
+    }
+</style>
+
+<div class="">
+    <div class="row">
+        <meting-js
+            class="col l8 offset-l2 m10 offset-m1 s12"
+            server="<%- theme.aplayer.server %>"
+            type="<%- theme.aplayer.type %>"
+            id="<%- theme.aplayer.id %>"
+            fixed='<%- theme.aplayer.fixed ? 'true' : 'false' %>'
+            autoplay='<%- theme.aplayer.autoplay === true %>'
+            theme='<%- theme.aplayer.theme %>'
+            loop='<%- theme.aplayer.loop %>'
+            order='<%- theme.aplayer.order %>'
+            preload='<%- theme.aplayer.preload %>'
+            volume='<%- Number(theme.aplayer.volume) %>'
+            list-folded='<%- theme.aplayer.list_folded ? 'true' : 'false' %>'>
+        </meting-js>
+    </div>
+</div>
+
+<% if (theme.cdn.js.aplayer) { %>
+<script src="<%- url_for(theme.cdn.js.aplayer) %>"></script>
+<% } else { %>
+<%- js({ src: 'url_for(theme.libs.js.aplayer)' }) %>
+<% } %>
+<% if (theme.cdn.js.meting) { %>
+<script src="<%- url_for(theme.cdn.js.meting) %>"></script>
+<% } else { %>
+<%- js({ src: 'url_for(theme.libs.js.meting)' }) %>
+<% } %>
+

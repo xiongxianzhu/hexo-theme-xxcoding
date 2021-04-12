@@ -9,6 +9,10 @@ body {
     flex-direction: column;
 }
 
+a:focus {
+    outline: none;
+}
+
 .nav-color {
     background-color: #212121;
     background: linear-gradient(to right, #EC6C6C, #FFD479, #FFFC79, #73FA79, #73FA79, #73FDFF, #D783FF);
@@ -51,16 +55,28 @@ header .brand-logo .logo-img {
     line-height: 64px;
 }
 
-.dropdown-content {
-    top: -64px;
-}
-
 .dropdown-content li a {
     display: flex;
 }
 
 .dropdown-content li>a, .dropdown-content li>span {
-    color: #26a69a;
+    color: #212121;
+}
+
+.dropdown-content li>a:hover,
+.dropdown-content li>a:focus,
+.dropdown-content li>a:active,
+.dropdown-content li>span:hover,
+.dropdown-content li>span:focus,
+.dropdown-content li>span:active,
+.dropdown-content a:active,
+.dropdown-content a.active,
+.dropdown-content a:hover,
+.dropdown-content a:focus,
+.dropdown-content a:active {
+    box-shadow: 0 4px 20px 0px rgb(0 0 0 / 14%), 0 7px 10px -5px rgb(156 39 176 / 40%);
+    background-color: #9c27b0;
+    color: #fff !important;
 }
 
 .waves-effect {
@@ -279,4 +295,19 @@ header .brand-logo .logo-img {
 .paginator .current {
     background-color: #212121;
     color: #FFF;
+}
+
+.aplayer .aplayer-info .aplayer-music .aplayer-title {
+    color: #666;
+}
+
+.aplayer .aplayer-list ol li .aplayer-list-title {
+    color: #666;
+}
+
+#bg-center .description {
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 1.4em;
+    color: #eee;
 }

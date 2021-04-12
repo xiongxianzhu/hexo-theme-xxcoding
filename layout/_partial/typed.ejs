@@ -1,0 +1,29 @@
+<% if (theme.subtitle.fontcss) { %>
+<link rel="stylesheet" type="text/css" href="<%- theme.subtitle.fontcss %>">
+<% } %>
+<div class="description white-text">
+    <% if (theme.subtitle.fontcss) { %>
+    <span id="subtitle" style="font-family: '<%- theme.subtitle.font_family %>';"></span>
+    <% } else { %>
+    <span id="subtitle"></span>
+    <% } %>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+<% if (theme.subtitle.enable) { %>
+    var typed = new Typed("#subtitle", {
+        strings: [ 
+            <% theme.subtitle.sub.forEach(function(item) { %>
+                "<%= item %>",
+            <% }) %>
+        ],
+        startDelay: <%= theme.subtitle.startDelay %>,
+        typeSpeed: <%= theme.subtitle.typeSpeed %>,
+        loop: <%= theme.subtitle.loop %>,
+        backSpeed: <%= theme.subtitle.backSpeed %>,
+        showCursor: <%= theme.subtitle.showCursor %>
+    });
+<% } else { %>
+    $('#subtitle').text('<%= config.description %>')
+<% } %>
+</script>
