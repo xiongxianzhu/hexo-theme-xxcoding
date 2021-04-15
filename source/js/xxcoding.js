@@ -1,19 +1,25 @@
 $(function () {
+    let $nav = $('#nav-header');
+    scroll_distance = $nav.attr('color-on-scroll') || 500;
+
     $('.sidenav').sidenav();
-    $('.pushpin').pushpin();
     $('.dropdown-trigger').dropdown({
         constrainWidth: false,
         coverTrigger: false,
         hover: true
     });
-    
-    AOS.init();
+    $('.collapsible').collapsible();
+    AOS.init({
+        easing: 'ease-in-out-sine',
+        duration: 700,
+        delay: 100
+    });
 
     function scrollToPost() {
         if ($('.post').length != 0) {
             $('html, body').animate({
                 scrollTop: $('.post').offset().top - $('#nav-header').height()
-            }, 800);
+            }, 1000);
         }
     }
 
@@ -25,32 +31,53 @@ $(function () {
         $('.carousel.carousel-slider').height($(window).height());
     });
 
-
     /* 监听滚动条位置 */
-    let $nav = $('#nav-header');
-    let $backTop = $('.top-scroll');
     // 当页面处于文章中部的时候刷新页面，因为此时无滚动，所以需要判断位置。
-    showOrHideNavBg($(window).scrollTop());
-    $(window).scroll(function () {
-        /* 回到顶部按钮根据滚动条的位置的显示和隐藏.*/
-        let scroll = $(window).scrollTop();
-        showOrHideNavBg(scroll);
+    // checkScrollForTransparentNavbar($(window).scrollTop());
+    xxcodingKit.checkScrollForTransparentNavbar($(document).scrollTop());
+    $(window).scroll(xxcodingKit.checkScrollForTransparentNavbar);
+
+    /* 回到顶部 */
+    $('#back-top').click(function () {
+        $('html, body').animate({scrollTop: 0}, 400);
     });
 
-    function showOrHideNavBg(position) {
-        let showPosition = 100;
-        if (position < showPosition) {
-            $nav.addClass('nav-transparent');
+    $('main').css('min-height', window.innerHeight - $('#nav-header').height() - $('footer').height());
+});
+
+let $backTop = $('.top-scroll');
+
+xxcodingKit = {
+    checkScrollForTransparentNavbar: debounce(function() {
+        if ($(document).scrollTop() < scroll_distance) {
+            $('#nav-header').addClass('nav-transparent');
             $('nav#nav-header ul a.nav-item').addClass('white-text');
-            $('nav .brand-logo').addClass('white-text')
-            // $('.dropdown-content li>a, .dropdown-content li>span').addClass('pink-text text-darken-4')
+            $('nav .brand-logo').addClass('white-text');
             $backTop.slideUp(300);
         } else {
-            $nav.removeClass('nav-transparent');
+            $('#nav-header').removeClass('nav-transparent');
             $('nav#nav-header ul a.nav-item').removeClass('white-text');
             $('nav .brand-logo').removeClass('white-text');
-            // $('.dropdown-content li>a, .dropdown-content li>span').removeClass('pink-text text-darken-4')
             $backTop.slideDown(300);
         }
-    }
-});
+    }, 17)
+};
+
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+      var context = this,
+        args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      }, wait);
+      if (immediate && !timeout) func.apply(context, args);
+    };
+  };

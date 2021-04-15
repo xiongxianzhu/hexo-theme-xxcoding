@@ -1,5 +1,7 @@
 # Configure navigation menu url, icon and enable
 # 配置导航菜单的url, 图标及是否启用
+# [material icons](https://material.io/resources/icons/?style=baseline)
+# [fontawesome](https://fontawesome.com/v5.15.3/icons)
 menu:
   index:
     enable: true
@@ -24,7 +26,7 @@ menu:
   about:
     enable: true
     url: /about
-    icon: fas fa-portrait
+    icon: fas fa-user-circle
     material_icon: account_circle
   lab:
     enable: true
@@ -56,6 +58,11 @@ menu:
         url: /vlog
         icon: fas fa-film
         material_icon: video_library
+      portfolio:
+        enable: true
+        url: /portfolio
+        icon: fas fa-cubes
+        material_icon: widgets
   medias:
     enable: true
     icon: fas fa-list
@@ -73,7 +80,7 @@ menu:
         material_icon: library_music
       videos:
         enable: true
-        url: /moveis
+        url: /videos
         icon: fas fa-film
         material_icon: video_library
       books:
@@ -91,7 +98,11 @@ logo:
 banner:
 
 # Sidebar
-sidebar: right
+sidebar:
+  position: left       # left, right
+  background_color: 'linear-gradient(to right, #8e24aa 0%, #9c27b0 100%)'
+  background_image: /img/icon-seamless.png
+
 
 # 打字效果副标题.
 # 如果有符号 ‘ ，请在 ’ 前面加上 \

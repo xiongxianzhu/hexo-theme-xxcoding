@@ -18,9 +18,9 @@
 
 - [x] 🌈 响应式布局、 扁平风格、 高大上
 - [x] 基于[materialize](https://github.com/Dogfalo/materialize)进行[Material Design](https://material.io)
-- [ ] [APlayer](https://aplayer.js.org/)音乐播放器
+- [x] [APlayer](https://aplayer.js.org/)音乐播放器
 - [ ] [DaoVoice](https://www.daocloud.io/)在线聊天
-- [ ] 统计分析：[百度分析](https://tongji.baidu.com/web/welcome/login)、 谷歌分析、 LeanCloud、 不蒜子网站统计
+- [ ] 数据统计与分析：[百度统计](https://tongji.baidu.com/web/welcome/login)、 谷歌分析、 CNZZ、 LeanCloud、 不蒜子网站统计
 - [ ] `lazyload` 图片懒加载
 - [ ] 评论系统： disqus、 Valine、 gitalk、 gitment、 livere、 畅言
 - [ ] `prismjs`代码高亮
@@ -78,6 +78,202 @@ $ tree -L 2
 ## 📦 安装
 
 ## 🔨 配置
+
+### 新建分类 categories 页
+
+```bash
+hexo new page categories
+```
+
+```plain
+---
+title: categories
+date: 2021-04-15 22:46:55
+type: categories
+layout: categories
+---
+
+```
+
+### 新建标签 tags 页
+
+```bash
+hexo new page tags
+```
+
+```plain
+---
+title: tags
+date: 2021-04-15 22:53:20
+type: tags
+layout: tags
+---
+```
+
+### 新建关于我 about 页
+
+```bash
+hexo new page about
+```
+
+```plain
+---
+title: about
+date: 2021-04-15 22:53:27
+type: about
+layout: about
+---
+```
+
+### 新建留言板 comments 页 (可选)
+
+```bash
+hexo new page comments
+```
+
+```plain
+---
+title: comments
+date: 2021-04-15 22:53:27
+type: comments
+layout: comments
+---
+```
+
+### 新建友情链接 frients 页 (可选)
+
+```bash
+hexo new page frients
+```
+
+```plain
+---
+title: frients
+date: 2021-04-15 22:53:27
+type: frients
+layout: frients
+---
+```
+
+### 新建时间线 timeline 页 (可选)
+
+```bash
+hexo new page timeline
+```
+
+```plain
+---
+title: timeline
+date: 2021-04-15 22:53:27
+type: timeline
+layout: timeline
+---
+```
+
+### 新建简历 resume 页 (可选)
+
+```bash
+hexo new page resume
+```
+
+```plain
+---
+title: resume
+date: 2021-04-15 22:53:27
+type: resume
+layout: resume
+---
+```
+
+### 新建Vlog vlog 页 (可选)
+
+```bash
+hexo new page vlog
+```
+
+```plain
+---
+title: vlog
+date: 2021-04-15 22:53:27
+type: vlog
+layout: vlog
+---
+```
+
+### 新建作品集 portfolio 页 (可选)
+
+```bash
+hexo new page portfolio
+```
+
+```plain
+---
+title: portfolio
+date: 2021-04-15 22:53:27
+type: portfolio
+layout: portfolio
+---
+```
+
+### 新建图库 galleries 页 (可选)
+
+```bash
+hexo new page galleries
+```
+
+```plain
+---
+title: galleries
+date: 2021-04-15 22:53:27
+type: galleries
+layout: galleries
+---
+```
+
+### 新建音乐库 musics 页 (可选)
+
+```bash
+hexo new page musics
+```
+
+```plain
+---
+title: musics
+date: 2021-04-15 22:53:27
+type: musics
+layout: musics
+---
+```
+
+### 新建视频库 videos 页 (可选)
+
+```bash
+hexo new page videos
+```
+
+```plain
+---
+title: videos
+date: 2021-04-15 22:53:27
+type: videos
+layout: videos
+---
+```
+
+### 新建图书库 books 页 (可选)
+
+```bash
+hexo new page books
+```
+
+```plain
+---
+title: books
+date: 2021-04-15 22:53:27
+type: books
+layout: books
+---
+```
 
 ### 评论系统
 
@@ -161,6 +357,7 @@ hexo_project/source/_data
 - [bower.io](https://bower.io/)
 - [EJS中文文档](https://ejs.bootcss.com/)
 - [material icons](https://material.io/resources/icons/?style=baseline)
+- [fontawesome](https://fontawesome.com/v5.15.3/icons)
 
 ## 灵感
 

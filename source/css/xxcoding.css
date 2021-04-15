@@ -32,6 +32,14 @@ header .nav-transparent {
     background-color: rgb(26 170 214 / 8%);
 }
 
+#nav-header {
+    -webkit-transition: all 150ms ease 0s;
+    -moz-transition: all 150ms ease 0s;
+    -o-transition: all 150ms ease 0s;
+    -ms-transition: all 150ms ease 0s;
+    transition: all 150ms ease 0s;
+}
+
 nav .brand-logo {
     color: #e91e63;
 }
@@ -310,4 +318,111 @@ header .brand-logo .logo-img {
     font-size: 1.25rem;
     line-height: 1.4em;
     color: #eee;
+}
+
+.sidenav .user-view .background {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.sidenav .user-view .circle {
+    height: 75px;
+    width: 75px;
+}
+
+.sidenav .user-view .name {
+    line-height: 24px;
+    font-size: 1.5rem;
+}
+
+.sidenav .user-view .description {
+    margin-top: 20px;
+    padding-bottom: 16px;
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+    color: #e3e3e3;
+}
+
+.sidenav .user-view .overlay:after {
+    background: #ff1744;
+}
+
+.sidenav .collapsible-header,
+.sidenav.fixed .collapsible-header {
+    padding: 0 32px;
+}
+
+.sidenav .collapsible-header .material-icons,
+.sidenav.fixed .collapsible-header .material-icons {
+    margin: 0 32px 0 0;
+    color: #34495e !important;
+}
+
+.sidenav .collapsible-header i {
+    width: 24px;
+}
+
+.sidenav .collapsible-header span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.sidenav .collapsible-body li a,
+.sidenav.fixed .collapsible-body li a {
+    padding: 0 24px 0 47px;
+}
+
+.sidenav li>a>i.material-icons {
+    color: #34495e !important;
+}
+
+.sidenav li>a>i.fas {
+    font-size: 1.16rem;
+    color: #34495e !important;
+}
+
+.collapsible-header i.fas {
+    font-size: 1.16rem;
+    text-align: left;
+    color: #34495e !important;
+    margin: 0 32px 0 0;
+}
+
+.collapsible-header.waves-effect {
+    display: flex;
+}
+
+#icp, #sitetime {
+    margin-top: 5px;
+}
+
+#icp img {
+    zoom: 0.85;
+}
+
+/* 回到顶部按钮样式 */
+.top-scroll {
+    display: none;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+}
+
+.top-scroll .btn-floating {
+    background: linear-gradient(to bottom right, #ce07b5 0%, #16ad8a 100%);
+    width: 48px;
+    height: 48px;
+}
+
+.top-scroll .btn-floating i {
+    line-height: 48px;
+    font-size: 1.8rem;
 }

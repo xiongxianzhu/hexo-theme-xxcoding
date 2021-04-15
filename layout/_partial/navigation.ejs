@@ -25,7 +25,7 @@
                                 <i class="material-icons"><%- theme.menu[key].children[submenu].material_icon %></i>
                             <% } else { %>
                             <a href="<%- url_for(theme.menu[key].children[submenu].url) %>">
-                                <i class="<%- theme.menu[key].children[submenu].icon %>" style="zoom: 0.6;"></i>
+                                <i class="<%- theme.menu[key].children[submenu].icon %>"></i>
                             <% } %>
                                 <span><%= titlecase(__(submenu)) %></span>
                             </a>

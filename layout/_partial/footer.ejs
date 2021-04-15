@@ -7,14 +7,19 @@
             <div class="col l12 m12 s12">
                 <div>
                     Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-                    |&nbsp;Theme&nbsp;<a href="https://github.com/xiongxianzhu/hexo-theme-xxcoding" target="_blank">xxcoding</a></div>
+                    &nbsp;|&nbsp;&nbsp;Theme&nbsp;
+                    <a href="https://github.com/xiongxianzhu/hexo-theme-xxcoding" target="_blank">
+                        xxcoding
+                    </a>
+                </div>
+                <div id="sitetime">破网站已运行了</div>
                 <% if (theme.icp.enable) { %>
                 <div id="icp">
                     <img src="<%- url_for('/img/icp.svg') %>" style="vertical-align: text-bottom;" />
                     <a href="<%- url_for(theme.icp.url) %>" target="_blank"><%- theme.icp.text %></a>
                 </div>
                 <% } %>
-                <div>破网站已运行了</div>
+                
             </div>
         </div>
     </div>
@@ -27,8 +32,9 @@
                 <span id="year"><%- theme.copyright.since %></span>
             <% } %>
             ,&nbsp;
-            Made with <span style="color: red;">❤️</span> by 
-            <a href="<%- url_for('/about') %>" target="_blank"><%- config.author %></a> for a better web.
+            made with <span style="color: red;">❤️</span> by
+            <a href="<%- url_for('/about') %>" target="_blank"><%- config.author %></a>
+            for a better web.
         </div>
     </div>
 </footer>

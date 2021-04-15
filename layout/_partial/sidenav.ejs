@@ -1,19 +1,61 @@
-<ul class="sidenav" id="nav-mobile">
-    <li>
-        <div class="user-view">
-            <div class="background">
-                <!-- <img src="images/office.jpg"> -->
-            </div>
-            <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-            <a href="#name"><span class="white-text name">John Doe</span></a>
-            <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+<div class="sidenav" id="nav-mobile">
+    <div class="user-view">
+        <div class="background overlay">
+            <img class="" src="<%- url_for(theme.sidebar.background_image) %>">
         </div>
-    </li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!">Second Link</a></li>
-    <li>
-        <div class="divider"></div>
-    </li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-</ul>
+        <img class="circle responsive-img" src="<%- url_for(theme.logo.url) %>">
+        <div class="name white-text"><%- config.title %></div>
+        <div class="description white-text"><%- config.description %></div>
+    </div>
+    <ul>
+        <% for (let key in theme.menu) { %>
+            <% if (theme.menu[key].enable) { %>
+                <li>
+                    <% if (theme.menu[key].children) { %>
+                    <ul class="collapsible">
+                        <li>
+                            <% if (theme.menu[key].material_icon) { %>
+                            <div class="collapsible-header waves-effect">
+                                <i class="material-icons"><%- theme.menu[key].material_icon %></i>
+                            <% } else { %>
+                            <div class="collapsible-header waves-effect">
+                                <i class="<%- theme.menu[key].icon %>"></i>
+                            <% } %>
+                                <span><%= __(titlecase(__(key))) %></span>
+                                <i class="material-icons right">arrow_drop_down</i>
+                            </div>
+                            <ul class="collapsible-body">
+                                <% for (let submenu in theme.menu[key].children) { %>
+                                    <% if (theme.menu[key].children[submenu].enable) { %>
+                                    <li>
+                                        <% if (theme.menu[key].children[submenu].material_icon) { %>
+                                        <a class="waves-effect" href="<%- url_for(theme.menu[key].children[submenu].url) %>" style="display: flex;">
+                                            <i class="material-icons"><%- theme.menu[key].children[submenu].material_icon %></i>
+                                        <% } else { %>
+                                        <a class="waves-effect" href="<%- url_for(theme.menu[key].children[submenu].url) %>">
+                                            <i class="<%- theme.menu[key].children[submenu].icon %>"></i>
+                                        <% } %>
+                                            <span><%= titlecase(__(submenu)) %></span>
+                                        </a>
+                                    </li>
+                                    <% } %>
+                                <% } %>
+                            </ul>
+                        </li>
+                    </ul>
+                    <% } else { %>
+                    <% if (theme.menu[key].material_icon) { %>
+                    <a class="waves-effect" href="<%- theme.menu[key].url %>" style="display: flex;">
+                        <i class="material-icons"><%- theme.menu[key].material_icon %></i>
+                    <% } else { %>
+                    <a class="waves-effect" href="<%- theme.menu[key].url %>">
+                        <i class="<%- theme.menu[key].icon %>"></i>
+                    <% } %>
+                        <span><%= titlecase(__(key)) %></span>
+                    </a>
+                    <% } %>
+                </li>
+            <% } %>
+        <% } %>
+    </ul>
+</div>
