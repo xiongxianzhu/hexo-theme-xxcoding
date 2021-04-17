@@ -5,17 +5,75 @@
     <div class="container">
         <div class="row center">
             <div class="col l12 m12 s12">
-                <div>
+                <div id="framework-info">
                     Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
                     &nbsp;|&nbsp;&nbsp;Theme&nbsp;
                     <a href="https://github.com/xiongxianzhu/hexo-theme-xxcoding" target="_blank">
                         xxcoding
                     </a>
                 </div>
-                <div id="sitetime">破网站已运行了</div>
+                <div id="siteinfo">
+                    <span>站点总字数：</span>
+                    <% if (theme.busuanzi_analytics.enable) { %>
+                    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                    <span id="busuanzi_container_page_pv">站点总阅读量：<span class="white-text" id="busuanzi_value_page_pv"></span>人</span>
+                    &nbsp;|&nbsp;&nbsp;<span id="busuanzi_container_site_uv">站点总访客数：<span class="white-text" id="busuanzi_value_site_uv"></span>人</span>
+                    &nbsp;|&nbsp;&nbsp;<span id="busuanzi_container_site_pv">站点总访问量：<span class="white-text" id="busuanzi_value_site_pv"></span>次</span>
+                    <% } %>
+                </div>
+                <% if (theme.time.enable) { %>
+                <div id="sitetime">载入运行时间...</div>
+                <script>
+                    function siteTime() {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "<%- theme.time.year %>";
+                        var startMonth = "<%- theme.time.month %>";
+                        var startDate = "<%- theme.time.date %>";
+                        var startHour = "<%- theme.time.hour %>";
+                        var startMinute = "<%- theme.time.minute %>";
+                        var startSecond = "<%- theme.time.second %>";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                            minutes);
+                        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                            diffMinutes * minutes) / seconds);
+                        if (startYear == todayYear) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            document.getElementById("sitetime").innerHTML = "本站已持续运行 " + "<span class='white-text'>" + diffDays + "</span>" + " 天 "
+                            + "<span class='white-text'>" + diffHours + "</span>" + " 小时 "
+                            + "<span class='white-text'>" + diffMinutes + "</span>" + " 分钟 "
+                            + "<span class='white-text'>" + diffSeconds + "</span>" + " 秒";
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            document.getElementById("sitetime").innerHTML = "本站已持续运行 " + "<span class='white-text'>" + diffYears + "</span>" + " 年 "
+                            + "<span class='white-text'>" + diffDays + "</span>" + " 天 "
+                            + "<span class='white-text'>" + diffHours + "</span>" + " 小时 "
+                            + "<span class='white-text'>" + diffMinutes + "</span>" + " 分钟 "
+                            + "<span class='white-text'>" + diffSeconds + "</span>" + " 秒";
+                        }
+                    }
+                    setInterval(siteTime, 1000);
+                </script>
+                <% } %>
                 <% if (theme.icp.enable) { %>
                 <div id="icp">
-                    <img src="<%- url_for('/img/icp.svg') %>" style="vertical-align: text-bottom;" />
+                    <img src="<%- url_for('/img/icp.png') %>" style="vertical-align: text-bottom;" />
                     <a href="<%- url_for(theme.icp.url) %>" target="_blank"><%- theme.icp.text %></a>
                 </div>
                 <% } %>

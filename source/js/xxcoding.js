@@ -29,6 +29,7 @@ $(function () {
 
     $(window).resize(function () {
         $('.carousel.carousel-slider').height($(window).height());
+        $('main').css('min-height', window.innerHeight - $('#nav-header').height() - $('footer').height());
     });
 
     /* 监听滚动条位置 */
@@ -42,7 +43,7 @@ $(function () {
         $('html, body').animate({scrollTop: 0}, 400);
     });
 
-    $('main').css('min-height', window.innerHeight - $('#nav-header').height() - $('footer').height());
+    
 });
 
 let $backTop = $('.top-scroll');

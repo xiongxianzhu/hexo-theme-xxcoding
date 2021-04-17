@@ -21,7 +21,7 @@
     <% } %>
 
     .aplayer .aplayer-lrc p {
-        <% if(theme.aplayer.hide_lrc) { %>
+        <% if (theme.aplayer.hide_lrc) { %>
         display: none;
         <% } %>
         font-size: 12px;
@@ -30,7 +30,7 @@
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        <% if(theme.aplayer.hide_lrc) { %>
+        <% if (theme.aplayer.hide_lrc) { %>
         display: none;
         <% } %>
         font-size: 15px;
@@ -67,4 +67,3 @@
 <% } else { %>
 <%- js({ src: 'url_for(theme.libs.js.meting)' }) %>
 <% } %>
-

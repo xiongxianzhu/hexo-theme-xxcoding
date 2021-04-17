@@ -23,7 +23,7 @@
             <div class="card">
                 <a class="card-image post-image" href="<%- url_for(post.path) %>">
                     <% if (post.img) { %>
-                    <img class="lazyload" src="<%- url_for(post.img) %>" alt="<%= post.title %>">
+                    <img class="lazyload" src="<%- url_for(post.img) %>" data-src="<%- url_for(post.img) %>" alt="<%= post.title %>">
                     <% } else { %>
                     <%
                     if (!random_thumbnail_list || random_thumbnail_list.length == 0) {
@@ -31,7 +31,7 @@
                     }
                     random_thumbnail = random_thumbnail_list[Math.abs(hash_code(post.title) % random_thumbnail_list.length)]
                     %>
-                    <img class="lazyload" src="<%- url_for(random_thumbnail) %>" alt="<%= post.title %>">
+                    <img class="lazyload" src="<%- url_for(random_thumbnail) %>" data-src="<%- url_for(random_thumbnail) %>" alt="<%= post.title %>">
                     <% } %>
                     <span class="card-title"><%= post.title %></span>
                 </a>
@@ -43,7 +43,37 @@
                     <% } %>
                 </div>
                 <div class="card-action">
-                    <a href="#">This is a link</a>
+                    <% if (post.tags && post.tags.length > 0) { %>
+                    <div class="post-tags">
+                        <% post.tags.forEach(tag => { %>
+                        <a href="<%- url_for(tag.path) %>">
+                            <span class="badge pink darken-1"><%= tag.name %></span>
+                        </a>
+                        <% }); %>
+                    </div>
+                    <% } %>
+                    <div class="post-publish-info white-text">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>
+                            <%= date(post.date, config.date_format) %>
+                        </span>
+                        <span class="publish-auth right">
+                            <% if (post.categories && post.categories.length > 0) { %>
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            <% post.categories.forEach(category => { %>
+                            <a href="<%- url_for(category.path) %>" class="post-category">
+                                <%- category.name %>
+                            </a>
+                            <% }); %>
+                            <% } else if (post.author && post.author.length > 0) { %>
+                            <i class="fas fa-user fa-fw"></i>
+                            <%- post.author %>
+                            <% } else { %>
+                            <i class="fas fa-user fa-fw"></i>
+                            <%- config.author %>
+                            <% } %>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

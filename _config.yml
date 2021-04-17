@@ -95,7 +95,7 @@ favicon: /img/favicon.png
 logo: 
   url: /img/logo.png
   circle: true
-banner:
+banner: /img/icon-seamless.png
 
 # Sidebar
 sidebar:
@@ -149,7 +149,8 @@ sns:
 
 # Enable the back to top button
 # 是否启用快速回到顶部按钮
-top: true
+top: 
+  enable: true
 
 # copyright
 # 版权
@@ -269,10 +270,13 @@ cdn:
     gitalk:
     busuanzi:
     meting: https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js
+    live2d: https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js
   fontcss:
 
 google_analytics:
+# 不蒜子(http://busuanzi.ibruce.info/) 网站统计
 busuanzi_analytics:
+  enable: true
 
 icp:
   enable: true
@@ -325,6 +329,10 @@ carousel:
   interval_time: 5000
   duration: 200
   indicators: true
+  carousel_bg:
+    - /img/bg/bg-1.jpg
+    - /img/bg/bg-2.jpg
+    - /img/bg/bg-3.jpg
 
 # https://aplayer.js.org/#/zh-Hans/?id=参数
 # https://github.com/metowolf/MetingJS
@@ -345,3 +353,18 @@ aplayer:
   hide_lrc: true      # 隐藏歌词
   list_max_height:    # 列表最大高度
   auto_hide: true     # 自动隐藏
+
+# live2d-widget 看板娘
+# https://github.com/stevenjoezhang/live2d-widget
+live2d:
+  enable: true
+
+# 站点运行开始时间.
+time:
+  enable: true
+  year: 2021 # 年份
+  month: 01 # 月份
+  date: 01 # 日期
+  hour: 00 # 小时
+  minute: 00 # 分钟
+  second: 00 # 秒

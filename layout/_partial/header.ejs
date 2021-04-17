@@ -5,9 +5,9 @@
             <div class="nav-wrapper">
                 <a class="brand-logo waves-effect waves-light" href="/">
                     <% if (theme.logo.circle) { %>
-                    <img src="<%= theme.logo.url %>" class="circle logo-img" alt="logo">
+                    <img src="<%- url_for(theme.logo.url) %>" class="circle logo-img lazyload" data-src="<%- url_for(theme.logo.url) %>" alt="logo">
                     <% } else { %>
-                    <img src="<%= theme.logo.url %>" class="logo-img" alt="LOGO">
+                    <img src="<%- url_for(theme.logo.url) %>" class="logo-img lazyload" data-src="<%- url_for(theme.logo.url) %>" alt="LOGO">
                     <% } %>
                     <span class="logo-span"><%= config.title %></span>
                 </a>

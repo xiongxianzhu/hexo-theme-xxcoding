@@ -32,6 +32,10 @@ header .nav-transparent {
     background-color: rgb(26 170 214 / 8%);
 }
 
+.footer-copyright a {
+    color: #FFF;
+}
+
 #nav-header {
     -webkit-transition: all 150ms ease 0s;
     -moz-transition: all 150ms ease 0s;
@@ -61,6 +65,38 @@ header .brand-logo .logo-img {
     margin-right: 10px;
     height: 45px;
     line-height: 64px;
+}
+
+.banner-background {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 1;
+    background-color: #37474f;
+}
+
+.banner-background .pattern {
+    opacity: .1;
+    position: absolute;
+    overflow: hidden;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    max-width: 100%;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    transition: opacity .7s;
+    -webkit-transform: none;
+    transform: none;
+    background-repeat: repeat;
 }
 
 .dropdown-content li a {
@@ -117,6 +153,41 @@ header .brand-logo .logo-img {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.post .card .card-action {
+    padding: 0;
+}
+
+.post .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    margin-right: 0;
+    text-transform: none !important;
+}
+
+.post span.badge {
+    display: inline-block;
+    font-size: .75em;
+    font-weight: normal;
+    line-height: 22px;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 0rem;
+    min-width: auto !important;
+    height: 22px;
+    float:none !important;
+    margin-left: 10px;
+}
+
+.post .card .card-action .post-tags {
+    padding: 10px 0;
+    background-color: #182026;
+}
+
+.post .card .card-action .post-publish-info {
+    border-top: 1px solid rgba(160,160,160,0.2);
+    padding: 10px 10px;
+    background-color: rgb(24 32 38 / 90%);
 }
 
 .overlay:after {
@@ -235,7 +306,13 @@ header .brand-logo .logo-img {
 }
 
 .card {
-    box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07) !important;
+    -webkit-box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
+    box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
+}
+
+.card:hover {
+    -webkit-box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 
 .card .card-image img {
@@ -349,7 +426,7 @@ header .brand-logo .logo-img {
 }
 
 .sidenav .user-view .overlay:after {
-    background: #ff1744;
+    background: #37474f;
 }
 
 .sidenav .collapsible-header,
@@ -397,12 +474,20 @@ header .brand-logo .logo-img {
     display: flex;
 }
 
-#icp, #sitetime {
-    margin-top: 5px;
+#icp a, #framework-info, #sitetime, #siteinfo {
+    color: rgba(255,255,255,0.8);
 }
 
-#icp img {
-    zoom: 0.85;
+#icp a, #framework-info a, #sitetime, #siteinfo {
+    font-size: 14px;
+}
+
+#framework-info a {
+    color: #FFF;
+}
+
+#icp, #sitetime, #siteinfo {
+    margin-top: 5px;
 }
 
 /* 回到顶部按钮样式 */

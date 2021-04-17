@@ -1,9 +1,12 @@
 <%
-    let carousel_bg_list = [
-        url_for("/img/bg/bg-1.jpg"),
-        url_for("/img/bg/bg-2.jpg"),
-        url_for("/img/bg/bg-3.jpg")
-    ]
+    <!-- let carousel_bg_list = new Array(); -->
+    let carousel_bg_list = [];
+
+    if (theme.carousel.carousel_bg && theme.carousel.carousel_bg.length > 0) {
+        theme.carousel.carousel_bg.forEach(function(carousel_bg) {
+            carousel_bg_list.push(url_for(carousel_bg));
+        });
+    }
 %>
 
 <div class="carousel carousel-slider backgrounds">
@@ -14,7 +17,7 @@
         </div>
     </div>
     <% for (let index in carousel_bg_list) { %>
-    <div class="carousel-item background overlay lazyload" data-src="<%- carousel_bg_list[index] %>" style="background-image: url('<%- carousel_bg_list[index] %>');"></div>
+    <div class="carousel-item background overlay lazyload" data-src="<%- url_for(carousel_bg_list[index]) %>" style="background-image: url('<%- url_for(carousel_bg_list[index]) %>');"></div>
     <% } %>
 </div>
 
