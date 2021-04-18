@@ -7,6 +7,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: #EEE;
 }
 
 a:focus {
@@ -67,7 +68,7 @@ header .brand-logo .logo-img {
     line-height: 64px;
 }
 
-.banner-background {
+.cover-background {
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -79,7 +80,7 @@ header .brand-logo .logo-img {
     background-color: #37474f;
 }
 
-.banner-background .pattern {
+.cover-background .pattern {
     opacity: .1;
     position: absolute;
     overflow: hidden;
@@ -177,6 +178,8 @@ header .brand-logo .logo-img {
     height: 22px;
     float:none !important;
     margin-left: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 .post .card .card-action .post-tags {
@@ -262,16 +265,7 @@ header .brand-logo .logo-img {
             transform: translate(0, 10px); }
   100% {
     -webkit-transform: translate(0, 0);
-            transform: translate(0, 0); } } {
-    0% {
-      -webkit-transform: translate(0, 0);
-              transform: translate(0, 0); }
-    50% {
-      -webkit-transform: translate(0, 10px);
-              transform: translate(0, 10px); }
-    100% {
-      -webkit-transform: translate(0, 0);
-              transform: translate(0, 0); } }
+            transform: translate(0, 0); } }
   
 @keyframes pulse {
     0% {
@@ -305,14 +299,20 @@ header .brand-logo .logo-img {
     transform: rotate(135deg);
 }
 
-.card {
+.post .card {
     -webkit-box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
     box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
 }
 
-.card:hover {
-    -webkit-box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-    box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+.post .card:hover {
+    /* -webkit-box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%); */
+    -webkit-box-shadow: 0 0 20px rgb(27 154 247 / 80%);
+    box-shadow: 0 0 20px rgb(27 154 247 / 80%);
+}
+
+.card .card-image {
+    background-color: #212121;
 }
 
 .card .card-image img {
@@ -338,6 +338,7 @@ header .brand-logo .logo-img {
     height: 100%;
     overflow: hidden;
     object-fit: cover;
+    opacity: .7;
 }
 
 .post .post-item .post-content {
@@ -510,4 +511,99 @@ header .brand-logo .logo-img {
 .top-scroll .btn-floating i {
     line-height: 48px;
     font-size: 1.8rem;
+}
+
+/* 文章页面 */
+/* 文章封面 */
+.post-cover {
+    position: relative;
+    height: 50vh;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+
+.post-cover .container {
+    color: #FFFFFF;
+}
+
+.post-cover .brand {
+    text-align: center;
+    z-index: 3;
+}
+
+.main-raised {
+    margin-top: -65px;
+    box-shadow: 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
+}
+
+/* 文章详情 */
+#post-detail .card {
+    background-color: #FFFFFF;
+    position: relative;
+    z-index: 3;
+}
+
+.post-content {
+    padding: 15px;
+}
+
+.post-content h1 {
+    font-size: 24px;
+}
+
+.post-content h2 {
+    font-size: 22px;
+}
+
+.post-content h3 {
+    font-size: 20px;
+}
+
+.post-content h4 {
+    font-size: 18px;
+}
+
+.post-content h5 {
+    font-size: 16px;
+}
+
+.post-content h6 {
+    font-size: 16px;
+}
+
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
+    font-weight: bold;
+    color: black;
+}
+
+.post-content strong {
+    font-weight: bold;
+    color: black;
+}
+
+.post-content ul, .post-content ol {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-left: 25px;
+}
+
+.post-content ul li {
+    display: list-item;
+    list-style-type: disc;
+}
+
+.post-content p code {
+    padding: 1px 5px;
+    font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
+    font-size: 0.91rem;
+    color: #e96900;
+    background-color: #f8f8f8;
+    border-radius: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+.post-comment {
+    padding: 15px;
 }

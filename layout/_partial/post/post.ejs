@@ -21,20 +21,22 @@
         <% page.posts.forEach(function(post) { %>
         <div class="col l4 m6 s12 post-item">
             <div class="card">
-                <a class="card-image post-image" href="<%- url_for(post.path) %>">
-                    <% if (post.img) { %>
-                    <img class="lazyload" src="<%- url_for(post.img) %>" data-src="<%- url_for(post.img) %>" alt="<%= post.title %>">
-                    <% } else { %>
-                    <%
-                    if (!random_thumbnail_list || random_thumbnail_list.length == 0) {
-                        return random_thumbnail;
-                    }
-                    random_thumbnail = random_thumbnail_list[Math.abs(hash_code(post.title) % random_thumbnail_list.length)]
-                    %>
-                    <img class="lazyload" src="<%- url_for(random_thumbnail) %>" data-src="<%- url_for(random_thumbnail) %>" alt="<%= post.title %>">
-                    <% } %>
-                    <span class="card-title"><%= post.title %></span>
-                </a>
+                <div class="card-image">
+                    <a class="post-image" href="<%- url_for(post.path) %>">
+                        <% if (post.img) { %>
+                        <img class="lazyload" src="<%- url_for(post.img) %>" data-src="<%- url_for(post.img) %>" alt="<%= post.title %>">
+                        <% } else { %>
+                        <%
+                        if (!random_thumbnail_list || random_thumbnail_list.length == 0) {
+                            return random_thumbnail;
+                        }
+                        random_thumbnail = random_thumbnail_list[Math.abs(hash_code(post.title) % random_thumbnail_list.length)]
+                        %>
+                        <img class="lazyload" src="<%- url_for(random_thumbnail) %>" data-src="<%- url_for(random_thumbnail) %>" alt="<%= post.title %>">
+                        <% } %>
+                        <span class="card-title"><%= post.title %></span>
+                    </a>
+                </div>
                 <div class="card-content post-content">
                     <% if (post.summary && post.summary.length > 0) { %>
                         <%- post.summary %>

@@ -1,10 +1,17 @@
 <main>
+    <%- partial('_partial/post/post-cover') %>
     <div class="container">
-        <%- partial('_partial/banner') %>
         <div class="row">
-            <div class="col s12 m12 l9" id="post-content">
-                <%- page.content %>
-                <%- partial('_partial/post/comment') %>
+            <div class="col s12 m12 l9" id="post-detail">
+                <div class="card main-raised">
+                    <div class="post-content">
+                        <%- page.content %>
+                    </div>
+                    <div class="post-comment">
+                        <%- partial('_partial/post/comment') %>
+                    </div>
+
+                </div>
             </div>
             <div class="col l3" id="post-toc">
 

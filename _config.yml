@@ -96,6 +96,8 @@ logo:
   url: /img/logo.png
   circle: true
 banner: /img/icon-seamless.png
+post_cover:
+  default: /img/icon-seamless.png
 
 # Sidebar
 sidebar:

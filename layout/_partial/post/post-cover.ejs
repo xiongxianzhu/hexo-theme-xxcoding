@@ -1,0 +1,26 @@
+<!-- 文章封面 -->
+<div class="post-cover">
+    <div class="cover-background">
+        <% if (page.img) { %>
+        <div class="pattern lazyload" data-src="<%- url_for(page.img) %>"
+            style="background-image: url('<%- url_for(page.img) %>');">
+            
+        </div>
+        <% } else { %>
+        <div class="pattern lazyload" data-src="<%- url_for(theme.post_cover.default) %>"
+            style="background-image: url('<%- url_for(theme.post_cover.default) %>');">
+            
+        </div>
+        <% } %>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="brand">
+                    <h4><%= page.title %></h4>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
