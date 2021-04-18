@@ -10,6 +10,14 @@ body {
     background-color: #EEE;
 }
 
+@media only screen and (min-width: 993px) {
+    
+    #nav-header .container {
+        width: 90%;
+    }
+}
+
+
 a:focus {
     outline: none;
 }
@@ -81,7 +89,7 @@ header .brand-logo .logo-img {
 }
 
 .cover-background .pattern {
-    opacity: .1;
+    opacity: .3;
     position: absolute;
     overflow: hidden;
     -webkit-transform: translateY(-50%);
@@ -92,11 +100,15 @@ header .brand-logo .logo-img {
     left: 0;
     margin: 0 auto;
     max-width: 100%;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+    /* -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); */
     transition: opacity .7s;
     -webkit-transform: none;
     transform: none;
+    background-position: center center;
+}
+
+.cover-background .pattern.repeat {
     background-repeat: repeat;
 }
 
@@ -537,6 +549,21 @@ header .brand-logo .logo-img {
     box-shadow: 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
 }
 
+.post-container {
+    max-width: 1280px;
+}
+
+@media only screen and (min-width: 601px) {
+    .post-container {
+        width:85%
+    }
+}
+@media only screen and (min-width: 993px) {
+    .post-container {
+        width:90%
+    }
+}
+
 /* 文章详情 */
 #post-detail .card {
     background-color: #FFFFFF;
@@ -606,4 +633,9 @@ header .brand-logo .logo-img {
 
 .post-comment {
     padding: 15px;
+}
+
+/* 文章目录 */
+#post-toc {
+    background-color: #FFFFFF;
 }
