@@ -43,7 +43,12 @@ $(function () {
         $('html, body').animate({scrollTop: 0}, 400);
     });
 
-    
+    // 将代码块下的子元素行号元素移动到使其与代码块元素成兄弟元素
+    // 主要是避免代码块水平内容过多出现滚动条而导致行号元素也跟着滚动
+    $('pre.line-numbers code').each(function(index, element) {
+        console.info($(element).children('span.line-numbers-rows'));
+        $(element).parent().append($(element).children('span.line-numbers-rows'));
+    });
 });
 
 let $backTop = $('.top-scroll');

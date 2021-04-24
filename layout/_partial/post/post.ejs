@@ -72,7 +72,9 @@
                             <%- post.author %>
                             <% } else { %>
                             <i class="fas fa-user fa-fw"></i>
+                            <a href="<%- url_for('/about') %>">
                             <%- config.author %>
+                            </a>
                             <% } %>
                         </span>
                     </div>

@@ -36,6 +36,7 @@
     <% if (config.prismjs && config.prismjs.enable) { %>
     <!-- 是否加载使用自带的 prismjs. -->
     <link rel="stylesheet" href="<%- url_for(theme.libs.css.prism) %>">
+    <link rel="stylesheet" type="text/css" href="<%- url_for('/libs/prism/prism-line-numbers.css') %>">
     <% } %>
     
     <!-- Material Icons -->

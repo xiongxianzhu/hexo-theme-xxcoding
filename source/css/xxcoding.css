@@ -46,11 +46,17 @@ header .nav-transparent {
 }
 
 #nav-header {
-    -webkit-transition: all 150ms ease 0s;
+    /* -webkit-transition: all 150ms ease 0s;
     -moz-transition: all 150ms ease 0s;
     -o-transition: all 150ms ease 0s;
     -ms-transition: all 150ms ease 0s;
-    transition: all 150ms ease 0s;
+    transition: all 150ms ease 0s; */
+
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -ms-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
 }
 
 nav .brand-logo {
@@ -213,7 +219,7 @@ header .brand-logo .logo-img {
     bottom: 0;
     top: 0;
     background: #4A148C;
-    opacity: 0.8;
+    opacity: 0.5;
 }
 
 .backgrounds .background {
@@ -565,6 +571,11 @@ header .brand-logo .logo-img {
 }
 
 /* 文章详情 */
+#post-detail {
+    /* font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times, "Times New Roman", serif; */
+    font-family: Source Sans Pro,Helvetica Neue,Arial,sans-serif;
+}
+
 #post-detail .card {
     background-color: #FFFFFF;
     position: relative;
@@ -576,27 +587,31 @@ header .brand-logo .logo-img {
 }
 
 .post-content h1 {
-    font-size: 24px;
+    font-size: 2rem;
+    margin: 0 0 1rem;
 }
 
 .post-content h2 {
-    font-size: 22px;
+    font-size: 1.75rem;
+    margin: 45px 0 .8rem;
 }
 
 .post-content h3 {
-    font-size: 20px;
+    font-size: 1.5rem;
+    margin: 40px 0 .6rem;
 }
 
 .post-content h4 {
-    font-size: 18px;
+    font-size: 1.25rem;
 }
 
 .post-content h5 {
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .post-content h6 {
-    font-size: 16px;
+    color: #777;
+    font-size: 1rem;
 }
 
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
@@ -609,10 +624,13 @@ header .brand-logo .logo-img {
     color: black;
 }
 
+.post-content ul, .post-content ol, .post-content p {
+    line-height: 1.6rem;
+    word-spacing: .05rem;
+}
+
 .post-content ul, .post-content ol {
-    margin-top: 8px;
-    margin-bottom: 8px;
-    padding-left: 25px;
+    padding-left: 1.5rem;
 }
 
 .post-content ul li {
@@ -620,15 +638,105 @@ header .brand-logo .logo-img {
     list-style-type: disc;
 }
 
-.post-content p code {
-    padding: 1px 5px;
-    font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
-    font-size: 0.91rem;
-    color: #e96900;
-    background-color: #f8f8f8;
+.post-content p code, .post-content li code {
+    font-size: 0.8rem;
     border-radius: 2px;
-    margin-right: 2px;
-    margin-left: 2px;
+    color: #e96900;
+    margin: 0 2px;
+    padding: 3px 5px;
+    white-space: pre-wrap;
+    font-family: Roboto Mono,Monaco,courier,monospace;
+    background-color: #f8f8f8;
+}
+
+.post-content p {
+    line-height: 1.6rem;
+    word-spacing: .05rem;
+    margin: 1.2em 0;
+}
+
+.post-content p a {
+    color: var(--theme-color,#42b983);
+    font-weight: 600;
+}
+
+.post-content pre {
+    position: relative;
+  	padding-top: 1px !important;
+    padding-left: 0px;
+	tab-size: 4;
+    background-color: #282c34;
+    padding: 1rem 1rem 1rem 1rem !important;
+    margin: 1rem 0 !important;
+}
+
+/* pre滚动条样式 */
+.post-content pre code::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.post-content pre code::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: rgba(0,0,0,.12);
+    box-shadow: inset 0 0 10px rgb(0 0 0 / 20%);
+}
+
+.post-content pre code::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background: rgba(0,0,0,.06);
+    box-shadow: inset 0 0 5px rgb(0 0 0 / 8%);
+}
+
+.post-content pre.line-numbers {
+    border-radius: 0.35rem;
+    padding: 2.2rem 1.5rem 0.5rem 3.8rem !important;
+}
+
+.post-content pre code {
+    overflow-x: auto;
+    word-wrap: normal;
+    word-break: break-all;
+    -webkit-text-size-adjust: none;
+    display: block;
+    padding: 0.3rem 0.3rem;
+}
+
+/* 代码块语言 */
+.post-content pre.line-numbers::before {
+    color: #ccc;
+    font-size: .6rem;
+    font-weight: 600;
+    height: 15px;
+    line-height: 15px;
+    padding: 5px 10px 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+    content: attr(data-language);
+}
+
+/* mac主题效果 */
+.post-content pre.line-numbers::after {
+    content: '';
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    background: #ff5f56!important;
+    width: 10px!important;
+    height: 10px!important;
+    top: 12px!important;
+    left: 12px!important;
+    -webkit-box-shadow: 16px 0 #ffbd2e, 32px 0 #27c93f;
+    box-shadow: 16px 0 #ffbd2e, 32px 0 #27c93f;
+}
+
+/* 行号位置 */
+.line-numbers .line-numbers-rows {
+    top: 2.5rem;        /* 2.2rem + 0.3rem */
+    left: 0rem;
+    width: 3.5em;
 }
 
 .post-comment {
