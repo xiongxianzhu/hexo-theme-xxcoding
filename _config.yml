@@ -165,7 +165,7 @@ copyright:
 # 评论系统
 # disqus comment
 disqus:
-  enable: true
+  enable: false
   shortname: blog-zhuxiongxian
 
 # gitalk comment
@@ -195,16 +195,20 @@ livere:
 
 # valine comment system. https://valine.js.org
 valine:
-  enable: false # if you want use valine,please set this value is true
-  app_id:  # leancloud application app id
-  app_key:  # leancloud application app key
+  enable: true # if you want use valine,please set this value is true
+  app_id: Mia2Oc0sFRP8CLKWIpkzlKH7-gzGzoHsz  # leancloud application app id
+  app_key: UzWr1AJYRlfkoKpaNY9l2dIW  # leancloud application app key
   notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
   verify: false # valine verify code (true/false)
+  visitor: true
   page_size: 10 # comment list page size
-  avatar: mm # gravatar style https://valine.js.org/#/avatar
+  avatar: monsterid # gravatar style https://valine.js.org/#/avatar
   lang: zh-cn # i18n: zh-cn/en
-  placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
+  placeholder: 发一条友善的评论 # valine comment input placeholder(like: Please leave your footprints )
   guest_info: nick,mail,link # valine comment header info
+  # emoji_cdn: https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/ # 默认微博表情CDN
+  emoji_cdn: //i0.hdslb.com/bfs/emote/    # 设置Bilibili表情包地址
+    
 
 # changyan comment
 # 畅言评论系统， 需要备案
@@ -241,7 +245,7 @@ libs:
     lazyload: /libs/lazyload/lazyload.min.js
     aos: /libs/aos/aos.js
     aplayer: /libs/aplayer/APlayer.min.js
-    valine: 
+    valine: /libs/valine/Valine.min.js
     scrollprogress: 
     gitalk:
     busuanzi:
@@ -267,7 +271,7 @@ cdn:
     lazyload: 
     aos: 
     aplayer: https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js
-    valine: 
+    valine: //unpkg.com/valine/dist/Valine.min.js
     scrollprogress: 
     gitalk:
     busuanzi:

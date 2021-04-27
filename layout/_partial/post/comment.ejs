@@ -1,3 +1,6 @@
 <% if (theme.disqus.enable) { %>
-    <%- partial('_widget/comment/disqus/disqus') %>
+    <%- partial('_widget/comment/disqus') %>
+<% } %>
+<% if (theme.valine.enable) { %>
+    <%- partial('_widget/comment/valine') %>
 <% } %>
