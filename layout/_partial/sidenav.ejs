@@ -1,9 +1,9 @@
 <div class="sidenav" id="nav-mobile">
     <div class="user-view">
         <div class="background overlay">
-            <img class="" src="<%- url_for(theme.sidebar.background_image) %>">
+            <img class="lazyload" src="<%- url_for(theme.sidebar.background_image) %>" data-src="<%- url_for(theme.sidebar.background_image) %>">
         </div>
-        <img class="circle responsive-img" src="<%- url_for(theme.logo.url) %>">
+        <img class="circle responsive-img lazyload" src="<%- url_for(theme.logo.url) %>" data-src="<%- url_for(theme.logo.url) %>">
         <div class="name white-text"><%- config.title %></div>
         <div class="description white-text"><%- config.description %></div>
     </div>

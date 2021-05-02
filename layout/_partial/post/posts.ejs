@@ -1,0 +1,91 @@
+<%
+    let random_thumbnail = '/img/random/material-1.jpg';
+    let random_thumbnail_list = theme.random_thumbnail;
+
+    let hash_code = function (str) {
+        if (!str && str.length === 0) {
+            return 0;
+        }
+
+        let hash = 0;
+        for (let i = 0, len = str.length; i < len; i++) {
+            hash = ((hash << 5) - hash) + str.charCodeAt(i);
+            hash |= 0;
+        }
+        return hash;
+    };
+    
+%>
+<article class="container post">
+    <section class="row">
+        <% page.posts.forEach(function(post) { %>
+        <div class="col l4 m6 s12 post-item" data-aos="fade-up">
+            <div class="card">
+                <div class="card-image">
+                    <a class="post-image" href="<%- url_for(post.path) %>">
+                        <% if (post.sticky) { %>
+                            <div class="post-sticky"><div>置顶</div></div>
+                        <% } %>
+                        <% if (post.img) { %>
+                        <img class="lazyload" src="<%- url_for(post.img) %>" data-src="<%- url_for(post.img) %>" alt="<%= post.title %>">
+                        <% } else { %>
+                        <%
+                        if (!random_thumbnail_list || random_thumbnail_list.length == 0) {
+                            return random_thumbnail;
+                        }
+                        random_thumbnail = random_thumbnail_list[Math.abs(hash_code(post.title) % random_thumbnail_list.length)]
+                        %>
+                        <img class="lazyload" src="<%- url_for(random_thumbnail) %>" data-src="<%- url_for(random_thumbnail) %>" alt="<%= post.title %>">
+                        <% } %>
+                        <span class="card-title"><%= post.title %></span>
+                    </a>
+                </div>
+                <div class="card-content post-content">
+                    <% if (post.summary && post.summary.length > 0) { %>
+                        <%- post.summary %>
+                    <% } else if (post.content && post.content.length > 0) { %>
+                        <%- strip_html(post.content).substring(0, 120) %>
+                    <% } %>
+                </div>
+                <div class="card-action">
+                    <% if (post.tags && post.tags.length > 0) { %>
+                    <div class="post-tags">
+                        <% post.tags.forEach(tag => { %>
+                        <a href="<%- url_for(tag.path) %>">
+                            <span class="badge pink darken-1"><%= tag.name %></span>
+                        </a>
+                        <% }); %>
+                    </div>
+                    <% } %>
+                    <div class="post-publish-info white-text">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>
+                            <%= date(post.date, config.date_format) %>
+                        </span>
+                        <span class="publish-auth right">
+                            <% if (post.categories && post.categories.length > 0) { %>
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            <% post.categories.forEach(category => { %>
+                            <a href="<%- url_for(category.path) %>" class="post-category">
+                                <%- category.name %>
+                            </a>
+                            <% }); %>
+                            <% } else if (post.author && post.author.length > 0) { %>
+                            <i class="fas fa-user fa-fw"></i>
+                            <%- post.author %>
+                            <% } else { %>
+                            <i class="fas fa-user fa-fw"></i>
+                            <a href="<%- url_for('/about') %>">
+                            <%- config.author %>
+                            </a>
+                            <% } %>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    </section>
+    <!-- 文章分页器 -->
+    <%- partial('_partial/paginator') %>
+</article>

@@ -73,7 +73,7 @@
                 <% } %>
                 <% if (theme.icp.enable) { %>
                 <div id="icp">
-                    <img src="<%- url_for('/img/icp.png') %>" style="vertical-align: text-bottom;" />
+                    <img class="lazyload" src="<%- url_for('/img/icp.png') %>" data-src="<%- url_for('/img/icp.png') %>" style="vertical-align: text-bottom;" />
                     <a href="<%- url_for(theme.icp.url) %>" target="_blank"><%- theme.icp.text %></a>
                 </div>
                 <% } %>

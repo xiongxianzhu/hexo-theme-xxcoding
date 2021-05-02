@@ -1,22 +1,76 @@
+<style>
+    <% if (theme.codeblock.mac_theme || theme.codeblock.show_code_language) { %>
+    .post-content pre.line-numbers {
+        padding: 2.2rem 1.5rem 0.5rem 3.8rem !important;
+    }
+
+    /* 行号位置 */
+    .line-numbers .line-numbers-rows {
+        top: 2.5rem;        /* 2.2rem + 0.3rem */
+    }
+    <% } %>
+    <% if (theme.codeblock.mac_theme) { %>
+    /* mac主题效果 */
+    .post-content pre.line-numbers::after {
+        content: '';
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        background: #ff5f56!important;
+        width: 10px!important;
+        height: 10px!important;
+        top: 12px!important;
+        left: 12px!important;
+        -webkit-box-shadow: 16px 0 #ffbd2e, 32px 0 #27c93f;
+        box-shadow: 16px 0 #ffbd2e, 32px 0 #27c93f;
+    }
+    <% } %>
+    <% if (theme.codeblock.show_code_language) { %>
+    /* 代码块语言 */
+    .post-content pre.line-numbers::before {
+        color: #ccc;
+        font-size: .6rem;
+        font-weight: 600;
+        height: 25px;
+        line-height: 25px;
+        padding: 5px 10px 0;
+        position: absolute;
+        right: 0;
+        text-align: right;
+        top: 0;
+        content: attr(data-language);
+    }
+    <% } %>
+</style>
 <main>
+    <!-- 文章封面 -->
     <%- partial('_partial/post/post-cover') %>
     <div class="container post-container">
         <div class="row">
-            <div class="col s12 m12 l9" id="post-detail">
-                <div class="card main-raised">
-                    <div class="post-content">
-                        <%- page.content %>
-                    </div>
-                    <div class="post-comment">
-                        <%- partial('_partial/post/comment') %>
-                    </div>
-    
+            <% if (theme.toc.enable && theme.toc.position === 'left') { %>
+                <div class="col l3" id="toc-body">
+                    <!-- 文章目录 -->
+                    <%- partial('_partial/post/toc') %>
                 </div>
-            </div>
-            <div class="col l3" id="post-toc">
-                234
-            </div>
+                <div class="col s12 m12 l9" id="post-body">
+                    <!-- 文章详情 -->
+                    <%- partial('_partial/post/post') %>
+                </div>
+            <% } else if (theme.toc.enable && theme.toc.position === 'right') { %>
+                <div class="col s12 m12 l9" id="post-body">
+                    <!-- 文章详情 -->
+                    <%- partial('_partial/post/post') %>
+                </div>
+                <div class="col l3" id="toc-body">
+                    <!-- 文章目录 -->
+                    <%- partial('_partial/post/toc') %>
+                </div>
+            <% } else { %>
+                <div class="col s12 m12">
+                    <!-- 文章详情 -->
+                    <%- partial('_partial/post/post') %>
+                </div>
+            <% } %>
         </div>
     </div>
 </main>
-

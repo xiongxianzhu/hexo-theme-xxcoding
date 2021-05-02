@@ -1,8 +1,50 @@
 <%
-    <!-- 翻译 -->
+    // 翻译
     let title = __(page.title);
 
-    title = title ? title + ' | ' + config.title : config.title;
+    let page_tag_list = [];
+    let postTags = '';
+    if (is_post()) {
+        page.tags.forEach(function(tag) {
+            page_tag_list.push(tag.name);
+        })
+        postTags = page_tag_list.join(', ');
+    }
+
+    // keywords
+    let keywords = config.keywords ? config.keywords : config.title;
+    if (page.keywords) {
+        keywords = page.keywords;
+    } else if (postTags) {
+        // 将文章标签也加入关键词中
+        keywords = title ? title  + ', ' + postTags + ', ' + keywords : postTags + ', ' + keywords;
+    } else {
+        keywords = title ? title  + ', ' + keywords : keywords;
+    }
+
+    if (is_archive()) {
+        title = __('archives');
+        if (is_month()) {
+            title += ': ' + page.year + '/' + page.month;
+        } else if (is_year()) {
+            title += ': ' + page.year;
+        }
+    } else if (is_category()) {
+        title = __('category') + ': ' + page.category;
+    } else if (is_tag()) {
+        title = __('tag') + ': ' + page.tag;
+    }
+
+    let pageTitle = title ? title + ' | ' + config.title : config.title;
+
+    // description.
+    let description = null;
+    if (page.summary) {
+        description = page.summary;
+    } else if (page.hasOwnProperty('__post') && page.__post) {
+        description = strip_html(page.content).substring(0, 120);
+    }
+    description = description ? description : pageTitle;
 
     let iconType = 'image/png'
     let faviconExt = theme.favicon.substr(theme.favicon.lastIndexOf('.') + 1, theme.favicon.length)
@@ -29,8 +71,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="format-detection" content="telephone=no">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <meta name="keywords" content="<%= keywords %>">
+    <meta name="description" content="<%= description %>">
     <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.materialize) %>">
     <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.animate) %>">
     <% if (config.prismjs && config.prismjs.enable) { %>
@@ -72,6 +114,7 @@
         <% } %>
     <% } %>
 
-    <title><%= title %></title>
+    <title><%= pageTitle %></title>
     <link rel="icon" type="<%= iconType %>" href="<%- url_for(theme.favicon) %>">
+    <script src="<%- url_for(theme.libs.js.jquery) %>"></script>
 </head>

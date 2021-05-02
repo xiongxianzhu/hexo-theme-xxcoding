@@ -21,17 +21,18 @@
 - [x] [APlayer](https://aplayer.js.org/)音乐播放器
 - [ ] [DaoVoice](https://www.daocloud.io/)在线聊天
 - [ ] 数据统计与分析：[百度统计](https://tongji.baidu.com/web/welcome/login)、 谷歌分析、 CNZZ、 LeanCloud、 不蒜子网站统计
-- [ ] `lazyload` 图片懒加载
-- [ ] 评论系统： disqus、 Valine、 gitalk、 gitment、 livere、 畅言
-- [ ] `prismjs`代码高亮
+- [x] `lazyload` 图片懒加载
+- [x] 评论系统： disqus、 Valine、 gitalk、 gitment、 livere、 畅言
+- [x] `prismjs`代码高亮
 - [ ] `resume` 简历
 - [ ] `gallery` 相册
 - [ ] `portfolio` 作品集
 - [ ] `links` 友情链接
 - [ ] `tagcloud` 标签云
 - [ ] `timeline` 时间线
-- [ ] `TOC` 文章目录
-- [ ] 文章置顶、 文章打赏
+- [x] `TOC` 文章目录 [tocbot](https://github.com/tscanlin/tocbot)
+- [x] 文章置顶`sticky`
+- [ ] 文章打赏
 - [ ] 🌍 国际化支持多语言， 目前支持`简体中文`、 `English`、 `繁体中文`
 - [ ] 🎨 支持每个细节自定义主题
 - [ ] 支持`emoji`表情
@@ -280,6 +281,28 @@ layout: books
 
 - [Valine](https://valine.js.org/)
 
+### 文章置顶
+
+在`./node_modules/hexo-generator-index/lib/generator.js`文件中， 找到以下代码：
+
+```js
+sort(posts.data, (a, b) => (b.sticky || 0) - (a.sticky || 0));
+```
+
+可知, 在文章的`Front-matter`中添加属性`sticky`可实现置顶功能， 其中数值越大越靠前。示例：
+
+```markdown
+---
+title: mac下安装go开发环境
+date: 2021-03-18 11:15:11
+tags:
+    - go
+    - mac
+categories: go
+permalink_id: install-go-on-mac
+sticky: 10
+---
+```
 
 ## 插件
 
@@ -370,7 +393,7 @@ hexo_project/source/_data
 - [Creating a Theme](https://www.youtube.com/watch?v=5ROIU_9dYe4&list=PLLAZ4kZ9dFpOMJR6D25ishrSedvsguVSm&index=11)
 - [Material Design Themes](https://materialdesignthemes.com/)
 - [creative tim](https://www.creative-tim.com/templates/free)
-- [material-kit]([material-kit](https://demos.creative-tim.com/material-kit/index.html))
+- [material-kit](https://demos.creative-tim.com/material-kit/index.html))
 - [bootstrap](https://getbootstrap.com/)
 - [Material UI调色板](https://www.materialui.co/colors)
 - [Buttons](https://www.bootcss.com/p/buttons/)

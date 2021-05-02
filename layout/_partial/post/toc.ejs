@@ -1,0 +1,128 @@
+<link rel="stylesheet" href="<%- url_for(theme.libs.css.tocbot) %>">
+<style>
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget #toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #toc-content .toc-list {
+        padding-left: 10px;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ul li, #toc-content ol li {
+        padding-left: 10px;
+        line-height: 1.8rem;
+        font-size: 1rem;
+        color: #444;
+    }
+
+    #toc-content .is-active-link {
+        color: #E91E63;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: transparent;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+    }
+
+    .toc-widget {
+        box-shadow: 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
+    }
+
+</style>
+<div id="post-toc">
+    <div class="toc-widget card">
+        <div id="toc-title">
+            <i class="far fa-list-alt"></i>&nbsp;&nbsp;<%- __('toc') %>
+        </div>
+        <div id="toc-content"></div>
+    </div>
+</div>
+<script src="<%- url_for(theme.libs.js.tocbot) %>"></script>
+<script>
+    $(function() {
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '#toc-content',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: '.post-content',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h1, h2, h3, h4',
+            // For headings inside relative or absolute positioned containers within content.
+            hasInnerContainers: false,
+            // Smooth scrolling enabled.
+            scrollSmooth: true,
+            // Smooth scroll duration.
+            scrollSmoothDuration: 420,
+            headingsOffset: $('#nav-header').height() + 10,
+            scrollSmoothOffset: -($('#nav-header').height() + 10),
+            collapseDepth: 4,
+            // orderedList can be set to false to generate unordered lists (ul)
+            // instead of ordered lists (ol)
+            orderedList: false,
+        });
+
+        // 动态设置文章目录的宽度， 防止滚动和窗口变动时变形
+        // width()不包含padding, innerWidth()包含padding
+        $('.toc-widget').width($('#toc-body').width());
+
+        let tocHeight = parseInt($(window).height() * 0.5 - 64);
+        let $tocWidget = $('.toc-widget');
+        let $tocTitle = $('#toc-title');
+        let $tocContent = $('#toc-content');
+        if ($(window).scrollTop() > tocHeight) {
+            $tocWidget.addClass('toc-fixed');
+        } else {
+            $tocWidget.removeClass('toc-fixed');
+        }
+        $tocWidget.css('max-height', $(window).height() * 0.6);
+        if ($tocContent.height() > ($tocWidget.height() - $tocTitle.height())) {
+            $tocWidget.css('overflow-y', 'auto');
+        }
+        // if ($tocWidget.height() > $(window).height() * 0.6) {
+        //     $tocWidget.css('max-height', $(window).height() * 0.6);
+        // }
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+            if ($tocContent.height() > ($tocWidget.height() - $tocTitle.height())) {
+                $tocWidget.css('overflow-y', 'auto');
+            } else {
+                $tocWidget.css('overflow-y', 'unset');
+            }
+            $('.toc-widget').width($('#toc-body').width());
+        });
+        $(window).on('resize', function(){
+            $tocWidget.css('max-height', $(window).height() * 0.6);
+            if ($tocContent.height() > ($tocWidget.height() - $tocTitle.height())) {
+                $tocWidget.css('overflow-y', 'auto');
+            } else {
+                $tocWidget.css('overflow-y', 'unset');
+            }
+            $('.toc-widget').width($('#toc-body').width());
+        });
+    });
+</script>

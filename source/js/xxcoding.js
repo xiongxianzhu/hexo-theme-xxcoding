@@ -26,6 +26,8 @@ $(function () {
     $('.scroll-down').on('click', scrollToPost);
 
     $(".lazyload").lazyload();
+    console.info($('img:not(".lazyload")'));
+    new LazyLoad($('img:not(".lazyload")'));
 
     $(window).resize(function () {
         $('.carousel.carousel-slider').height($(window).height());
@@ -46,7 +48,6 @@ $(function () {
     // 将代码块下的子元素行号元素移动到使其与代码块元素成兄弟元素
     // 主要是避免代码块水平内容过多出现滚动条而导致行号元素也跟着滚动
     $('pre.line-numbers code').each(function(index, element) {
-        console.info($(element).children('span.line-numbers-rows'));
         $(element).parent().append($(element).children('span.line-numbers-rows'));
     });
 });

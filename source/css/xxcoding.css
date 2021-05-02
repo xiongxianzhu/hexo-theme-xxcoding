@@ -17,7 +17,6 @@ body {
     }
 }
 
-
 a:focus {
     outline: none;
 }
@@ -80,6 +79,14 @@ header .brand-logo .logo-img {
     margin-right: 10px;
     height: 45px;
     line-height: 64px;
+}
+
+.circle.avatar:hover {
+    transform: rotate(666turn);
+    transition-delay: 1s;
+    transition-property: all;
+    transition-duration: 59s;
+    transition-timing-function: cubic-bezier(.34,0,.84,1);
 }
 
 .cover-background {
@@ -331,6 +338,9 @@ header .brand-logo .logo-img {
 
 .card .card-image {
     background-color: #212121;
+    /* 因为.card有border-radius: 2px， 故避免左上角和右上角有背景色 */
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
 }
 
 .card .card-image img {
@@ -338,6 +348,33 @@ header .brand-logo .logo-img {
     height: 100%;
     overflow: hidden;
     object-fit: cover;
+}
+
+.post-sticky {
+    z-index: 10;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+}
+
+.post-sticky div {
+    line-height: 18px;
+    text-align: center;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    position: relative;
+    padding: 3px 0;
+    top: 10px;
+    left: -28px;
+    width: 100px;
+    background-color: #ff3b00;
+    color: #fff;
+    box-shadow: -3px 5px 6px -5px rgb(0 0 0 / 50%);
 }
 
 .post-image {
@@ -689,8 +726,9 @@ header .brand-logo .logo-img {
 }
 
 .post-content pre.line-numbers {
-    border-radius: 0.35rem;
-    padding: 2.2rem 1.5rem 0.5rem 3.8rem !important;
+    border-radius: 2px;
+    /* border-radius: 0.35rem; */
+    padding: 0.5rem 1.5rem 0.5rem 3.8rem !important;
 }
 
 .post-content pre code {
@@ -703,11 +741,11 @@ header .brand-logo .logo-img {
 }
 
 /* 代码块语言 */
-.post-content pre.line-numbers::before {
+/* .post-content pre.line-numbers::before {
     color: #ccc;
     font-size: .6rem;
     font-weight: 600;
-    height: 15px;
+    height: 25px;
     line-height: 15px;
     padding: 5px 10px 0;
     position: absolute;
@@ -715,35 +753,15 @@ header .brand-logo .logo-img {
     text-align: right;
     top: 0;
     content: attr(data-language);
-}
-
-/* mac主题效果 */
-.post-content pre.line-numbers::after {
-    content: '';
-    position: absolute;
-    display: block;
-    border-radius: 50%;
-    background: #ff5f56!important;
-    width: 10px!important;
-    height: 10px!important;
-    top: 12px!important;
-    left: 12px!important;
-    -webkit-box-shadow: 16px 0 #ffbd2e, 32px 0 #27c93f;
-    box-shadow: 16px 0 #ffbd2e, 32px 0 #27c93f;
-}
+} */
 
 /* 行号位置 */
 .line-numbers .line-numbers-rows {
-    top: 2.5rem;        /* 2.2rem + 0.3rem */
+    top: 0.8rem;        /* 0.5rem + 0.3rem */
     left: 0rem;
     width: 3.5em;
 }
 
 .post-comment {
     padding: 15px;
-}
-
-/* 文章目录 */
-#post-toc {
-    background-color: #FFFFFF;
 }

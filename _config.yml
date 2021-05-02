@@ -207,7 +207,7 @@ valine:
   placeholder: 发一条友善的评论 # valine comment input placeholder(like: Please leave your footprints )
   guest_info: nick,mail,link # valine comment header info
   # emoji_cdn: https://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/ # 默认微博表情CDN
-  emoji_cdn: //i0.hdslb.com/bfs/emote/    # 设置Bilibili表情包地址
+  emoji_cdn: https://i0.hdslb.com/bfs/emote/    # 设置Bilibili表情包地址
     
 
 # changyan comment
@@ -236,6 +236,7 @@ libs:
     material_icons: /libs/materialicons/materialicons.css   # https://fonts.googleapis.com/icon?family=Material+Icons
     aos: /libs/aos/aos.css
     aplayer: /libs/aplayer/APlayer.min.css
+    tocbot: /libs/tocbot/tocbot.css
     meting: /libs/aplayer/Meting.min.js
     xxcoding: /css/xxcoding.css
     mycss: 
@@ -246,6 +247,7 @@ libs:
     aos: /libs/aos/aos.js
     aplayer: /libs/aplayer/APlayer.min.js
     valine: /libs/valine/Valine.min.js
+    tocbot: /libs/tocbot/tocbot.min.js
     scrollprogress: 
     gitalk:
     busuanzi:
@@ -265,6 +267,7 @@ cdn:
     material_icons: 
     aos: 
     aplayer: https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css
+    tocbot: https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css
   js:
     jquery: 
     materialize: 
@@ -277,6 +280,7 @@ cdn:
     busuanzi:
     meting: https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js
     live2d: https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js
+    tocbot: https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js
   fontcss:
 
 google_analytics:
@@ -339,6 +343,8 @@ carousel:
     - /img/bg/bg-1.jpg
     - /img/bg/bg-2.jpg
     - /img/bg/bg-3.jpg
+    - /img/bg/bg-4.jpg
+    - /img/bg/bg-5.jpg
 
 # https://aplayer.js.org/#/zh-Hans/?id=参数
 # https://github.com/metowolf/MetingJS
@@ -374,3 +380,10 @@ time:
   hour: 00 # 小时
   minute: 00 # 分钟
   second: 00 # 秒
+
+# 代码块
+# 行号在网站根目录下的_config.yml配置下的prismjs.line_number， 即site.config.prismjs.line_number
+codeblock:
+  mac_theme: true             # mac主题
+  show_code_language: true    # 显示代码语言
+  show_copy_button: true      # 显示拷贝代码按钮
