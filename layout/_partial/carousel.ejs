@@ -19,6 +19,16 @@
     <% for (let index in carousel_bg_list) { %>
     <div class="carousel-item background overlay lazyload" data-src="<%- url_for(carousel_bg_list[index]) %>" style="background-image: url('<%- url_for(carousel_bg_list[index]) %>');"></div>
     <% } %>
+    <% if (theme.carousel.show_control) { %>
+    <a class="carousel-control-prev" href="javascript:;" role="button" data-slide="prev">
+        <i class="material-icons">keyboard_arrow_left</i>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="javascript:;" role="button" data-slide="next">
+        <i class="material-icons">keyboard_arrow_right</i>
+        <span class="sr-only">Next</span>
+    </a>
+    <% } %>
 </div>
 
 <header>
@@ -27,3 +37,39 @@
         <%- partial('_partial/typed') %>
     </div>
 </header>
+<script>
+    $(function() {
+        let cover_slider = $('.carousel.carousel-slider');
+        cover_slider.carousel({
+            fullWidth: true,
+            indicators: '<%- theme.carousel.show_indicators %>' === 'true',
+            duration: Number('<%- theme.carousel.duration %>'),
+            onCycleTo() {
+
+            }
+        });
+        <% if (theme.carousel.show_control) { %>
+        let slider = M.Carousel.getInstance(cover_slider);
+
+        $('.carousel-control-prev').click(function() {
+            slider.prev();
+        });
+
+        $('.carousel-control-next').click(function() {
+            slider.next();
+        });
+        <% } %>
+
+        <% if (theme.carousel.auto_loop) { %>
+        let carousel_interval;
+        let auto_carousel = function() {
+            carousel_interval = setInterval(function () {
+                cover_slider.carousel('next');
+            }, <%- theme.carousel.interval_time %>);
+        };
+        auto_carousel();
+        <% } %>
+
+    });
+
+</script>

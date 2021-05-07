@@ -8,6 +8,7 @@ $(function () {
         coverTrigger: false,
         hover: true
     });
+
     $('.collapsible').collapsible();
     AOS.init({
         easing: 'ease-in-out-sine',
@@ -15,6 +16,7 @@ $(function () {
         delay: 100
     });
 
+    // 滚动到文章区域
     function scrollToPost() {
         if ($('.post').length != 0) {
             $('html, body').animate({
@@ -22,16 +24,16 @@ $(function () {
             }, 1000);
         }
     }
-
+    // 点击开始阅读按钮滚动到文章区域
     $('.scroll-down').on('click', scrollToPost);
-
+    // 图片懒加载
     $(".lazyload").lazyload();
-    console.info($('img:not(".lazyload")'));
     new LazyLoad($('img:not(".lazyload")'));
 
+    $('main').css('min-height', window.innerHeight - $('#nav-header').height() - $('footer').innerHeight());
     $(window).resize(function () {
         $('.carousel.carousel-slider').height($(window).height());
-        $('main').css('min-height', window.innerHeight - $('#nav-header').height() - $('footer').height());
+        $('main').css('min-height', window.innerHeight - $('#nav-header').height() - $('footer').innerHeight());
     });
 
     /* 监听滚动条位置 */
@@ -58,13 +60,13 @@ xxcodingKit = {
     checkScrollForTransparentNavbar: debounce(function() {
         if ($(document).scrollTop() < scroll_distance) {
             $('#nav-header').addClass('nav-transparent');
-            $('nav#nav-header ul a.nav-item').addClass('white-text');
-            $('nav .brand-logo').addClass('white-text');
+            $('nav#nav-header ul a.nav-item').removeClass('nav-item-color');
+            $('nav .brand-logo').removeClass('nav-brand-logo-color');
             $backTop.slideUp(300);
         } else {
             $('#nav-header').removeClass('nav-transparent');
-            $('nav#nav-header ul a.nav-item').removeClass('white-text');
-            $('nav .brand-logo').removeClass('white-text');
+            $('nav#nav-header ul a.nav-item').addClass('nav-item-color');
+            $('nav .brand-logo').addClass('nav-brand-logo-color');
             $backTop.slideDown(300);
         }
     }, 17)

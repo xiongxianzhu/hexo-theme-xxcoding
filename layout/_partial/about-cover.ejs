@@ -1,0 +1,15 @@
+<div class="about-cover">
+    <div class="cover-background">
+        <% if (page.img) { %>
+        <div class="pattern lazyload" data-src="<%- url_for(page.img) %>"
+            style="background-image: url('<%- url_for(page.img) %>');">
+            
+        </div>
+        <% } else { %>
+        <div class="pattern repeat lazyload" data-src="<%- url_for(theme.banner) %>"
+            style="background-image: url('<%- url_for(theme.banner) %>');">
+            
+        </div>
+        <% } %>
+    </div>
+</div>

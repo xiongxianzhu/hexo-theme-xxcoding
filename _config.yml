@@ -38,9 +38,9 @@ menu:
         url: /comments
         icon: fas fa-comments
         material_icon: comment
-      frients:
+      friends:
         enable: true
-        url: /frients
+        url: /friends
         icon: fas fa-address-book
         material_icon: link
       resume:
@@ -98,6 +98,11 @@ logo:
 banner: /img/icon-seamless.png
 post_cover:
   default: /img/icon-seamless.png
+
+profile:
+  avatar: /img/logo.png
+  name: xiongxianzhu
+  job: Python & Go 软件工程师
 
 # Sidebar
 sidebar:
@@ -339,6 +344,7 @@ carousel:
   interval_time: 5000
   duration: 200
   indicators: true
+  show_control: true
   carousel_bg:
     - /img/bg/bg-1.jpg
     - /img/bg/bg-2.jpg
@@ -374,9 +380,9 @@ live2d:
 # 站点运行开始时间.
 time:
   enable: true
-  year: 2021 # 年份
-  month: 01 # 月份
-  date: 01 # 日期
+  year: 2017 # 年份
+  month: 06 # 月份
+  date: 05 # 日期
   hour: 00 # 小时
   minute: 00 # 分钟
   second: 00 # 秒

@@ -1,6 +1,25 @@
 <main>
-    <div style="height: 400px; position: relative; top: -64px; left: 0;">
-        <%- partial('_partial/banner') %>
+    <%- partial('_partial/about-cover') %>
+    <div class="container has-cover-container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="main main-raised profile-content">
+                    <div class="profile">
+                        <div class="avatar">
+                            <img class="img-raised circle logo-img lazyload" src="<%- url_for(theme.profile.avatar) %>"  data-src="<%- url_for(theme.profile.avatar) %>" alt="avatar">
+                        </div>
+                        <div class="name">
+                            <h3 class="title"><%- theme.profile.name %></h3>
+                            <h6><%- theme.profile.job %></h6>
+                        </div>
+                        
+                        <div class="profile-detail">
+                            <%- page.content %>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
 </main>

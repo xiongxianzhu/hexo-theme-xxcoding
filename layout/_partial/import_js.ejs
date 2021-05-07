@@ -9,28 +9,3 @@
 <% if (theme.live2d.enable && theme.cdn.js.live2d) { %>
 <script src="<%- url_for(theme.cdn.js.live2d) %>"></script>
 <% } %>
-<script>
-    $(function() {
-        let cover_slider = $('.carousel.carousel-slider');
-        cover_slider.carousel({
-            fullWidth: true,
-            indicators: '<%- theme.carousel.show_indicators %>' === 'true',
-            duration: Number('<%- theme.carousel.duration %>'),
-            onCycleTo() {
-
-            }
-        });
-
-        let carousel_interval;
-        <% if (theme.carousel.auto_loop) { %>
-        let auto_carousel = function() {
-            carousel_interval = setInterval(function () {
-                cover_slider.carousel('next');
-            }, <%- theme.carousel.interval_time %>);
-        };
-        auto_carousel();
-        <% } %>
-
-    });
-
-</script>
