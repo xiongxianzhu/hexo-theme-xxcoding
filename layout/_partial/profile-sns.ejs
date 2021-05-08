@@ -1,0 +1,42 @@
+<% theme.profile.sns.forEach(function(item) { %>
+    <% if (item == 'qq' && theme.sns.qq ) { %>
+        <a class="btn btn-sns" href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=<%- theme.sns.qq %>">
+            <i class="fab fa-qq"></i>
+        </a>
+    <% } %>
+    <% if (item == 'email' && theme.sns.email ) { %>
+        <a class="btn btn-sns" href="mailto:<%- theme.sns.email %>">
+            <i class="fas fa-envelope"></i>
+        </a>
+    <% } %>
+    <% if (item == 'github' && theme.sns.github ) { %>
+        <a class="btn btn-sns" href="<%- theme.sns.github %>" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    <% } %>
+    <% if (item == 'rss' && theme.sns.rss ) { %>
+        <a class="btn btn-sns" href="<%- url_for('/atom.xml') %>" target="_blank">
+            <i class="fas fa-rss"></i>
+        </a>
+    <% } %>
+    <% if (item == 'wechat' && theme.sns.wechat ) { %>
+        <a class="btn btn-sns tooltipped" href="javascript:;" data-position="top" data-tooltip="<%- theme.sns.wechat %>">
+            <i class="fab fa-weixin"></i>
+        </a>
+    <% } %>
+    <% if (item == 'weibo' && theme.sns.weibo ) { %>
+        <a class="btn btn-sns" href="<%- theme.sns.weibo %>" target="_blank">
+            <i class="fab fa-weibo"></i>
+        </a>
+    <% } %>
+    <% if (item == 'facebook' && theme.sns.facebook ) { %>
+        <a class="btn btn-sns" href="<%- theme.sns.facebook %>" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+    <% } %>
+    <% if (item == 'twitter' && theme.sns.twitter ) { %>
+        <a class="btn btn-sns" href="<%- theme.sns.twitter %>" target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
+    <% } %>
+<% }); %>

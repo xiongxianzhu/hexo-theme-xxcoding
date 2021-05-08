@@ -233,6 +233,10 @@ header .brand-logo .logo-img {
     opacity: .9;
 }
 
+.carousel.carousel-slider .carousel-item {
+    background-position: center center;
+}
+
 a .material-icons {
     vertical-align: middle;
 }
@@ -971,4 +975,30 @@ blockquote p {
 .profile-content a {
     color: #fd7c0d;
     font-weight: 600;
+}
+
+.btn-sns {
+    background-color: transparent;
+    color: #999999 !important;
+    box-shadow: none;
+    font-size: 24px;
+    height: 41px;
+    min-width: 41px;
+    width: 41px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    line-height: 41px;
+}
+
+.btn-sns:hover {
+    color: #FFFFFF !important;
+    background-color: #9c27b0;
+    box-shadow: 0 5px 20px 0px rgb(0 0 0 / 20%), 0 13px 24px -11px rgb(156 39 176 / 60%);
+}
+
+.btn-sns:focus {
+    color: #FFFFFF !important;
+    background-color: #9c27b0;
+    box-shadow: 0 5px 20px 0px rgb(0 0 0 / 20%), 0 13px 24px -11px rgb(156 39 176 / 60%);
 }

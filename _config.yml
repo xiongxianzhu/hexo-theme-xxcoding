@@ -103,6 +103,15 @@ profile:
   avatar: /img/logo.png
   name: xiongxianzhu
   job: Python & Go 软件工程师
+  sns:
+    - github
+    - email
+    - qq
+    - wechat
+    - weibo
+    - facebook
+    - twitter
+    - rss
 
 # Sidebar
 sidebar:
@@ -138,15 +147,16 @@ toc:
 sns:
   github: https://github.com/xiongxianzhu
   email: 929679459@qq.com
-  facebook: # https://www.facebook.com/xxx
-  twitter: # https://twitter.com/xxx
+  facebook: https://www.facebook.com/xiongxian.zhu  # https://www.facebook.com/xxx
+  twitter: https://twitter.com/xiongxianzhu         # https://twitter.com/xxx
   googleplus:
   instagram:
   tumblr:
   linkedin:
   telegram:
   qq: 929679459
-  weibo: # https://weibo.com/xxx
+  wechat: xxshwz
+  weibo: http://weibo.com/929679459     # https://weibo.com/xxx
   zhihu: # https://www.zhihu.com/xxx
   juejin: https://juejin.cn/user/1714893867985389
   bilibili: https://space.bilibili.com/200731874

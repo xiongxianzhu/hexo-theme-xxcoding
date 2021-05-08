@@ -9,6 +9,7 @@ $(function () {
         hover: true
     });
 
+    $('.tooltipped').tooltip();
     $('.collapsible').collapsible();
     AOS.init({
         easing: 'ease-in-out-sine',
