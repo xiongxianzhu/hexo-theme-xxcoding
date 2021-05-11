@@ -396,11 +396,12 @@ a .material-icons {
     box-shadow: 0 0 20px rgb(27 154 247 / 80%);
 }
 
-.card .card-image {
+.post-item .card .card-image {
     background-color: #212121;
     /* 因为.card有border-radius: 2px， 故避免左上角和右上角有背景色 */
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
+    overflow: hidden;
 }
 
 .card .card-image img {
@@ -454,6 +455,12 @@ a .material-icons {
     overflow: hidden;
     object-fit: cover;
     opacity: .7;
+    transition: 1s ease-out;
+}
+
+.card-image .post-image:hover img {
+    -webkit-transform: scale3d(1.2, 1.2, 1);
+    transform: scale3d(1.2, 1.2, 1);
 }
 
 .post .post-item .post-content {
@@ -989,16 +996,24 @@ blockquote p {
     overflow: hidden;
     position: relative;
     line-height: 41px;
+    margin-top: 8px;
+    transition: all .3s;
 }
 
 .btn-sns:hover {
     color: #FFFFFF !important;
     background-color: #9c27b0;
+    -webkit-transform: translate(0,-5px);
+    -ms-transform: translate(0,-5px);
+    transform: translate(0,-5px);
+    -webkit-box-shadow: 0 5px 20px 0px rgb(0 0 0 / 20%), 0 13px 24px -11px rgb(156 39 176 / 60%);
+    /* box-shadow: 0 15px 35px -15px rgb(0 0 0 / 50%), 0 5px 25px 0 rgb(0 0 0 / 12%), 0 10px 10px -5px rgb(0 0 0 / 20%); */
     box-shadow: 0 5px 20px 0px rgb(0 0 0 / 20%), 0 13px 24px -11px rgb(156 39 176 / 60%);
 }
 
 .btn-sns:focus {
     color: #FFFFFF !important;
     background-color: #9c27b0;
+    -webkit-box-shadow: 0 5px 20px 0px rgb(0 0 0 / 20%), 0 13px 24px -11px rgb(156 39 176 / 60%);
     box-shadow: 0 5px 20px 0px rgb(0 0 0 / 20%), 0 13px 24px -11px rgb(156 39 176 / 60%);
 }

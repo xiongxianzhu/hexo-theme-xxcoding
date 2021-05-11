@@ -147,19 +147,23 @@ toc:
 sns:
   github: https://github.com/xiongxianzhu
   email: 929679459@qq.com
-  facebook: https://www.facebook.com/xiongxian.zhu  # https://www.facebook.com/xxx
-  twitter: https://twitter.com/xiongxianzhu         # https://twitter.com/xxx
-  googleplus:
-  instagram:
-  tumblr:
-  linkedin:
-  telegram:
   qq: 929679459
   wechat: xxshwz
   weibo: http://weibo.com/929679459     # https://weibo.com/xxx
   zhihu: # https://www.zhihu.com/xxx
   juejin: https://juejin.cn/user/1714893867985389
   bilibili: https://space.bilibili.com/200731874
+  facebook: https://www.facebook.com/xiongxian.zhu  # https://www.facebook.com/xxx
+  twitter: https://twitter.com/xiongxianzhu         # https://twitter.com/xxx
+  youtube:
+  googleplus:
+  instagram:
+  tumblr:
+  linkedin: https://www.linkedin.com/in/zhuxiongxian/
+  telegram:
+  dribbble:
+  pinterest:
+  behance:
   v2ex:
   segmentfault:
   rss: true

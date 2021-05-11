@@ -29,6 +29,11 @@
             <i class="fab fa-weibo"></i>
         </a>
     <% } %>
+    <% if (item == 'zhihu' && theme.sns.zhihu ) { %>
+        <a class="btn btn-sns" href="<%- theme.sns.zhihu %>" target="_blank">
+            <i class="fab fa-zhihu"></i>
+        </a>
+    <% } %>
     <% if (item == 'facebook' && theme.sns.facebook ) { %>
         <a class="btn btn-sns" href="<%- theme.sns.facebook %>" target="_blank">
             <i class="fab fa-facebook-f"></i>
@@ -37,6 +42,41 @@
     <% if (item == 'twitter' && theme.sns.twitter ) { %>
         <a class="btn btn-sns" href="<%- theme.sns.twitter %>" target="_blank">
             <i class="fab fa-twitter"></i>
+        </a>
+    <% } %>
+    <% if (item == 'linkedin' && theme.sns.linkedin ) { %>
+        <a class="btn btn-sns" href="<%- theme.sns.linkedin %>" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+    <% } %>
+    <% if (item == 'dribbble' && theme.sns.dribbble ) { %>
+        <a class="btn btn-sns" href="<%- theme.sns.dribbble %>" target="_blank">
+            <i class="fab fa-dribbble"></i>
+        </a>
+    <% } %>
+    <% if (item == 'googleplus' && theme.sns.googleplus ) { %>
+        <a class="btn btn-sns" href="<%- theme.sns.googleplus %>" target="_blank">
+            <i class="fab fa-google-plus-g"></i>
+        </a>
+    <% } %>
+    <% if (item == 'instagram' && theme.sns.instagram ) { %>
+        <a class="btn btn-sns tooltipped" href="javascript:;" data-position="top" data-tooltip="<%- theme.sns.instagram %>">
+            <i class="fab fa-instagram"></i>
+        </a>
+    <% } %>
+    <% if (item == 'pinterest' && theme.sns.pinterest ) { %>
+        <a class="btn btn-sns" href="<%- theme.sns.pinterest %>" target="_blank">
+            <i class="fab fa-pinterest-p"></i>
+        </a>
+    <% } %>
+    <% if (item == 'behance' && theme.sns.behance ) { %>
+        <a class="btn btn-sns" href="<%- theme.sns.behance %>" target="_blank">
+            <i class="fab fa-behance"></i>
+        </a>
+    <% } %>
+    <% if (item == 'youtube' && theme.sns.youtube ) { %>
+        <a class="btn btn-sns" href="<%- theme.sns.youtube %>" target="_blank">
+            <i class="fab fa-youtube"></i>
         </a>
     <% } %>
 <% }); %>
