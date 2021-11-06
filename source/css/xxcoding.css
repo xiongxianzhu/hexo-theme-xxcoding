@@ -23,7 +23,7 @@ a:focus {
 
 .nav-color {
     background-color: #212121;
-    background: linear-gradient(to right, #EC6C6C, #FFD479, #FFFC79, #73FA79, #73FA79, #73FDFF, #D783FF);
+    /* background: linear-gradient(to right, #EC6C6C, #FFD479, #FFFC79, #73FA79, #73FA79, #73FDFF, #D783FF); */
 }
 
 header .nav-transparent {
@@ -63,7 +63,8 @@ header .nav-transparent {
 }
 
 .nav-item-color {
-    color: #0e7477;
+    color: #fff;
+    /* color: #0e7477; */
 }
 
 main {
@@ -1016,4 +1017,28 @@ blockquote p {
     background-color: #9c27b0;
     -webkit-box-shadow: 0 5px 20px 0px rgb(0 0 0 / 20%), 0 13px 24px -11px rgb(156 39 176 / 60%);
     box-shadow: 0 5px 20px 0px rgb(0 0 0 / 20%), 0 13px 24px -11px rgb(156 39 176 / 60%);
+}
+
+.categories-content {
+    padding: 10px 20px;
+}
+
+.categories-content .chip {
+    color: #000 !important;
+}
+
+.categories-body a {
+    transition: all .3s;
+}
+
+.categories-body a:hover {
+    zoom: 1.1;
+}
+
+.tags-content {
+    padding: 10px 20px;
+}
+
+.tags-content .chip {
+    color: #000 !important;
 }

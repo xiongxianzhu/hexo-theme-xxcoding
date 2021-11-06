@@ -277,6 +277,47 @@ layout: books
 ---
 ```
 
+## 自定义css样式
+
+在主题配置文件`_config.yml`里， 指定你自定义css样式的css文件，如下， 然后在主题下的`source/css/my.css`里写上你自己自定义的样式吧。
+
+```yml
+libs:
+  css:
+    mycss: /css/my.css
+```
+
+如my.css文件内容，可使导航栏背景颜色渐变：
+
+```css
+/* 自定义你自己的样式 */
+
+.nav-color {
+    /* background: #212121; */
+    background: linear-gradient(to right, #EC6C6C, #FFD479, #FFFC79, #73FA79, #73FA79, #73FDFF, #D783FF);
+}
+
+.nav-item-color {
+    /* color: #fff; */
+    color: #0e7477;
+}
+
+```
+
+## 自定义文章链接
+
+在项目下的`_config.yml`里找到以下配置：
+
+```yml
+permalink: :year/:month/:day/:title/
+```
+
+替换为：
+
+```yml
+permalink: :year/:month/:day/:permalink_id/
+```
+
 ### 评论系统
 
 - [Valine](https://valine.js.org/)

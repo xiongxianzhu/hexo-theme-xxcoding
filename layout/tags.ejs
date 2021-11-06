@@ -1,5 +1,56 @@
+<%
+var colorArr = ['#18FFFF', '#00897B', '#EA80FC', '#FF9100', '#4DD0E1',
+    '#F48FB1', '#82E0AA', '#D7BDE2', '#A3E4D7', '#85C1E9', '#F8C471', '#F9E79F', '#FFAB91'];
+var colorCount = colorArr.length;
+var hashCode = function (str) {
+    if (!str && str.length === 0) {
+        return 0;
+    }
+    var hash = 0;
+    for (var i = 0, len = str.length; i < len; i++) {
+        hash = ((hash << 5) - hash) + str.charCodeAt(i);
+        hash |= 0;
+    }
+    return hash;
+};
+var i = 0;
+var isTag = is_tag();
+%>
 <main>
     <div style="height: 400px; position: relative; top: -64px; left: 0;">
         <%- partial('_partial/banner') %>
+    </div>
+    <div class="container has-cover-container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="main main-raised tags-content">
+                    <header class="center">
+                        <h3 class="header-title">文章标签</h3>
+                        <p class="header-subtitle">共 <%= site.tags.length %> 个</p>
+                    </header>
+                    <section class="center-align tags-body">
+                        <% if (site.tags && site.tags.length > 0) { %>
+                            <% site.tags.map(function(tag) { %>
+                            <%
+                                i++;
+                                var color = i >= colorCount
+                                        ? colorArr[Math.abs(hashCode(tag.name) % colorCount)]
+                                        : colorArr[i - 1];
+                            %>
+                            <a href="<%- url_for(tag.path) %>" title="<%- tag.name %>: <%- tag.length %>">
+                                <span class="chip center-align waves-effect waves-light
+                                        <% if (isTag && tag.name == page.tag) { %> chip-active <% } else { %> chip-default <% } %>"
+                                        style="background-color: <%- color %>;"><%- tag.name %>
+                                    <span class="tag-length"><%- tag.length %></span>
+                                </span>
+                            </a>
+                            <% }); %>
+                        <% } else { %>
+                        <%= __('tag_empty_tip') %>
+                        <% } %>
+                    </section>
+                </div>
+            </div>
+        </div>
     </div>
 </main>

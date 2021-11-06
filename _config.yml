@@ -258,7 +258,7 @@ libs:
     tocbot: /libs/tocbot/tocbot.css
     meting: /libs/aplayer/Meting.min.js
     xxcoding: /css/xxcoding.css
-    mycss: 
+    mycss: /css/my.css
   js:
     jquery: /libs/jquery/jquery.min.js
     materialize: /libs/materialize/materialize.min.js
@@ -270,6 +270,7 @@ libs:
     scrollprogress: 
     gitalk:
     busuanzi:
+    typedjs: 
     xxcoding: /js/xxcoding.js
     myjs: 
   fontcss:
@@ -300,6 +301,7 @@ cdn:
     meting: https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js
     live2d: https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js
     tocbot: https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js
+    typedjs: https://cdn.jsdelivr.net/npm/typed.js@2.0.12
   fontcss:
 
 google_analytics:

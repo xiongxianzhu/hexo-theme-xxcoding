@@ -8,7 +8,7 @@
     <span id="subtitle"></span>
     <% } %>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="<%- url_for(theme.cdn.js.typedjs) %>"></script>
 <script>
 <% if (theme.subtitle.enable) { %>
     var typed = new Typed("#subtitle", {

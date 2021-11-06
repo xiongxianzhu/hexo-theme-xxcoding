@@ -1,5 +1,56 @@
+<%
+var colorArr = ['#18FFFF', '#00897B', '#EA80FC', '#FF9100', '#4DD0E1',
+    '#F48FB1', '#82E0AA', '#D7BDE2', '#A3E4D7', '#85C1E9', '#F8C471', '#F9E79F', '#FFAB91'];
+var colorCount = colorArr.length;
+var hashCode = function (str) {
+    if (!str && str.length === 0) {
+        return 0;
+    }
+    var hash = 0;
+    for (var i = 0, len = str.length; i < len; i++) {
+        hash = ((hash << 5) - hash) + str.charCodeAt(i);
+        hash |= 0;
+    }
+    return hash;
+};
+var i = 0;
+var isCategory = is_category();
+%>
 <main>
     <div style="height: 400px; position: relative; top: -64px; left: 0;">
         <%- partial('_partial/banner') %>
+    </div>
+    <div class="container has-cover-container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="main main-raised categories-content">
+                    <header class="center">
+                        <h3 class="header-title">文章分类</h3>
+                        <p class="header-subtitle">共 <%= site.categories.length %> 个</p>
+                    </header>
+                    <section class="center-align categories-body">
+                        <% if (site.categories && site.categories.length > 0) { %>
+                            <% site.categories.map(function(category) { %>
+                            <%
+                                i++;
+                                var color = i >= colorCount
+                                        ? colorArr[Math.abs(hashCode(category.name) % colorCount)]
+                                        : colorArr[i - 1];
+                            %>
+                            <a href="<%- url_for(category.path) %>" title="<%- category.name %>: <%- category.length %>">
+                                <span class="chip center-align waves-effect waves-light
+                                        <% if (isCategory && category.name == page.category) { %> chip-active <% } else { %> chip-default <% } %>"
+                                        style="background-color: <%- color %>;"><%- category.name %>
+                                    <span class="tag-length"><%- category.length %></span>
+                                </span>
+                            </a>
+                            <% }); %>
+                        <% } else { %>
+                        <%= __('category_empty_tip') %>
+                        <% } %>
+                    </section>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
