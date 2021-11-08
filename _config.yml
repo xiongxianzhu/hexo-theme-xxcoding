@@ -270,7 +270,7 @@ libs:
     scrollprogress: 
     gitalk:
     busuanzi:
-    typedjs: 
+    typedjs: /libs/typedjs/typed.js
     xxcoding: /js/xxcoding.js
     myjs: 
   fontcss:
