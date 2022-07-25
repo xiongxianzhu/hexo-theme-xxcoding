@@ -830,6 +830,7 @@ a .material-icons {
     -webkit-text-size-adjust: none;
     display: block;
     padding: 0.3rem 0.3rem;
+    color: #FFFFFF;
 }
 
 .post-content img {
