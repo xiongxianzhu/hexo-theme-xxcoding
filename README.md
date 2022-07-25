@@ -142,18 +142,18 @@ layout: comments
 ---
 ```
 
-### 新建友情链接 frients 页 (可选)
+### 新建友情链接 friends 页 (可选)
 
 ```bash
-hexo new page frients
+hexo new page friends
 ```
 
 ```plain
 ---
-title: frients
+title: friends
 date: 2021-04-15 22:53:27
-type: frients
-layout: frients
+type: friends
+layout: friends
 ---
 ```
 

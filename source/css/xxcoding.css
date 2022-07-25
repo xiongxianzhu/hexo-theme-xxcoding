@@ -832,6 +832,11 @@ a .material-icons {
     padding: 0.3rem 0.3rem;
 }
 
+.post-content img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* 代码块语言 */
 /* .post-content pre.line-numbers::before {
     color: #ccc;
