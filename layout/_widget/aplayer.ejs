@@ -38,6 +38,30 @@
     }
 </style>
 
+<div id="aplayer"></div>
+<script>
+    const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        fixed: <%- theme.aplayer.fixed %>,
+        autoplay: <%- theme.aplayer.autoplay %>,
+        theme: '#FADFA3',
+        loop: '<%- theme.aplayer.loop %>',
+        order: '<%- theme.aplayer.order %>',
+        preload: '<%- theme.aplayer.preload %>',
+        volume: <%- Number(theme.aplayer.volume) %>,
+        mutex: true,
+        listFolded: false,
+        listMaxHeight: 90,
+        lrcType: 3,
+        audio: [{
+            name: 'name',
+            artist: 'artist',
+            url: 'url.mp3',
+            cover: 'cover.jpg'
+        }]
+    });
+</script>
+
 <div class="">
     <div class="row">
         <meting-js
