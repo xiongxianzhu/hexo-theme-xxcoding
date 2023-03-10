@@ -18,7 +18,7 @@
 
 - [x] 🌈 响应式布局、 扁平风格、 高大上
 - [x] 基于[materialize](https://github.com/Dogfalo/materialize)进行[Material Design](https://material.io)
-- [x] [APlayer](https://aplayer.js.org/)音乐播放器
+- [x] [APlayer](https://github.com/DIYgod/APlayer)音乐播放器
 - [ ] [DaoVoice](https://www.daocloud.io/)在线聊天
 - [ ] 数据统计与分析：[百度统计](https://tongji.baidu.com/web/welcome/login)、 谷歌分析、 CNZZ、 LeanCloud、 不蒜子网站统计
 - [x] `lazyload` 图片懒加载
