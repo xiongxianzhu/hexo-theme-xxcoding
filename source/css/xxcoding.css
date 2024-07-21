@@ -37,8 +37,6 @@ body {
     background-color: #495057; /* 按下颜色 */
 }
 
-
-
 @media only screen and (min-width: 993px) {
     
     #nav-header .container {
@@ -94,7 +92,6 @@ header .nav-transparent {
 
 .nav-item-color {
     color: #fff;
-    /* color: #0e7477; */
 }
 
 main {
@@ -298,15 +295,24 @@ a .material-icons {
     margin-bottom: 3px;
 }
 
-.post .card .card-action .post-tags {
+.post-item .post-tags {
     padding: 10px 0;
     background-color: #182026;
 }
 
-.post .card .card-action .post-publish-info {
+.post-item .post-publish-info {
     border-top: 1px solid rgba(160,160,160,0.2);
     padding: 10px 10px;
     background-color: rgb(24 32 38 / 90%);
+}
+
+.post-item .post-category {
+    color: #cae9f7;
+}
+
+.post-item .post-title {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .overlay:after {
@@ -415,14 +421,16 @@ a .material-icons {
     transform: rotate(135deg);
 }
 
+article.post {
+    padding: 10px;
+}
+
 .post .card {
     -webkit-box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
     box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
 }
 
-.post .card:hover {
-    /* -webkit-box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-    box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%); */
+.post-item:hover {
     -webkit-box-shadow: 0 0 20px rgb(27 154 247 / 80%);
     box-shadow: 0 0 20px rgb(27 154 247 / 80%);
 }
@@ -469,6 +477,13 @@ a .material-icons {
     padding-bottom: 66%;
 }
 
+.post-item {
+    background-color: #fff;
+    margin: 0 0 20px;
+    border-radius: 0px;
+    position: relative;
+}
+
 .post-item .card .card-image {
     background-color: #212121;
     /* 因为.card有border-radius: 2px， 故避免左上角和右上角有背景色 */
@@ -496,9 +511,11 @@ a .material-icons {
 
 .post .post-item .post-content {
     position: relative;
-    padding: 20px;
     height: 110px;
+    padding: 0px;
     word-break: break-all;
+    color: #333;
+    margin-top: 25px;
 }
 
 .paginator {
@@ -1089,6 +1106,7 @@ blockquote p {
     transition: background-color 0.3s ease;
     align-items: center;
     gap: 5px;
+    margin: 5px;
 }
 .categories-content .chip-active {
     background-color: #007bff;
@@ -1213,6 +1231,7 @@ blockquote p {
     transition: background-color 0.3s ease;
     align-items: center;
     gap: 5px;
+    margin: 5px;
 }
 .tags-content .chip-active {
     background-color: #007bff;

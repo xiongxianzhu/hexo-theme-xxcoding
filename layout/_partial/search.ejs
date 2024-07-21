@@ -1,0 +1,125 @@
+<div>
+    <!-- 模态框结构 -->
+    <div id="search-modal" class="modal">
+        <div class="modal-content">
+            <div id="search-title">
+                <i class="material-icons">search</i>
+                搜 索
+            </div>
+            <input type="text" id="search-input" placeholder="输入关键字进行搜索...">
+            <ul id="search-results"></ul>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // 获取搜索输入框和结果列表元素
+            var searchInput = $('#search-input');
+            var searchResults = $('#search-results');
+
+            // 读取 search.json 文件
+            $.getJSON('<%= url_for("/search.json") %>', function(data) {
+                // 监听输入框的输入事件
+                searchInput.on('input', function() {
+                    var query = $(this).val().toLowerCase();
+
+                    if (query === '') {
+                        // 如果查询字符串为空，则清空结果列表
+                        searchResults.empty();
+                        return;
+                    }
+
+                    var results = data.filter(post => 
+                        post.title.toLowerCase().includes(query) || 
+                        post.content.toLowerCase().includes(query)
+                    );
+
+                    // 清空结果列表
+                    searchResults.empty();
+
+                    // 显示搜索结果
+                    results.forEach(function(result) {
+                        var li = $('<li>');
+                        var a = $('<a>').attr('href', result.url).text(result.title).addClass('title');
+                        li.append(a);
+                        searchResults.append(li);
+
+                        // 高亮显示关键词
+                        var content = result.content.trim().replace(/<[^>]+>/g, "");
+                        var regex = new RegExp('(' + query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&') + ')', 'gi');
+                        var highlightedContent = content.replace(regex, '<span class="highlight">$&</span>');
+                        li.append($('<div>').html(highlightedContent));
+                    });
+                    
+                });
+            }).fail(function(err) {
+                console.error(err);
+            });
+        });
+
+        // 处理按钮点击事件
+        $('.modal-trigger').on('click', function(e) {
+            e.preventDefault(); // 阻止默认行为
+            var modalId = $(this).attr('href');
+            var modal = $(modalId);
+            M.Modal.init(modal[0]);
+            var instance = M.Modal.getInstance(modal[0]);
+            instance.open();
+        });
+    </script>
+</div>
+<style>
+    #search-modal .modal-content h4,
+    #search-modal .modal-content input,
+    #search-modal .modal-content ul,
+    #search-modal .modal-content li,
+    #search-modal .modal-content a {
+        color: #333; /* 设置字体颜色 */
+    }
+
+    #search-results li {
+        display: block; /* 将列表项显示为一行 */
+        margin: 10px 0; /* 每行间距 */
+        padding: 10px;
+        /* border-bottom: 1px solid #ddd; */
+        margin-bottom: 10px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+    }
+
+    #search-results a {
+        text-decoration: none; /* 去除链接的下划线 */
+    }
+
+    #search-input {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .highlight {
+        margin: 0 2px;
+        padding: 1px 5px 1px 4px;
+        border-radius: 2px;
+        background-color: #f2f2f2;
+        color: #e96900;
+        font-style: normal;
+        white-space: pre-wrap;
+    }
+
+    #search-results a.title {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+
+    #search-title {
+        font-size: 2.16rem;
+        height: 64px;
+        line-height: 64px;
+        color: #333;
+    }
+
+    #search-title i {
+        display: inline-block;
+    }
+</style>

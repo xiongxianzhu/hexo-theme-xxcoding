@@ -257,6 +257,7 @@ libs:
     aplayer: /libs/aplayer/APlayer.min.css
     tocbot: /libs/tocbot/tocbot.css
     meting: /libs/aplayer/Meting.min.js
+    fancybox: /libs/fancybox/fancybox.css
     xxcoding: /css/xxcoding.css
     mycss: /css/my.css
   js:
@@ -271,6 +272,7 @@ libs:
     gitalk:
     busuanzi:
     typedjs: /libs/typedjs/typed.js
+    fancybox: /libs/fancybox/fancybox.umd.js
     xxcoding: /js/xxcoding.js
     myjs: 
   fontcss:
@@ -288,6 +290,7 @@ cdn:
     aos: 
     aplayer: https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css
     tocbot: https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css
+    fancybox: 
   js:
     jquery: 
     materialize: 
@@ -302,6 +305,7 @@ cdn:
     live2d: https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js
     tocbot: https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js
     typedjs: https://cdn.jsdelivr.net/npm/typed.js@2.0.12
+    fancybox: 
   fontcss:
 
 google_analytics:

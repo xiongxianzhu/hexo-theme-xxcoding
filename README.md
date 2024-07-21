@@ -25,7 +25,7 @@
 - [x] 评论系统： disqus、 Valine、 gitalk、 gitment、 livere、 畅言
 - [x] `prismjs`代码高亮
 - [ ] `resume` 简历
-- [ ] `gallery` 相册
+- [ ] `gallery` 图库：[fancybox](https://fancyapps.com/fancybox/getting-started/)
 - [ ] `portfolio` 作品集
 - [ ] `links` 友情链接
 - [ ] `tagcloud` 标签云
@@ -429,6 +429,7 @@ hexo_project/source/_data
 - [EJS中文文档](https://ejs.bootcss.com/)
 - [material icons](https://material.io/resources/icons/?style=baseline)
 - [fontawesome](https://fontawesome.com/v5.15.3/icons)
+- [@fancyapps/ui](https://github.com/fancyapps/ui)
 
 ## 灵感
 

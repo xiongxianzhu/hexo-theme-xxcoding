@@ -2,20 +2,26 @@
 var images = theme.random_thumbnail;
 %>
 
+<% if (theme.libs.css.fancybox) { %>
+<link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.fancybox) %>">
+<% } else { %>
+<link rel="stylesheet" type="text/css" href="<%- url_for(theme.cdn.css.fancybox) %>">
+<% } %>
+
+
 <main>
-    <div style="height: 400px; position: relative; top: -64px; left: 0;">
-        <%- partial('_partial/banner') %>
+    <div style="height: 560px; position: relative; top: -64px; left: 0;">
+        <%- partial('_partial/galleries-cover') %>
     </div>
     <div class="container">
         <div class="row">
             <% images.forEach(function(image, index) { %>
-            <div class="col-md-4 col-sm-6 col-12">
+            <div class="col s12 m6 l3">
                 <div class="card">
-                    <img class="card-img-top" src="<%- url_for(image) %>" alt="<%- image %>">
-                    <div class="card-body">
-                        <h5 class="card-title">图片<%- index+1 %></h5>
-                        <p class="card-text">这里是图片的描述，可以添加更多内容。</p>
-                        <a href="<%- url_for(image) %>" class="btn btn-primary">查看详情</a>
+                    <div class="card-image">
+                        <a href="<%- url_for(image) %>" data-fancybox="gallery">
+                            <img class="lazyload" src="<%- url_for(image) %>" data-src="<%- url_for(image) %>" alt="<%- image %>">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -23,13 +29,23 @@ var images = theme.random_thumbnail;
         </div>
     </div>
 </main>
-
 <style>
-    .card {
-        margin-bottom: 20px;
+    .card .card-image img {
+        height: 156px;
     }
-    .card-img-top {
-        width: 100%;
-        height: auto;
+
+    .card .card-image:hover {
+        box-shadow: 0 4px 6px rgba(21, 193, 241, 0.5);
     }
 </style>
+<% if (theme.libs.js.fancybox) { %>
+<script src="<%- url_for(theme.libs.js.fancybox) %>"></script>
+<% } else { %>
+<script src="<%- url_for(theme.cdn.js.fancybox) %>"></script>
+<% } %>
+<script>
+    Fancybox.bind('[data-fancybox="gallery"]', {
+    // Your custom options for a specific gallery
+    });
+
+</script>
