@@ -1,5 +1,45 @@
+<%
+var category = page.category;
+var posts = page.posts;
+var posts_total = site.categories.findOne({name: category}).posts.sort('date', -1);
+%>
+
 <main>
     <div style="height: 400px; position: relative; top: -64px; left: 0;">
         <%- partial('_partial/banner') %>
+    </div>
+    <div class="container has-cover-container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="main main-raised category-content">
+                    <header class="center">
+                        <h3 class="header-title">分类: <%= category %></h3>
+                        <p class="header-subtitle">共 <%= posts.length %> 篇文章</p>
+                    </header>
+                    <section class="center-align category-body">
+                        <% if (posts && posts.length > 0) { %>
+                            <% var currentYear = null; %>
+                            <% posts.forEach(function(post) { %>
+                                <% var year = post.date.format('YYYY'); %>
+                                <% if (year !== currentYear) { %>
+                                    <% currentYear = year; %>
+                                    <h4 class="year-month-title"><%= currentYear %>年</h4>
+                                <% } %>
+                                <div class="post-preview">
+                                    <h4 class="post-title">
+                                        <span class="post-date"><%- post.date.format('MM月DD日') %></span>
+                                        <a href="<%- url_for(post.path) %>"><%- post.title %></a>
+                                    </h4>
+                                </div>
+                            <% }); %>
+                        <% } else { %>
+                            <%= __('category_empty_tip') %>
+                        <% } %>
+                    </section>
+                    <!-- 分页器 -->
+                    <%- partial('_partial/paginator') %>
+                </div>
+            </div>
+        </div>
     </div>
 </main>

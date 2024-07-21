@@ -75,7 +75,7 @@
     <meta name="description" content="<%= description %>">
     <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.materialize) %>">
     <link rel="stylesheet" type="text/css" href="<%- url_for(theme.libs.css.animate) %>">
-    <% if (config.prismjs && config.prismjs.enable) { %>
+    <% if (config.syntax_highlighter && config.syntax_highlighter == 'prismjs') { %>
     <!-- 是否加载使用自带的 prismjs. -->
     <link rel="stylesheet" href="<%- url_for(theme.libs.css.prism) %>">
     <link rel="stylesheet" type="text/css" href="<%- url_for('/libs/prism/prism-line-numbers.css') %>">

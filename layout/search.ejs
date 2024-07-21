@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索</title>
+</head>
+<body>
+    <h1>搜索</h1>
+    <input type="text" id="search-input" placeholder="输入关键字进行搜索...">
+    <ul id="search-results"></ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取搜索输入框和结果列表元素
+            var searchInput = document.getElementById('search-input');
+            var searchResults = document.getElementById('search-results');
+
+            // 读取 content.json 文件
+            fetch('<%= url_for("/content.json") %>')
+                .then(response => response.json())
+                .then(data => {
+                    // 监听输入框的输入事件
+                    searchInput.addEventListener('input', function() {
+                        var query = searchInput.value.toLowerCase();
+                        var results = data.filter(post => 
+                            post.title.toLowerCase().includes(query) || 
+                            post.text.toLowerCase().includes(query)
+                        );
+
+                        // 清空结果列表
+                        searchResults.innerHTML = '';
+
+                        // 显示搜索结果
+                        results.forEach(result => {
+                            var li = document.createElement('li');
+                            var a = document.createElement('a');
+                            a.href = '<%= config.root %>' + result.path;
+                            a.textContent = result.title;
+                            li.appendChild(a);
+                            searchResults.appendChild(li);
+                        });
+                    });
+                })
+                .catch(err => console.error(err));
+        });
+    </script>
+</body>
+</html>

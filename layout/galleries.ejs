@@ -1,5 +1,35 @@
+<%
+var images = theme.random_thumbnail;
+%>
+
 <main>
     <div style="height: 400px; position: relative; top: -64px; left: 0;">
         <%- partial('_partial/banner') %>
     </div>
+    <div class="container">
+        <div class="row">
+            <% images.forEach(function(image, index) { %>
+            <div class="col-md-4 col-sm-6 col-12">
+                <div class="card">
+                    <img class="card-img-top" src="<%- url_for(image) %>" alt="<%- image %>">
+                    <div class="card-body">
+                        <h5 class="card-title">图片<%- index+1 %></h5>
+                        <p class="card-text">这里是图片的描述，可以添加更多内容。</p>
+                        <a href="<%- url_for(image) %>" class="btn btn-primary">查看详情</a>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
 </main>
+
+<style>
+    .card {
+        margin-bottom: 20px;
+    }
+    .card-img-top {
+        width: 100%;
+        height: auto;
+    }
+</style>

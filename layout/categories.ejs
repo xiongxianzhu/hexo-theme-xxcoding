@@ -1,9 +1,9 @@
 <%
-var colorArr = ['#18FFFF', '#00897B', '#EA80FC', '#FF9100', '#4DD0E1',
-    '#F48FB1', '#82E0AA', '#D7BDE2', '#A3E4D7', '#85C1E9', '#F8C471', '#F9E79F', '#FFAB91'];
+var colorArr = ['#34495e', '#2c3e50', '#27ae60', '#2980b9', '#8e44ad',
+    '#e74c3c', '#f39c12', '#d35400', '#2ecc71', '#3498db', '#9b59b6', '#e67e22', '#1abc9c'];
 var colorCount = colorArr.length;
 var hashCode = function (str) {
-    if (!str && str.length === 0) {
+    if (!str || str.length === 0) {
         return 0;
     }
     var hash = 0;
@@ -16,6 +16,7 @@ var hashCode = function (str) {
 var i = 0;
 var isCategory = is_category();
 %>
+
 <main>
     <div style="height: 400px; position: relative; top: -64px; left: 0;">
         <%- partial('_partial/banner') %>

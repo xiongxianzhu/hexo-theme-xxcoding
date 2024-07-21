@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
     height: 100%;
 }
 
@@ -9,6 +8,36 @@ body {
     flex-direction: column;
     background-color: #EEE;
 }
+
+/* 浏览器滚动条样式 */
+/* 全局滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px; /* 滚动条宽度 */
+}
+
+/* 滚动条滑块样式 */
+::-webkit-scrollbar-thumb {
+    background-color: #6c757d; /* 滑块颜色 */
+    border-radius: 3px; /* 滑块圆角 */
+}
+
+/* 滚动条轨道样式 */
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* 轨道颜色 */
+    border-radius: 3px; /* 轨道圆角 */
+}
+
+/* 滚动条滑块在悬停时的样式 */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #5a6268; /* 悬停颜色 */
+}
+
+/* 滚动条滑块在按下时的样式 */
+::-webkit-scrollbar-thumb:active {
+    background-color: #495057; /* 按下颜色 */
+}
+
+
 
 @media only screen and (min-width: 993px) {
     
@@ -22,8 +51,9 @@ a:focus {
 }
 
 .nav-color {
-    background-color: #212121;
+    background-color: #1c385fc2;
     /* background: linear-gradient(to right, #EC6C6C, #FFD479, #FFFC79, #73FA79, #73FA79, #73FDFF, #D783FF); */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 header .nav-transparent {
@@ -397,14 +427,6 @@ a .material-icons {
     box-shadow: 0 0 20px rgb(27 154 247 / 80%);
 }
 
-.post-item .card .card-image {
-    background-color: #212121;
-    /* 因为.card有border-radius: 2px， 故避免左上角和右上角有背景色 */
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    overflow: hidden;
-}
-
 .card .card-image img {
     width: 100%;
     height: 100%;
@@ -445,6 +467,14 @@ a .material-icons {
     width: 100%;
     height: 0;
     padding-bottom: 66%;
+}
+
+.post-item .card .card-image {
+    background-color: #212121;
+    /* 因为.card有border-radius: 2px， 故避免左上角和右上角有背景色 */
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    overflow: hidden;
 }
 
 .post .post-item .post-image img {
@@ -1025,26 +1055,212 @@ blockquote p {
     box-shadow: 0 5px 20px 0px rgb(0 0 0 / 20%), 0 13px 24px -11px rgb(156 39 176 / 60%);
 }
 
+/* 文章分类列表页 */
 .categories-content {
-    padding: 10px 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    min-height: 480px;
 }
-
+.categories-content .header-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.categories-content .header-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+.categories-content .categories-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 .categories-content .chip {
-    color: #000 !important;
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    align-items: center;
+    gap: 5px;
+}
+.categories-content .chip-active {
+    background-color: #007bff;
+}
+.categories-content .chip-default {
+    background-color: #6c757d;
+}
+.categories-content .tag-length {
+    margin-left: 5px;
+}
+.categories-content .chip:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.categories-body a {
-    transition: all .3s;
-}
-
-.categories-body a:hover {
-    zoom: 1.1;
-}
-
-.tags-content {
+/* 文章分类页 */
+.category-content {
     padding: 10px 20px;
 }
 
+.category-content .year-month-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: left;
+}
+.category-content .post-preview {
+    margin-bottom: 10px; /* 修改外间隔 */
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+.category-content .post-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: .8rem 0 .8rem 0;
+    text-align: left; /* 修改标题项居左 */
+    display: flex;
+    align-items: center; /* 垂直居中 */
+}
+.category-content .post-title a {
+    color: #333; /* 默认颜色 */
+}
+.category-content .post-title a:hover {
+    color: #007bff; /* 鼠标hover时的颜色 */
+}
+.category-content .post-date {
+    margin-right: 10px; /* 文章日期与标题之间的间隔 */
+    font-size: 14px;
+    color: #666;
+}
+
+/* 归档页 */
+.archive-content {
+    padding: 10px 20px;
+}
+
+.archive-content .year-month-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: left;
+}
+.archive-content .post-preview {
+    margin-bottom: 10px; /* 修改外间隔 */
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+.archive-content .post-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: .8rem 0 .8rem 0;
+    text-align: left; /* 修改标题项居左 */
+    display: flex;
+    align-items: center; /* 垂直居中 */
+}
+.archive-content .post-title a {
+    color: #333; /* 默认颜色 */
+}
+.archive-content .post-title a:hover {
+    color: #007bff; /* 鼠标hover时的颜色 */
+}
+.archive-content .post-date {
+    margin-right: 10px; /* 文章日期与标题之间的间隔 */
+    font-size: 14px;
+    color: #666;
+}
+
+/* 标签列表页 */
+.tags-content {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    min-height: 480px;
+}
+.tags-content .header-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.tags-content .header-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+.tags-content .tags-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 .tags-content .chip {
-    color: #000 !important;
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    align-items: center;
+    gap: 5px;
+}
+.tags-content .chip-active {
+    background-color: #007bff;
+}
+.tags-content .chip-default {
+    background-color: #6c757d;
+}
+.tags-content .tag-length {
+    margin-left: 5px;
+}
+.tags-content .chip:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 标签页 */
+.tag-content {
+    padding: 10px 20px;
+}
+
+.tag-content .year-month-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: left;
+}
+.tag-content .post-preview {
+    margin-bottom: 10px; /* 修改外间隔 */
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+.tag-content .post-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: .8rem 0 .8rem 0;
+    text-align: left; /* 修改标题项居左 */
+    display: flex;
+    align-items: center; /* 垂直居中 */
+}
+.tag-content .post-title a {
+    color: #333; /* 默认颜色 */
+}
+.tag-content .post-title a:hover {
+    color: #007bff; /* 鼠标hover时的颜色 */
+}
+.tag-content .post-date {
+    margin-right: 10px; /* 文章日期与标题之间的间隔 */
+    font-size: 14px;
+    color: #666;
 }

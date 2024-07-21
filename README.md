@@ -391,6 +391,12 @@ npm install <package> --save
 - hexo-baidu-url-submit
 - hexo-permalink-pinyin
 
+用cnpm安装插件：
+
+```sh
+cnpm i --save hexo-deployer-git hexo-generator-feed hexo-generator-sitemap hexo-generator-search hexo-wordcount hexo-filter-github-emojis hexo-generator-feed hexo-baidu-url-submit hexo-permalink-pinyin
+``
+
 ## data目录
 
 ```plain
@@ -431,6 +437,7 @@ hexo_project/source/_data
 - [hexo-theme-yilia](https://github.com/litten/hexo-theme-yilia)
 - [hexo-theme-sakura](https://github.com/honjun/hexo-theme-sakura)
 - [hexo-theme-zhaoo](https://github.com/zhaoo/hexo-theme-zhaoo)
+- [hexo-theme-fluid](https://github.com/fluid-dev/hexo-theme-fluid)
 - [Creating a Theme](https://www.youtube.com/watch?v=5ROIU_9dYe4&list=PLLAZ4kZ9dFpOMJR6D25ishrSedvsguVSm&index=11)
 - [Material Design Themes](https://materialdesignthemes.com/)
 - [creative tim](https://www.creative-tim.com/templates/free)

@@ -38,6 +38,12 @@
     }
 </style>
 
+<% if (theme.cdn.js.aplayer) { %>
+<script src="<%- url_for(theme.cdn.js.aplayer) %>"></script>
+<% } else { %>
+<%- js({ src: 'url_for(theme.libs.js.aplayer)' }) %>
+<% } %>
+
 <div id="aplayer"></div>
 <script>
     const ap = new APlayer({
@@ -50,44 +56,14 @@
         preload: '<%- theme.aplayer.preload %>',
         volume: <%- Number(theme.aplayer.volume) %>,
         mutex: true,
-        listFolded: false,
+        listFolded: <%- theme.aplayer.list_folded %>,
         listMaxHeight: 90,
         lrcType: 3,
         audio: [{
             name: 'name',
             artist: 'artist',
-            url: 'url.mp3',
-            cover: 'cover.jpg'
+            url: 'http://m10.music.126.net/20230310120841/0a113b78a5e3f422debfcb38ee23f62a/ymusic/5219/85e8/f9fd/2a797fa3e5a9e5e578847bd7628fd7ab.mp3',
+            cover: '/img/logo.png'
         }]
     });
 </script>
-
-<div class="">
-    <div class="row">
-        <meting-js
-            class="col l8 offset-l2 m10 offset-m1 s12"
-            server="<%- theme.aplayer.server %>"
-            type="<%- theme.aplayer.type %>"
-            id="<%- theme.aplayer.id %>"
-            fixed='<%- theme.aplayer.fixed ? 'true' : 'false' %>'
-            autoplay='<%- theme.aplayer.autoplay === true %>'
-            theme='<%- theme.aplayer.theme %>'
-            loop='<%- theme.aplayer.loop %>'
-            order='<%- theme.aplayer.order %>'
-            preload='<%- theme.aplayer.preload %>'
-            volume='<%- Number(theme.aplayer.volume) %>'
-            list-folded='<%- theme.aplayer.list_folded ? 'true' : 'false' %>'>
-        </meting-js>
-    </div>
-</div>
-
-<% if (theme.cdn.js.aplayer) { %>
-<script src="<%- url_for(theme.cdn.js.aplayer) %>"></script>
-<% } else { %>
-<%- js({ src: 'url_for(theme.libs.js.aplayer)' }) %>
-<% } %>
-<% if (theme.cdn.js.meting) { %>
-<script src="<%- url_for(theme.cdn.js.meting) %>"></script>
-<% } else { %>
-<%- js({ src: 'url_for(theme.libs.js.meting)' }) %>
-<% } %>
