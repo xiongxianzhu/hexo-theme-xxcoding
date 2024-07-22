@@ -108,6 +108,32 @@ header .brand-logo .logo-img {
     align-self: center;
 }
 
+#search-modal {
+    width: 80%;
+}
+
+#search-title {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#search-modal .icon-search {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+#search-results {
+    overflow: hidden;
+}
+
+#search-results .content {
+    width: 100%; /* 子div的宽度设为100% */
+    height: 100%; /* 子div的高度设为100% */
+    word-break: break-all;
+    overflow: hidden; /* 隐藏溢出部分 */
+}
+
 .circle.avatar:hover {
     transform: rotate(666turn);
     transition-delay: 1s;

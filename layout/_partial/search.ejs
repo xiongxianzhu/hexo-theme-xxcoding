@@ -3,8 +3,8 @@
     <div id="search-modal" class="modal">
         <div class="modal-content">
             <div id="search-title">
-                <i class="material-icons">search</i>
-                搜 索
+                <i class="material-icons icon-search">search</i>
+                &nbsp;搜索
             </div>
             <input type="text" id="search-input" placeholder="输入关键字进行搜索...">
             <ul id="search-results"></ul>
@@ -48,7 +48,8 @@
                         var content = result.content.trim().replace(/<[^>]+>/g, "");
                         var regex = new RegExp('(' + query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&') + ')', 'gi');
                         var highlightedContent = content.replace(regex, '<span class="highlight">$&</span>');
-                        li.append($('<div>').html(highlightedContent));
+                        li.append($('<div>').html(highlightedContent).addClass('content'));
+
                     });
                     
                 });

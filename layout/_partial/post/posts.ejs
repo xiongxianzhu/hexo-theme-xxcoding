@@ -46,7 +46,7 @@
             </div>
             <div class="col l8 m12 s12 card-content">
                 <h4 class="post-title">
-                    <%= post.title %>
+                    <a href="<%- url_for(post.path) %>"><%= post.title %></a>
                 </h4>
                 <div class="post-content">
                     <% if (post.summary && post.summary.length > 0) { %>
