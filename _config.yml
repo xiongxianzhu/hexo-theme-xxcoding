@@ -256,7 +256,6 @@ libs:
     aos: /libs/aos/aos.css
     aplayer: /libs/aplayer/APlayer.min.css
     tocbot: /libs/tocbot/tocbot.css
-    meting: /libs/aplayer/Meting.min.js
     fancybox: /libs/fancybox/fancybox.css
     xxcoding: /css/xxcoding.css
     mycss: /css/my.css
@@ -268,6 +267,7 @@ libs:
     aplayer: /libs/aplayer/APlayer.min.js
     valine: /libs/valine/Valine.min.js
     tocbot: /libs/tocbot/tocbot.min.js
+    meting: /libs/meting/Meting.min.js
     scrollprogress: 
     gitalk:
     busuanzi:
@@ -288,7 +288,8 @@ cdn:
     prism: 
     material_icons: 
     aos: 
-    aplayer: https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css
+    # aplayer: https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css
+    aplayer: 
     tocbot: https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css
     fancybox: 
   js:
@@ -296,12 +297,14 @@ cdn:
     materialize: 
     lazyload: 
     aos: 
-    aplayer: https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js
+    # aplayer: https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js
+    aplayer: 
     valine: //unpkg.com/valine/dist/Valine.min.js
     scrollprogress: 
     gitalk:
     busuanzi:
-    meting: https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js
+    # meting: https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js
+    meting: 
     live2d: https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js
     tocbot: https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js
     typedjs: https://cdn.jsdelivr.net/npm/typed.js@2.0.12

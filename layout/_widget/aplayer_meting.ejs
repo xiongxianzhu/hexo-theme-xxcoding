@@ -60,11 +60,10 @@
     <% if (theme.cdn.js.aplayer) { %>
     <script src="<%- url_for(theme.cdn.js.aplayer) %>"></script>
     <% } else { %>
-    <%- js({ src: 'url_for(theme.libs.js.aplayer)' }) %>
+    <script src="<%- url_for(theme.libs.js.aplayer) %>"></script>
     <% } %>
     <% if (theme.cdn.js.meting) { %>
     <script src="<%- url_for(theme.cdn.js.meting) %>"></script>
     <% } else { %>
-    <%- js({ src: 'url_for(theme.libs.js.meting)' }) %>
+    <script src="<%- url_for(theme.libs.js.meting) %>"></script>
     <% } %>
-    

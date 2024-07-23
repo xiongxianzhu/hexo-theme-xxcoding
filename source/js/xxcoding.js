@@ -53,6 +53,10 @@ $(function () {
     $('pre.line-numbers code').each(function(index, element) {
         $(element).parent().append($(element).children('span.line-numbers-rows'));
     });
+
+    new ScrollProgress(function(x, y) {
+        document.querySelector('.scroll-progress-bar').style.width = (y * 100) + '%';
+    });
 });
 
 let $backTop = $('.top-scroll');

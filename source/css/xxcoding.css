@@ -1,3 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow: auto;
+}
+
 html, body {
     height: 100%;
 }
@@ -7,24 +16,38 @@ body {
     min-height: 100vh;
     flex-direction: column;
     background-color: #EEE;
+    /* margin-right: calc(100% - 100vw); */
+}
+
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 5px;
+    background-color: #3b82f6; /* 你可以更改颜色 */
+    z-index: 1000;
 }
 
 /* 浏览器滚动条样式 */
 /* 全局滚动条样式 */
 ::-webkit-scrollbar {
     width: 8px; /* 滚动条宽度 */
+    height: 8px; /* 滚动条宽度 */
+    background: transparent;
 }
 
 /* 滚动条滑块样式 */
 ::-webkit-scrollbar-thumb {
-    background-color: #6c757d; /* 滑块颜色 */
+    background-color: #6c757d;
     border-radius: 3px; /* 滑块圆角 */
+    box-shadow: 8px 0 0 #A5ADB7 inset;
 }
 
 /* 滚动条轨道样式 */
 ::-webkit-scrollbar-track {
-    background-color: #f1f1f1; /* 轨道颜色 */
-    border-radius: 3px; /* 轨道圆角 */
+    background-color: #f1f1f111;
+    border-radius: 3px;
 }
 
 /* 滚动条滑块在悬停时的样式 */
