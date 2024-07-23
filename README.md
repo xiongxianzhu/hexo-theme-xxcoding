@@ -5,7 +5,7 @@
 打造一款属于自己的hexo主题
 
 [![GitHub tag (latest Ver)](https://img.shields.io/github/tag/xiongxianzhu/hexo-theme-xxcoding.svg?style=flat-square)](https://github.com/xiongxianzhu/hexo-theme-xxcoding/tags)
-[![Hexo version support is 5.4.0+](https://img.shields.io/badge/hexo-v5.4.0%2B-blue.svg?style=flat-square)](https://hexo.io/)
+[![Hexo version support is 7.3.0+](https://img.shields.io/badge/hexo-v7.3.0%2B-blue.svg?style=flat-square)](https://hexo.io/)
 ![node version](https://img.shields.io/badge/node-v14.16.0%2B-blue.svg?style=flat-square)
 ![npm version](https://img.shields.io/badge/npm-v6.14.11%2B-blue.svg?style=flat-square)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](./LICENSE)
@@ -20,15 +20,15 @@
 - [x] 基于[materialize](https://github.com/Dogfalo/materialize)进行[Material Design](https://material.io)
 - [x] [APlayer](https://github.com/DIYgod/APlayer)音乐播放器
 - [ ] [DaoVoice](https://www.daocloud.io/)在线聊天
-- [ ] 数据统计与分析：[百度统计](https://tongji.baidu.com/web/welcome/login)、 谷歌分析、 CNZZ、 LeanCloud、 不蒜子网站统计
+- [x] 数据统计与分析：[百度统计](https://tongji.baidu.com/web/welcome/login)、 谷歌分析、 CNZZ、 LeanCloud、 不蒜子网站统计
 - [x] `lazyload` 图片懒加载
 - [x] 评论系统： disqus、 Valine、 gitalk、 gitment、 livere、 畅言
 - [x] `prismjs`代码高亮
 - [ ] `resume` 简历
-- [ ] `gallery` 图库：[fancybox](https://fancyapps.com/fancybox/getting-started/)
+- [x] `gallery` 图库：[fancybox](https://fancyapps.com/fancybox/getting-started/)
 - [ ] `portfolio` 作品集
 - [ ] `links` 友情链接
-- [ ] `tagcloud` 标签云
+- [x] `tagcloud` 标签云
 - [ ] `timeline` 时间线
 - [x] `TOC` 文章目录 [tocbot](https://github.com/tscanlin/tocbot)
 - [x] 文章置顶`sticky`
