@@ -127,6 +127,10 @@ header .brand-logo .logo-img {
     overflow: hidden;
 }
 
+#search-results li{
+    width: 100%;
+}
+
 #search-results .content {
     width: 100%; /* 子div的宽度设为100% */
     height: 100%; /* 子div的高度设为100% */
