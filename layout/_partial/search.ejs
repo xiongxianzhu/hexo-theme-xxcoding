@@ -77,7 +77,6 @@
                     
                     // 将查询字符串拆分成多个关键词，并过滤掉空字符串
                     var keywords = query.split(/\s+/).filter(keyword => keyword.trim() !== '');
-                    console.log(keywords);
 
                     var results = data.filter(post => 
                         keywords.some(keyword => 
@@ -92,14 +91,17 @@
                     // 显示搜索结果
                     results.forEach(function(result) {
                         var li = $('<li>');
-                        var a = $('<a>').attr('href', result.url).text(result.title).addClass('title');
+                        var title = highlightMatches(result.title, keywords, result.title.length, result.title);
+                        // var a = $('<a>').attr('href', result.url).text(title).addClass('title');
+                        var a = $('<a>').attr('href', result.url).html(title).addClass('title');
                         li.append(a);
                         searchResults.append(li);
 
                         // 高亮显示关键词及其前后 20 个字符
-                        var content = result.content.trim().replace(/<[^>]+>/g, "");
-
-                        var highlightedContent = highlightMatches(content, keywords);
+                        // var content = result.content.trim().replace(/<[^>]+>/g, "");
+                        var content = result.content.trim();
+                        content = stripMarkdownAndHtml(content);
+                        var highlightedContent = highlightMatches(content, keywords, 20);
                         li.append($('<div>').html(highlightedContent).addClass('content'));
 
                     });
@@ -110,26 +112,105 @@
             });
         });
 
-        function highlightMatches(text, keywords) {
-            // 提取关键词及其前后 20 个字符的内容
-            const snippets = [];
-            keywords.forEach(keyword => {
-                if (keyword.trim() === '') {
-                    return;
-                }
-                const re = new RegExp(`(.{0,20})(${keyword.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})(.{0,20})`, 'gi');
-                let match;
-                while ((match = re.exec(text)) !== null) {
-                    snippets.push(`${match[1]}<span class="highlight">${match[2]}</span>${match[3]}`);
-                }
-            });
-
-            // 去重
-            const uniqueSnippets = [...new Set(snippets)];
-            return uniqueSnippets.map(snippet => `${snippet}`).join('');
+        /**
+         * 从给定字符串中移除Markdown和HTML语法的函数。
+         * @param {string} input - 包含Markdown和HTML语法的字符串。
+         * @return {string} - 去除Markdown和HTML语法的纯文本。
+         */
+        function stripMarkdownAndHtml(input) {
+            return input
+                .replace(/(\*\*|__)(.*?)\1/g, '$2')  // 加粗: **text** 或 __text__
+                .replace(/(\*|_)(.*?)\1/g, '$2')     // 斜体: *text* 或 _text_
+                .replace(/(~~)(.*?)\1/g, '$2')       // 删除线: ~~text~~
+                .replace(/`([^`]+)`/g, '$1')         // 行内代码: `text`
+                .replace(/```[\s\S]*?```/g, '')      // 代码块: ```text```
+                .replace(/<[^>]*>/g, '')             // HTML标签
+                .replace(/#+\s+(.*)/g, '$1')         // 标题: # text
+                .replace(/!\[.*?\]\(.*?\)/g, '')     // 图片: ![alt](url)
+                .replace(/\[(.*?)\]\(.*?\)/g, '$1')  // 链接: [text](url)
+                .replace(/^\s*\n/gm, '');            // 去除空行
         }
 
+        /**
+         * 高亮显示关键词
+         * @param {string} text - 字符串。
+         * @param {string} keywords - 关键词数组。
+         * @param {int} offset - 偏移量。
+         * @param {string} notMatchValue - 不匹配时默认值。
+         * @return {string} 高亮后的文本 - 。
+         */
+        function highlightMatches(text, keywords, offset = 0, notMatchValue = '') {
+            // 创建正则表达式以匹配关键词，并确保关键词不会被部分匹配
+            const regex = new RegExp(keywords.map(keyword => `(${keyword.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`).join('|'), 'gi');
 
+            // 通过正则表达式匹配所有关键词
+            const matches = [];
+            let match;
+            while ((match = regex.exec(text)) !== null) {
+                matches.push({
+                    index: match.index,
+                    length: match[0].length,
+                    keyword: match[0]
+                });
+            }
+
+            if (matches.length === 0) {
+                return notMatchValue;
+            }
+
+            // 按照匹配的 index 升序排序
+            matches.sort((a, b) => a.index - b.index);
+
+            // console.log(matches);
+
+            // 按照匹配顺序重建文本，并添加高亮标记
+            let highlightedText = '';
+            let lastIndex = 0;
+            
+            matches.forEach(({ index, length, keyword }) => {
+                // 获取关键词前后2个字符的位置
+                let start = Math.max(0, index - offset);
+                let end = index + length + offset;
+
+                if (index < lastIndex || lastIndex > start) {
+                    // 处理重复的部分
+                    start = lastIndex;
+                } else if (lastIndex !== start && lastIndex > 0) {
+                    // 处理非重复的部分 
+                    highlightedText += '...'
+                }
+
+                // console.log([lastIndex, start, end]);
+                // console.log(text.slice(start, end));
+
+                highlightedText += text.slice(start, end);  // 包含关键词前后的字符
+                highlightedText = highlightLastOccurrence(highlightedText, keyword);  // 高亮最后一个关键词
+                // console.log(highlightedText);
+
+                lastIndex = end;  // 更新最后处理的位置
+            });
+
+            return highlightedText;
+        }
+
+        function highlightLastOccurrence(text, keyword) {
+            // 高亮最后一个关键词
+            // 查找最后一个 keyword 的位置
+            const lastIndex = text.lastIndexOf(keyword);
+            if (lastIndex === -1) return text; // 如果找不到 keyword，则返回原始文本
+
+            // 构造高亮的 HTML 代码
+            const highlightedKeyword = `<span class="highlight">${keyword}</span>`;
+
+            // 通过模板字符串拼接高亮后的文本
+            return `${text.substring(0, lastIndex)}${highlightedKeyword}${text.substring(lastIndex + keyword.length)}`;
+        }
+
+        // // 示例
+        // const text = '显示可安装的python版本的``bash\npyenv install --listpython';
+        // const keywords = ['python', '安装'];
+        // const result = highlightMatches(text, keywords, 16);
+        // console.log(result); // 输出：显示可<span class="highlight">安装</span>的<span class="highlight">python</span>版本
 
         // 处理按钮点击事件
         $('.modal-trigger').on('click', function(e) {
@@ -142,58 +223,3 @@
         });
     </script>
 </div>
-<style>
-    #search-modal .modal-content h4,
-    #search-modal .modal-content input,
-    #search-modal .modal-content ul,
-    #search-modal .modal-content li,
-    #search-modal .modal-content a {
-        color: #333; /* 设置字体颜色 */
-    }
-
-    #search-results li {
-        display: block; /* 将列表项显示为一行 */
-        margin: 10px 0; /* 每行间距 */
-        padding: 10px;
-        /* border-bottom: 1px solid #ddd; */
-        margin-bottom: 10px;
-        background-color: #fff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        border-radius: 3px;
-    }
-
-    #search-results a {
-        text-decoration: none; /* 去除链接的下划线 */
-    }
-
-    #search-input {
-        border-bottom: 1px solid #ddd;
-    }
-
-    .highlight {
-        margin: 0 2px;
-        padding: 1px 5px 1px 4px;
-        border-radius: 2px;
-        background-color: #f2f2f2;
-        color: #e96900;
-        font-style: normal;
-        white-space: pre-wrap;
-    }
-
-    #search-results a.title {
-        font-weight: bold;
-        font-size: 1.2em;
-        margin-bottom: 5px;
-    }
-
-    #search-title {
-        font-size: 2.16rem;
-        height: 64px;
-        line-height: 64px;
-        color: #333;
-    }
-
-    #search-title i {
-        display: inline-block;
-    }
-</style>
