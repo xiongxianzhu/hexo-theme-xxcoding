@@ -567,7 +567,6 @@ article.post {
 
 .post .post-item .post-content {
     position: relative;
-    height: 110px;
     padding: 0px;
     word-break: break-all;
     color: #333;
@@ -1029,6 +1028,8 @@ article.post {
 .profile-detail {
     text-align: left;
     padding: 20px 25px;
+    /* 在任何字符间断行 */
+    word-break: break-all;
 }
 
 .profile-detail h1 {
