@@ -384,7 +384,7 @@ aplayer:
   id: 743950282       # song id, playlist id, album id, search keyword
   fixed: true         # 开启吸底模式
   mini: false         # 开启迷你模式
-  theme: '#b7daff'    # 主题色
+  theme: '#BCDDEC'    # 主题色
   autoplay: false     # 是否自动播放
   loop: 'all'         # 音频循环播放, 可选值: 'all', 'one', 'none'
   order: 'random'     # 音频循环顺序, 可选值: 'list', 'random'
