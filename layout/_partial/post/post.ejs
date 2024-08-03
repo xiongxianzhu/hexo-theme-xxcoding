@@ -9,3 +9,140 @@
 
     </div>
 </div>
+<style>
+    <% if (theme.codeblock.mac_theme || theme.codeblock.show_code_language) { %>
+    .post-content pre.line-numbers {
+        padding: 2.2rem 1.5rem 0.5rem 3.8rem !important;
+        -webkit-box-shadow: 0 0 20px rgb(214 0 190 / 80%);
+        box-shadow: 0 0 20px rgb(214 0 190 / 80%);
+    }
+
+    /* 行号位置 */
+    .line-numbers .line-numbers-rows {
+        top: 2.5rem;        /* 2.2rem + 0.3rem */
+    }
+    <% } %>
+    <% if (theme.codeblock.mac_theme) { %>
+    /* mac主题效果 */
+    .post-content pre.line-numbers::after {
+        content: '';
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        background: #ff5f56!important;
+        width: 12px!important;
+        height: 12px!important;
+        top: 12px!important;
+        left: 12px!important;
+        -webkit-box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+        box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+    }
+    <% } %>
+    <% if (theme.codeblock.show_code_language) { %>
+    /* 代码块语言 */
+    .post-content pre.line-numbers::before {
+        color: #ccc;
+        font-size: 1rem;
+        font-weight: 600;
+        height: 25px;
+        line-height: 25px;
+        padding: 5px 10px 0;
+        position: absolute;
+        right: 0;
+        text-align: right;
+        top: 0;
+        /* content: attr(data-language); */
+        content: '';
+    }
+    <% } %>
+
+    .code-container {
+        position: relative;
+    }
+
+    .code-container .button-container {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 999;
+    }
+
+    .copy-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        color: #aaa;
+    }
+
+    .copy-button:hover {
+        color: #999;
+    }
+
+    .copy-button:active {
+        color: #999;
+    }
+
+    .code-container.copied .copy-button::before {
+        content: '\e86c  '; /* Unicode for check icon */
+    }
+
+    .language-label {
+        font-size: 1rem;
+        color: #aaa;
+        font-weight: 600;
+        background-color: transparent;
+        border-radius: 4px;
+    }
+</style>
+<script>
+    // Function to wrap <pre> tags with a .code-container and add a copy button
+    function wrapCodeBlocks() {
+        $('pre').each(function() {
+            // Create a container div
+            var $container = $('<div class="code-container"></div>');
+
+            // Create a div for the buttons
+            var $buttonContainer = $('<div class="button-container"></div>');
+
+            // Create a copy button
+            var $copyButton = $('<i class="material-icons copy-button">content_copy</i>');
+            $copyButton.on('click', function() {
+                copyCode($container);
+            });
+
+            // Create a language label
+            var language = $(this).data('language');
+            var $languageLabel = $('<span class="language-label"></span>').text(language);
+
+            // Insert the button and language label into the button container
+            $buttonContainer.append($copyButton).append($languageLabel);
+
+            // Insert the button and pre element into the container
+            $(this).before($container);
+            $container.append($buttonContainer).append($(this));
+        });
+    }
+
+    // Function to copy code content
+    function copyCode($container) {
+        var code = $container.find('pre').text();
+
+        navigator.clipboard.writeText(code).then(function() {
+            $container.addClass('copied');
+            setTimeout(function() {
+                $container.removeClass('copied');
+            }, 2000);
+        }).catch(function(err) {
+            console.error('无法复制文本: ', err);
+        });
+    }
+
+    // Execute the wrap function when the document is loaded
+    $(document).ready(function() {
+        wrapCodeBlocks();
+    });
+</script>
