@@ -221,7 +221,8 @@ valine:
   verify: false # valine verify code (true/false)
   visitor: true
   page_size: 10 # comment list page size
-  avatar: monsterid # gravatar style https://valine.js.org/#/avatar
+  avatar: monsterid # gravatar style https://valine.js.org/avatar.html
+  avatar_cdn: https://cravatar.cn/avatar/
   lang: zh-cn # i18n: zh-cn/en
   placeholder: 发一条友善的评论 # valine comment input placeholder(like: Please leave your footprints )
   guest_info: nick,mail,link # valine comment header info
