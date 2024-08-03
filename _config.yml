@@ -417,3 +417,7 @@ codeblock:
   mac_theme: true             # mac主题
   show_code_language: true    # 显示代码语言
   show_copy_button: true      # 显示拷贝代码按钮
+
+
+friends:
+  json: source/_data/friends.json

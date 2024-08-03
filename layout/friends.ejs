@@ -1,5 +1,86 @@
+<%
+    var friends = [];
+    if (site.data && site.data.friends) {
+        friends = site.data.friends;
+    }
+%>
+
 <main>
     <div style="height: 400px; position: relative; top: -64px; left: 0;">
-        <%- partial('_partial/banner') %>
+        <%- partial('_partial/friends-cover') %>
+    </div>
+    <div class="container">
+        <div class="friend-list row">
+            <% friends.forEach(function (friend) { %>
+                <div class="col s12 m6 l3">
+                    <div class="friend-item">
+                        <div class="friend-avatar-container">
+                            <a class="frient-avatar" href="<%= friend.url %>" target="_blank" rel="noopener noreferrer">
+                                <img src="<%= friend.avatar %>" alt="<%= friend.name %>">
+                            </a>
+                        </div>
+                        <div>
+                            <a class="friend-name" href="<%= friend.url %>" target="_blank" rel="noopener noreferrer">
+                                <%= friend.name %>
+                            </a>
+                        </div>
+                        <p class="friend-description"><%= friend.description %></p>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
     </div>
 </main>
+<style>
+    .friend-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .friend-list .friend-item {
+        margin: .5rem 0 1rem 0;
+        background-color: #f5f5f5;
+        border-radius: 3px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .friend-item .friend-avatar-container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .friend-item .frient-avatar {
+        display: block;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .friend-item img {
+        width: 100px;
+        height: auto;
+        border-radius: 50%;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    .friend-item img:hover {
+        transform: scale3d(1.2, 1.2, 1);
+    }
+
+    .friend-item .friend-name {
+        color: #1c385f;
+        font-weight: 700;
+    }
+
+    .friend-item .friend-name:hover {
+        color: #1c385f;
+        font-weight: 700;
+    }
+
+    .friend-item .friend-description {
+        color: #1c385feb;
+    }
+
+</style>
