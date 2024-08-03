@@ -25,10 +25,10 @@
 - [x] 评论系统： disqus、 Valine、 gitalk、 gitment、 livere、 畅言
 - [x] `prismjs`代码高亮
 - [ ] `resume` 简历
-- [x] `gallery` 图库：[fancybox](https://fancyapps.com/fancybox/getting-started/)
+- [x] `galleries` 图库：[fancybox](https://fancyapps.com/fancybox/getting-started/)
 - [ ] `portfolio` 作品集
-- [ ] `links` 友情链接
-- [x] `tagcloud` 标签云
+- [x] `friends` 友情链接
+- [x] `tags` 标签
 - [ ] `timeline` 时间线
 - [x] `TOC` 文章目录 [tocbot](https://github.com/tscanlin/tocbot)
 - [x] 文章置顶`sticky`
@@ -37,6 +37,8 @@
 - [ ] 🎨 支持每个细节自定义主题
 - [ ] 支持`emoji`表情
 - [x] `live2d-widget`[看板娘](https://github.com/stevenjoezhang/live2d-widget)
+- [x] 回到页面顶部
+- [x] 文章本地搜索
 
 ## 目录结构
 

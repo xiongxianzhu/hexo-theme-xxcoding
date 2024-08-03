@@ -401,13 +401,12 @@ a .material-icons {
 
 .post-item .post-tags {
     padding: 10px 0;
-    background-color: #182026;
+    background-color: #02132c;
 }
 
 .post-item .post-publish-info {
-    border-top: 1px solid rgba(160,160,160,0.2);
     padding: 10px 10px;
-    background-color: rgb(24 32 38 / 90%);
+    background-color: #02132ce0;
 }
 
 .post-item .post-category {
