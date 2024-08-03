@@ -39,6 +39,7 @@
 - [x] `live2d-widget`[看板娘](https://github.com/stevenjoezhang/live2d-widget)
 - [x] 回到页面顶部
 - [x] 文章本地搜索
+- [x] 文章代码一键拷贝
 
 ## 目录结构
 
