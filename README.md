@@ -321,6 +321,8 @@ permalink: :year/:month/:day/:permalink_id/
 ### 评论系统
 
 - [Valine](https://valine.js.org/)
+- [LeanCloud](https://console.leancloud.cn/apps)
+- [评价区头像cravatar](https://cravatar.cn/)
 
 ### 文章置顶
 
