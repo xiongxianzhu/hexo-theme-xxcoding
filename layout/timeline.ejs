@@ -1,10 +1,10 @@
 <style>
-    .md-container {
+    .timeline-container {
         width: 90%;
         max-width: 1170px;
         margin: 0 auto;
     }
-    .md-container::after {
+    .timeline-container::after {
         content: '';
         display: table;
         clear: both;
@@ -96,9 +96,9 @@
         /* background: #007bff; */
         /* background: #FF9F55; */
         background-color: white;
-        border: 4px solid #FF9F55;
+        border: 4px solid #1a237e;
         /* color: white; */
-        color: #FF9F55;
+        color: #1a237e;
         text-align: center;
         line-height: 60px;
         font-size: 16px;
@@ -190,11 +190,11 @@
     .timeline-content h2 {
         color: #303e49;
     }
-    .timeline-content p, .timeline-content .md-read-more, .timeline-content .md-date {
+    .timeline-content p, .timeline-content .md-read-more, .timeline-content .xx-date {
         font-size: 13px;
         font-size: 0.8125rem;
     }
-    .timeline-content .md-read-more, .timeline-content .md-date {
+    .timeline-content .md-read-more, .timeline-content .xx-date {
         display: inline-block;
     }
     .timeline-content p {
@@ -208,8 +208,8 @@
         color: white;
         /* border-radius: 0.25em; */
     }
-    .md-date {
-        color: #FF9F55;
+    .xx-date {
+        color: #1a237e;
         text-align: center;
         white-space: nowrap;
     }
@@ -241,7 +241,7 @@
         }
     }
     @media only screen and (min-width: 1170px) {
-        .md-date {
+        .xx-date {
             text-align: center;
             line-height: 52px;
         }
@@ -402,12 +402,12 @@
     <div style="height: 400px; position: relative; top: -64px; left: 0;">
         <%- partial('_partial/banner') %>
     </div>
-    <section id="timeline" class="md-container">
+    <section id="timeline" class="timeline-container">
         <% if (site.posts.length) { -%>
             <% site.posts.sort('date', -1).limit(site.posts.length).each(function(post){ %>
             <div class="timeline-item">
                 <div class="timeline-date">
-                    <div class="md-date"><%= date(post.date, 'YYYY-MM-DD ') %></div>
+                    <div class="xx-date"><%= date(post.date, 'YYYY-MM-DD ') %></div>
                 </div>
                 <div class="timeline-content">
                     <div class="timeline-title"><a href="<%- url_for(post.path) %>"><%= post.title %></a></div>

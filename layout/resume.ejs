@@ -1,5 +1,35 @@
 <main>
-    <div style="height: 400px; position: relative; top: -64px; left: 0;">
-        <%- partial('_partial/banner') %>
+    <%- partial('_partial/resume-cover') %>
+    <div class="container has-cover-container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="main main-raised profile-content">
+                    <div class="profile">
+                        <div class="profile-detail">
+                            <%- page.content %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
+<style>
+    .hbe-input-field-default {
+        color: #02132c;
+    }
+
+    input[type=password]:not(.browser-default):focus:not([readonly]) {
+        border-bottom: 1px solid #02132c;
+        -webkit-box-shadow: 0 1px 0 0 #02132c;
+        box-shadow: 0 1px 0 0 #02132c;
+    }
+
+    .hbe-input-label-default::before {
+        background: transparent;
+    }
+
+    .hbe-input-label {
+        color: #02132c;
+    }
+</style>

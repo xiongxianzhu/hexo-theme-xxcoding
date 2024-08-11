@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 html {
     overflow: auto;
 }
@@ -630,6 +632,7 @@ article.post {
 
 .paginator {
     text-align: center;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 
@@ -870,6 +873,7 @@ article.post {
 
 .post-content {
     padding: 15px;
+    word-break: break-all;
 }
 
 .post-content h1 {
@@ -948,9 +952,9 @@ article.post {
 
 .post-content pre {
     position: relative;
-  	padding-top: 1px !important;
+    padding-top: 1px !important;
     padding-left: 0px;
-	tab-size: 4;
+    tab-size: 4;
     background-color: #282c34;
     padding: 1rem 1rem 1rem 1rem !important;
     margin: 1rem 0 !important;
@@ -1185,17 +1189,10 @@ blockquote p {
 
 /* 文章分类列表页 */
 .categories-content {
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
+    padding: 10px 20px;
     min-height: 480px;
 }
-.categories-content .header-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
+
 .categories-content .header-subtitle {
     font-size: 16px;
     color: #666;
@@ -1272,7 +1269,7 @@ blockquote p {
 
 /* 归档页 */
 .archive-content {
-    padding: 10px 20px;
+    padding: 20px;
 }
 
 .archive-content .year-month-title {
@@ -1311,21 +1308,15 @@ blockquote p {
 /* 标签列表页 */
 .tags-content {
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
     min-height: 480px;
 }
-.tags-content .header-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
+
 .tags-content .header-subtitle {
     font-size: 16px;
     color: #666;
     margin-bottom: 20px;
 }
+
 .tags-content .tags-body {
     display: flex;
     flex-wrap: wrap;
@@ -1333,6 +1324,7 @@ blockquote p {
     align-items: center;
     gap: 10px;
 }
+
 .tags-content .chip {
     display: flex;
     padding: 10px 20px;
@@ -1344,12 +1336,15 @@ blockquote p {
     gap: 5px;
     margin: 5px;
 }
+
 .tags-content .chip-active {
     background-color: #007bff;
 }
+
 .tags-content .chip-default {
     background-color: #6c757d;
 }
+
 .tags-content .tag-length {
     margin-left: 5px;
 }
@@ -1394,3 +1389,27 @@ blockquote p {
     font-size: 14px;
     color: #666;
 }
+
+/* .scroll-progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+    background-color: #2ecc71;
+    animation: wave-animation 2s linear infinite;
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+} */

@@ -13,8 +13,8 @@
     <% if (theme.codeblock.mac_theme || theme.codeblock.show_code_language) { %>
     .post-content pre.line-numbers {
         padding: 2.2rem 1.5rem 0.5rem 3.8rem !important;
-        -webkit-box-shadow: 0 0 20px rgb(214 0 190 / 80%);
-        box-shadow: 0 0 20px rgb(214 0 190 / 80%);
+        -webkit-box-shadow: 0 0 20px rgb(121 7 187 / 80%);
+        box-shadow: 0 0 20px rgb(121 7 187 / 80%);
     }
 
     /* 行号位置 */
@@ -86,9 +86,9 @@
         color: #999;
     }
 
-    .code-container.copied .copy-button::before {
-        content: '\e86c  '; /* Unicode for check icon */
-    }
+    /* .code-container.copied .copy-button::before {
+        content: '\e86c  ';
+    } */
 
     .language-label {
         font-size: 1rem;
@@ -134,9 +134,17 @@
         var code = $container.find('pre').text();
 
         navigator.clipboard.writeText(code).then(function() {
+            M.toast({
+                html: '<%= titlecase(__("copied")) %>',
+                displayLength: 1200,
+                inDuration: 300,
+                outDuration: 300
+            });
             $container.addClass('copied');
+            $container.find('i.copy-button').text('done_all');
             setTimeout(function() {
                 $container.removeClass('copied');
+                $container.find('i.copy-button').text('content_copy');
             }, 2000);
         }).catch(function(err) {
             console.error('无法复制文本: ', err);
