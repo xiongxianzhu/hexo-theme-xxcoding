@@ -16,16 +16,6 @@ body {
     /* margin-right: calc(100% - 100vw); */
 }
 
-.scroll-progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 5px;
-    background-color: #3b82f6; /* 你可以更改颜色 */
-    z-index: 1000;
-}
-
 /* 浏览器滚动条样式 */
 /* 全局滚动条样式 */
 ::-webkit-scrollbar {
@@ -69,8 +59,7 @@ a:focus {
 }
 
 .nav-color {
-    background-color: #1c385fc2;
-    /* background: linear-gradient(to right, #EC6C6C, #FFD479, #FFFC79, #73FA79, #73FA79, #73FDFF, #D783FF); */
+    background-color: #1a1a1a;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -81,15 +70,15 @@ header .nav-transparent {
 }
 
 .footer-color {
-    background-color: #02132c;
+    background-color: #000000;
 }
 
 .page-footer .footer-copyright {
-    background-color: rgb(26 170 214 / 8%);
+    background-color: #000000;
 }
 
 .footer-copyright a {
-    color: #FFF;
+    color: #ffffff;
 }
 
 #nav-header {
@@ -107,11 +96,11 @@ header .nav-transparent {
 }
 
 .nav-brand-logo-color {
-    color: #e91e63 !important;
+    color: #ffffff !important;
 }
 
 .nav-item-color {
-    color: #fff;
+    color: #e0e0e0;
 }
 
 main {
@@ -387,32 +376,37 @@ a .material-icons {
 .post span.badge {
     display: inline-block;
     font-size: .75em;
-    font-weight: normal;
+    font-weight: bold;
     line-height: 22px;
     color: #fff;
+    background-color: #e94560;
     text-align: center;
     white-space: nowrap;
-    border-radius: 0rem;
+    border-radius: 12px;
     min-width: auto !important;
     height: 22px;
     float:none !important;
     margin-left: 10px;
     margin-top: 3px;
     margin-bottom: 3px;
+    padding: 0 8px;
+    box-shadow: 0 2px 5px rgba(233, 69, 96, 0.3);
 }
 
 .post-item .post-tags {
     padding: 10px 0;
-    background-color: #02132c;
+    background-color: #1a1a2e;
+    border-left: 4px solid #e94560;
 }
 
 .post-item .post-publish-info {
     padding: 10px 10px;
-    background-color: #02132ce0;
+    background-color: #16213e;
 }
 
 .post-item .post-category {
-    color: #cae9f7;
+    color: #00f2fe;
+    font-weight: bold;
 }
 
 .post-item .post-title {
@@ -421,11 +415,14 @@ a .material-icons {
 }
 
 .post-item .post-title a {
-    color: #000;
+    color: #22d3ee;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .post-item .post-title a:hover {
-    color: #039be5
+    color: #039be5;
+    text-shadow: 0 0 8px rgba(34, 211, 238, 0.5);
 }
 
 .overlay:after {
@@ -1389,27 +1386,3 @@ blockquote p {
     font-size: 14px;
     color: #666;
 }
-
-/* .scroll-progress-bar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    height: 100%;
-    background-color: #2ecc71;
-    animation: wave-animation 2s linear infinite;
-}
-
-@keyframes wave-animation {
-    0% {
-        transform: translateX(-100%);
-    }
-    50% {
-        transform: translateX(0%);
-    }
-
-    100% {
-        transform: translateX(100%);
-    }
-} */
