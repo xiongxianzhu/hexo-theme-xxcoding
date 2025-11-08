@@ -110,7 +110,7 @@ profile:
     - wechat
     - weibo
     - facebook
-    - twitter
+    - xtwitter
     - rss
 
 # Sidebar
@@ -154,7 +154,7 @@ sns:
   juejin: https://juejin.cn/user/1714893867985389
   bilibili: https://space.bilibili.com/200731874
   facebook: https://www.facebook.com/xiongxian.zhu  # https://www.facebook.com/xxx
-  twitter: https://twitter.com/xiongxianzhu         # https://twitter.com/xxx
+  xtwitter: https://x.com/xiongxianzhu         # https://x.com/xxx
   youtube:
   googleplus:
   instagram:
