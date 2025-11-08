@@ -541,8 +541,8 @@ article.post {
 }
 
 .post-item:hover {
-    -webkit-box-shadow: 0 0 20px rgb(27 154 247 / 80%);
-    box-shadow: 0 0 20px rgb(27 154 247 / 80%);
+    -webkit-box-shadow: 0 0 20px rgba(150, 150, 150, 0.5);
+    box-shadow: 0 0 20px rgba(150, 150, 150, 0.5);
 }
 
 .card .card-image img {
