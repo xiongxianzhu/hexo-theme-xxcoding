@@ -671,7 +671,7 @@ article.post {
     color: #666;
 }
 
-#bg-center .description {
+#bg-center .description, .brand .description {
     font-weight: 300;
     font-size: 1.25rem;
     line-height: 1.4em;
