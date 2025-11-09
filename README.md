@@ -25,7 +25,7 @@
 - [x] `lazyload` 图片懒加载
 - [x] 评论系统： disqus、 Valine、 gitalk、 gitment、 livere、 畅言
 - [x] `prismjs`代码高亮
-- [ ] `resume` 简历
+- [x] `resume` 简历
 - [x] `galleries` 图库：[fancybox](https://fancyapps.com/fancybox/getting-started/)
 - [ ] `portfolio` 作品集
 - [x] `friends` 友情链接

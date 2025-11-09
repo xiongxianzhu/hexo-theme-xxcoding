@@ -1,5 +1,35 @@
 <div id="post-detail">
     <div class="card main main-raised">
+        <h1 class="post-title"><%= page.title %></h1>
+        
+        <div class="post-meta">
+            <div class="post-meta-top">
+                <span class="post-author">
+                    作者： <%= page.author || config.author %>
+                </span>
+                <span class="post-date">
+                    发布于： <%= page.date.format('YYYY-MM-DD HH:mm:ss') %>
+                </span>
+                
+                <% if (page.categories && page.categories.length) { %>
+                <span class="post-categories">
+                    <i class="fas fa-bookmark fa-fw icon-category"></i>
+                    <% page.categories.forEach(function(category) { %>
+                    <a href="<%- url_for(category.path) %>" class="post-category"><%= category.name %></a>
+                    <% }); %>
+                </span>
+                <% } %>
+            </div>
+            
+            <% if (page.tags && page.tags.length) { %>
+            <div class="post-meta-bottom">
+                <% page.tags.forEach(function(tag) { %>
+                <a href="<%- url_for(tag.path) %>" class="post-tag"><%= tag.name %></a>
+                <% }); %>
+            </div>
+            <% } %>
+        </div>
+        
         <div class="post-content">
             <%- page.content %>
         </div>
@@ -9,7 +39,115 @@
 
     </div>
 </div>
+
 <style>
+    .post-title {
+        font-size: 22px;
+        font-weight: 700;
+        padding: 15px 0;
+        text-align: center;
+        line-height: 1.3;
+        color: #2c3e50;
+    }
+
+    .post-meta {
+        padding: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        padding-bottom: 20px;
+        position: relative;
+    }
+
+    .post-meta::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 60px;
+        height: 2px;
+        background: linear-gradient(90deg, #00f2fe, #e94560);
+    }
+
+    .post-meta-top {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 10px;
+    }
+
+    .post-author, .post-date {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.025em;
+    }
+
+    .post-categories {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.025em;
+        margin-left: auto;
+    }
+
+    .post-author i, .post-date i, .post-categories i {
+        font-size: 20px;
+        margin-right: 10px;
+        color: #000000;
+        opacity: 0.85;
+    }
+
+    .post-meta-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+        .post-title {
+            font-size: 28px;
+            margin-bottom: 25px;
+            padding: 8px 0;
+        }
+        
+        .post-meta {
+            margin-bottom: 30px;
+            padding-bottom: 16px;
+        }
+        
+        .post-meta-top {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        
+        .post-author, .post-date, .post-categories {
+            padding: 4px 0;
+            font-size: 0.85rem;
+        }
+        
+        .post-meta-bottom {
+            gap: 8px;
+        }
+        
+        .post-category, .post-tag {
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        
+        .post-tag:hover {
+            transform: translateY(-1px);
+        }
+    }
+
     <% if (theme.codeblock.mac_theme || theme.codeblock.show_code_language) { %>
     .post-content pre.line-numbers {
         padding: 2.2rem 1.5rem 0.5rem 3.8rem !important;
@@ -55,6 +193,111 @@
         content: '';
     }
     <% } %>
+
+    .post-meta-item:hover {
+        color: rgba(0, 0, 0, 0.9);
+    }
+    
+    .post-meta-item i {
+        margin-right: 10px;
+        font-size: 20px;
+        color: #00f2fe;
+        opacity: 0.85;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .post-meta-item:hover i {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    
+    .post-tags {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .post-tag {
+        display: inline-block;
+        margin-left: 10px;
+        margin-bottom: 6px;
+        padding: 6px 12px;
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        color: rgba(0, 0, 0, 0.87);
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(229, 235, 242, 0.8);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .post-tag::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(0, 242, 254, 0.1), transparent);
+        transition: left 0.5s;
+    }
+    
+    .post-tag:hover {
+        color: #424242;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-color: rgba(0, 242, 254, 0.5);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .post-tag:hover::before {
+        left: 100%;
+    }
+    
+    /* 分类链接高端大气样式 */
+    .post-category {
+        display: inline-block;
+        padding: 4px 10px;
+        margin: 0 4px;
+        background: linear-gradient(135deg, rgba(239, 246, 255, 0.8), rgba(255, 255, 255, 0.9));
+        color: #2c3e50;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 6px;
+        border: 1px solid rgba(229, 235, 242, 0.8);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .post-category::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+        transition: left 0.4s ease;
+    }
+    
+    .post-category:hover {
+        color: #1565c0;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-color: rgba(0, 242, 254, 0.5);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .post-category:hover::before {
+        left: 100%;
+    }
 
     .code-container {
         position: relative;
