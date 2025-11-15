@@ -102,12 +102,13 @@ post_cover:
 profile:
   avatar: /img/logo.png
   name: xiongxianzhu
-  job: Python & Go 软件工程师
+  job: 全栈工程师
   sns:
     - github
     - email
     - qq
     - wechat
+    - bilibili
     - weibo
     - facebook
     - xtwitter
@@ -159,7 +160,7 @@ sns:
   googleplus:
   instagram:
   tumblr:
-  linkedin: https://www.linkedin.com/in/zhuxiongxian/
+  linkedin: # https://www.linkedin.com/in/zhuxiongxian/
   telegram:
   dribbble:
   pinterest:

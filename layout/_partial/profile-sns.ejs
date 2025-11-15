@@ -29,6 +29,11 @@
             <i class="fab fa-weibo"></i>
         </a>
     <% } %>
+    <% if (item == 'bilibili' && theme.sns.bilibili ) { %>
+        <a class="btn btn-sns" href="<%- theme.sns.bilibili %>" target="_blank">
+            <i class="fab fa-bilibili"></i>
+        </a>
+    <% } %>
     <% if (item == 'zhihu' && theme.sns.zhihu ) { %>
         <a class="btn btn-sns" href="<%- theme.sns.zhihu %>" target="_blank">
             <i class="fab fa-zhihu"></i>
