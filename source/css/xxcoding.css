@@ -446,6 +446,18 @@ a .material-icons {
     /* background-attachment: fixed; */
 }
 
+/* 轮播图懒加载优化样式 */
+.carousel-bg-lazy {
+    background-color: #424242;
+    opacity: 1;
+    will-change: background-image, opacity;
+}
+
+.carousel-bg-lazy[style*="background-image"] {
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
 #bg-center {
     width: 100%;
     position: absolute;

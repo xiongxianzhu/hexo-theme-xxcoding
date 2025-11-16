@@ -55,6 +55,11 @@ $(function () {
     });
 });
 
+// 页面完全加载后再加载转播图
+$(window).on('load', function() {
+    xxcodingKit.initCarouselLazyLoad();
+});
+
 let $backTop = $('.top-scroll');
 
 xxcodingKit = {
@@ -70,7 +75,65 @@ xxcodingKit = {
             $('nav .brand-logo').addClass('nav-brand-logo-color');
             $backTop.slideDown(300);
         }
-    }, 17)
+    }, 17),
+    
+    // 轮播图背景异步加载
+    initCarouselLazyLoad: function() {
+        const $carouselItems = $('.carousel-bg-lazy');
+        if ($carouselItems.length === 0) return;
+        
+        let loadedCount = 0;
+        const totalImages = $carouselItems.length;
+        
+        // 加载图片的函数
+        const loadImage = function($item) {
+            const bgUrl = $item.attr('data-bg');
+            if (!bgUrl) return;
+            
+            // 创建新图片对象预加载
+            const img = new Image();
+            img.onload = function() {
+                // 图片加载成功后设置背景
+                $item.css({
+                    'background-image': 'url(' + bgUrl + ')',
+                    'background-color': 'transparent'
+                });
+                loadedCount++;
+                
+                // 添加淡入效果
+                $item.css('opacity', '0');
+                setTimeout(function() {
+                    $item.css({
+                        'transition': 'opacity 0.3s ease-in-out',
+                        'opacity': '1'
+                    });
+                }, 50);
+            };
+            img.onerror = function() {
+                console.warn('Failed to load carousel image:', bgUrl);
+                // 加载失败时保持占位颜色
+            };
+            img.src = bgUrl;
+        };
+        
+        // 页面加载完毕后，延迟一小段时间再开始加载轮播图
+        setTimeout(function() {
+            // 优先加载第一张图片
+            const $firstItem = $carouselItems.first();
+            loadImage($firstItem);
+            
+            // 分批加载其他图片
+            $carouselItems.each(function(index) {
+                if (index > 0) {
+                    const $item = $(this);
+                    // 每张图片间隔200ms
+                    setTimeout(function() {
+                        loadImage($item);
+                    }, index * 200);
+                }
+            });
+        }, 300); // 页面加载完成后延迟300ms开始加载
+    }
 };
 
 // Returns a function, that, as long as it continues to be invoked, will not
@@ -81,13 +144,13 @@ xxcodingKit = {
 function debounce(func, wait, immediate) {
     var timeout;
     return function() {
-      var context = this,
-        args = arguments;
-      clearTimeout(timeout);
-      timeout = setTimeout(function() {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      }, wait);
-      if (immediate && !timeout) func.apply(context, args);
+        var context = this,
+            args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        }, wait);
+        if (immediate && !timeout) func.apply(context, args);
     };
-  };
+};

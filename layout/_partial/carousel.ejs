@@ -17,7 +17,7 @@
         </div>
     </div>
     <% for (let index in carousel_bg_list) { %>
-    <div class="carousel-item background overlay lazyload" data-src="<%- url_for(carousel_bg_list[index]) %>" style="background-image: url('<%- url_for(carousel_bg_list[index]) %>');"></div>
+    <div class="carousel-item background overlay carousel-bg-lazy" data-bg="<%- url_for(carousel_bg_list[index]) %>" data-index="<%- index %>" style="background-color: #424242;"></div>
     <% } %>
     <% if (theme.carousel.show_control) { %>
     <a class="carousel-control-prev" href="javascript:;" role="button" data-slide="prev">
