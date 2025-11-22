@@ -148,16 +148,17 @@
         }
     }
 
-    <% if (theme.codeblock.mac_theme || theme.codeblock.show_code_language) { %>
+    <% if (theme.codeblock.mac_theme || theme.codeblock.show_code_language || theme.codeblock.show_copy_button) { %>
     .post-content pre.line-numbers {
-        padding: 2.2rem 1.5rem 0.5rem 3.8rem !important;
+        padding: 2.40625rem 1.5rem 0.5rem 3.8rem !important;
         -webkit-box-shadow: 0 0 20px rgba(128, 128, 128, 0.8);
         box-shadow: 0 0 20px rgba(128, 128, 128, 0.8);
     }
 
     /* 行号位置 */
     .line-numbers .line-numbers-rows {
-        top: 2.5rem;        /* 2.2rem + 0.3rem */
+        top: 2.80625rem;        /* 2.40625rem + 0.4rem */
+        border-right: none;
     }
     <% } %>
     <% if (theme.codeblock.mac_theme) { %>
@@ -363,8 +364,13 @@
             var language = $(this).data('language');
             var $languageLabel = $('<span class="language-label"></span>').text(language);
 
-            // Insert the button and language label into the button container
-            $buttonContainer.append($copyButton).append($languageLabel);
+            // Insert the button and language label into the button container based on theme config
+            <% if (theme.codeblock.show_copy_button) { %>
+                $buttonContainer.append($copyButton);
+            <% } %>
+            <% if (theme.codeblock.show_code_language) { %>
+                $buttonContainer.append($languageLabel);
+            <% } %>
 
             // Insert the button and pre element into the container
             $(this).before($container);

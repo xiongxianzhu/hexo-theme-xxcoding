@@ -998,7 +998,7 @@ article.post {
     word-break: break-all;
     -webkit-text-size-adjust: none;
     display: block;
-    padding: 0.3rem 0.3rem;
+    padding: 0.4rem 0.4rem;
     color: #FFFFFF;
 }
 
@@ -1024,9 +1024,10 @@ article.post {
 
 /* 行号位置 */
 .line-numbers .line-numbers-rows {
-    top: 0.8rem;        /* 0.5rem + 0.3rem */
+    top: 0.9rem;        /* 0.5rem + 0.4rem */
     left: 0rem;
     width: 3.5em;
+    border-right: none;
 }
 
 .post-comment {
